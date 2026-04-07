@@ -1,0 +1,106 @@
+{
+  "providerProfiles": [
+    {
+      "id": "provider_openrouter",
+      "name": "OpenRouter (Qwen Coder)",
+      "provider": "openai",
+      "baseUrl": "https://openrouter.ai/api/v1",
+      "model": "qwen/qwen-2.5-coder-32b-instruct",
+      "apiKey": "YOUR_OPENROUTER_API_KEY"
+    },
+    {
+      "id": "provider_openai_direct",
+      "name": "OpenAI Direct",
+      "provider": "openai",
+      "baseUrl": "https://api.openai.com/v1",
+      "model": "gpt-4o",
+      "apiKey": "YOUR_OPENAI_API_KEY"
+    },
+    {
+      "id": "provider_groq",
+      "name": "Groq (Llama 3.3 70B)",
+      "provider": "openai",
+      "baseUrl": "https://api.groq.com/openai/v1",
+      "model": "llama-3.3-70b-versatile",
+      "apiKey": "YOUR_GROQ_API_KEY"
+    },
+    {
+      "id": "provider_google",
+      "name": "Google Gemini 2.0 Flash",
+      "provider": "openai",
+      "baseUrl": "https://generativelanguage.googleapis.com/v1beta/openai",
+      "model": "gemini-2.0-flash",
+      "apiKey": "YOUR_GOOGLE_API_KEY"
+    },
+    {
+      "id": "provider_anthropic",
+      "name": "Anthropic Claude",
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5-20250929",
+      "apiKey": "YOUR_ANTHROPIC_API_KEY"
+    }
+  ],
+  "agentModels": {
+    "llama-3.3-70b-versatile": {
+      "base_url": "https://api.groq.com/openai/v1",
+      "api_key": "YOUR_GROQ_API_KEY"
+    },
+    "qwen/qwen-2.5-coder-32b-instruct": {
+      "base_url": "https://openrouter.ai/api/v1",
+      "api_key": "YOUR_OPENROUTER_API_KEY"
+    },
+    "gpt-4o": {
+      "base_url": "https://api.openai.com/v1",
+      "api_key": "YOUR_OPENAI_API_KEY"
+    }
+  },
+  "agentRouting": {
+    "Explore": "llama-3.3-70b-versatile",
+    "Plan": "qwen/qwen-2.5-coder-32b-instruct",
+    "general-purpose": "qwen/qwen-2.5-coder-32b-instruct",
+    "default": "qwen/qwen-2.5-coder-32b-instruct"
+  },
+  "projects": {
+    "/Users/YOUR_USERNAME": {
+      "mcpServers": {
+        "context7": {
+          "command": "npx",
+          "args": ["-y", "@context7/mcp"],
+          "env": {
+            "CONTEXT7_API_KEY": "YOUR_CONTEXT7_API_KEY"
+          }
+        },
+        "playwright": {
+          "command": "npx",
+          "args": ["-y", "@playwright/mcp@latest"]
+        },
+        "firecrawl": {
+          "command": "npx",
+          "args": ["-y", "firecrawl-mcp"],
+          "env": {
+            "FIRECRAWL_API_KEY": "YOUR_FIRECRAWL_API_KEY"
+          }
+        },
+        "testsprite": {
+          "command": "npx",
+          "args": ["-y", "@testsprite/testsprite-mcp@latest"],
+          "env": {
+            "API_KEY": "YOUR_TESTSPRITE_API_KEY"
+          }
+        },
+        "atlassian": {
+          "command": "npx",
+          "args": ["-y", "@atlassian/mcp-server"],
+          "env": {
+            "ATLASSIAN_AUTH": "YOUR_ATLASSIAN_AUTH_TOKEN"
+          }
+        },
+        "repomix": {
+          "command": "npx",
+          "args": ["-y", "repomix", "--mcp"]
+        }
+      }
+    }
+  },
+  "activeProviderProfileId": "provider_openrouter"
+}
