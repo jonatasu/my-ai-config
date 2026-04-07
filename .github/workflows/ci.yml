@@ -1,0 +1,153 @@
+name: CI - Validate Configuration
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  test-unix:
+    name: Test on Unix/macOS
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Make scripts executable
+        run: |
+          chmod +x install.sh sync.sh
+          chmod +x scripts/*.sh
+      
+      - name: Run installer tests
+        run: bash scripts/test-installer.sh
+      
+      - name: Validate JSON templates
+        run: |
+          echo "Validating OpenCode template..."
+          python3 -m json.tool configs/opencode/opencode.json.template > /dev/null
+          
+          echo "Validating OpenClaude templates..."
+          python3 -m json.tool configs/openclaude/.claude.json.template > /dev/null
+          python3 -m json.tool configs/openclaude/.openclaude-profile.json.template > /dev/null
+          python3 -m json.tool configs/openclaude/openclaude.json.template > /dev/null
+      
+      - name: Check for committed secrets
+        run: |
+          echo "Checking for accidentally committed API keys..."
+          if grep -rE "(sk-[a-zA-Z0-9]{40,}|gsk_[a-zA-Z0-9]{40,}|fc-[a-zA-Z0-9]{40,})" configs/; then
+            echo "❌ Found real API keys in config files!"
+            exit 1
+          fi
+          echo "✓ No secrets found"
+      
+      - name: Verify file structure
+        run: |
+          echo "Checking required files..."
+          test -f install.sh || exit 1
+          test -f sync.sh || exit 1
+          test -f README.md || exit 1
+          test -d configs/skills || exit 1
+          test -d scripts/lib || exit 1
+          echo "✓ All required files present"
+
+  test-windows:
+    name: Test on Windows
+    runs-on: windows-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Run PowerShell tests
+        shell: pwsh
+        run: |
+          .\scripts\test-installer.ps1
+      
+      - name: Validate JSON templates (PowerShell)
+        shell: pwsh
+        run: |
+          Write-Host "Validating OpenCode template..."
+          Get-Content configs\opencode\opencode.json.template | ConvertFrom-Json | Out-Null
+          
+          Write-Host "Validating OpenClaude templates..."
+          Get-Content configs\openclaude\.claude.json.template | ConvertFrom-Json | Out-Null
+          Get-Content configs\openclaude\.openclaude-profile.json.template | ConvertFrom-Json | Out-Null
+          Get-Content configs\openclaude\openclaude.json.template | ConvertFrom-Json | Out-Null
+      
+      - name: Verify file structure (PowerShell)
+        shell: pwsh
+        run: |
+          Write-Host "Checking required files..."
+          if (-not (Test-Path install.ps1)) { exit 1 }
+          if (-not (Test-Path sync.ps1)) { exit 1 }
+          if (-not (Test-Path README.md)) { exit 1 }
+          if (-not (Test-Path configs\skills)) { exit 1 }
+          if (-not (Test-Path scripts\lib)) { exit 1 }
+          Write-Host "✓ All required files present"
+
+  lint-documentation:
+    name: Lint Documentation
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Check for broken links in README
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          config-file: '.github/workflows/markdown-link-check-config.json'
+        continue-on-error: true  # Don't fail build on link errors
+      
+      - name: Verify documentation exists
+        run: |
+          echo "Checking documentation files..."
+          test -f docs/API_KEYS.md || exit 1
+          test -f docs/WINDOWS_SETUP.md || exit 1
+          test -f docs/TOOLS_COMPARISON.md || exit 1
+          test -f docs/MIGRATION.md || exit 1
+          echo "✓ All documentation files present"
+
+  count-skills:
+    name: Count Skills
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Count and verify skills
+        run: |
+          SKILL_COUNT=$(ls -1 configs/skills | wc -l)
+          echo "Found $SKILL_COUNT skills"
+          
+          if [ $SKILL_COUNT -lt 50 ]; then
+            echo "❌ Expected at least 50 skills, found $SKILL_COUNT"
+            exit 1
+          fi
+          
+          echo "✓ Skills count: $SKILL_COUNT"
