@@ -2,7 +2,8 @@
 # Test installer in a clean environment
 # This script simulates a fresh installation without actually modifying the system
 
-set -e
+# Don't exit on error - we want to run all tests
+set +e
 
 # Colors
 GREEN='\033[0;32m'

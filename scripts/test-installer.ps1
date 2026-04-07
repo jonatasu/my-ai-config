@@ -38,9 +38,9 @@ function Test-Condition {
 Write-Host "→ Testing prerequisites..." -ForegroundColor Blue
 Write-Host ""
 
-Test-Condition "Git installed" (Get-Command git -ErrorAction SilentlyContinue)
-Test-Condition "Node.js installed" (Get-Command node -ErrorAction SilentlyContinue)
-Test-Condition "Python installed" (Get-Command python -ErrorAction SilentlyContinue)
+Test-Condition "Git installed" ($null -ne (Get-Command git -ErrorAction SilentlyContinue))
+Test-Condition "Node.js installed" ($null -ne (Get-Command node -ErrorAction SilentlyContinue))
+Test-Condition "Python installed" ($null -ne (Get-Command python -ErrorAction SilentlyContinue))
 
 Write-Host ""
 
