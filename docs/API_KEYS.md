@@ -1,137 +1,185 @@
 # API Keys Reference
 
-This document lists all API keys used by the AI tools and where to obtain them.
+This document provides detailed instructions for obtaining API keys for all supported services.
 
-## 🔴 Required Keys
+## 📋 Quick Links
 
-These keys are **required** during installation and cannot be skipped:
+**All API keys are optional** - you can skip any during installation and add them later.
 
-| Service | Where to Get | Used By | Notes |
-|---------|--------------|---------|-------|
-| **OpenRouter** | https://openrouter.ai/keys | OpenCode, OpenClaude | Primary provider for Qwen Coder model |
-| **Groq** | https://console.groq.com/keys | OpenClaude | Used for agent routing (Llama 3.3 70B) |
+| Service | Get API Key | Sign Up | Docs | Free Tier |
+|---------|-------------|---------|------|-----------|
+| **OpenRouter** | [Get Key](https://openrouter.ai/keys) | [Sign Up](https://openrouter.ai) | [Docs](https://openrouter.ai/docs) | $0.05 credits |
+| **Groq** | [Get Key](https://console.groq.com/keys) | [Sign Up](https://console.groq.com) | [Docs](https://console.groq.com/docs) | Generous limits |
+| **Context7** | [Get Key](https://context7.com) | [Sign Up](https://context7.com) | [Docs](https://context7.com/docs) | 100 queries/month |
+| **Firecrawl** | [Get Key](https://firecrawl.dev) | [Sign Up](https://firecrawl.dev) | [Docs](https://docs.firecrawl.dev) | 500 pages/month |
+| **TestSprite** | [Get Key](https://testsprite.com) | [Sign Up](https://testsprite.com) | [Docs](https://docs.testsprite.com) | Limited tests |
+| **OpenAI** | [Get Key](https://platform.openai.com/api-keys) | [Sign Up](https://platform.openai.com/signup) | [Docs](https://platform.openai.com/docs) | $5 credits |
+| **Google Gemini** | [Get Key](https://aistudio.google.com/app/apikey) | [Sign Up](https://ai.google.dev) | [Docs](https://ai.google.dev/docs) | Free tier |
+| **Anthropic** | [Get Key](https://console.anthropic.com/settings/keys) | [Sign Up](https://console.anthropic.com) | [Docs](https://docs.anthropic.com) | $5 credits |
+| **Atlassian** | [Create Token](https://id.atlassian.com/manage-profile/security/api-tokens) | [Sign Up](https://www.atlassian.com/try/cloud/signup) | [Docs](https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/) | Free tier |
 
-## 🟡 Optional Keys
+## 🚫 No API Key Needed
 
-These keys can be skipped during installation by pressing Enter. You can add them later by editing the config files.
+| Service | Installation | Purpose |
+|---------|--------------|---------|
+| **[Ollama](https://ollama.com/download)** | Local install | Local LLM inference (auto-detected) |
+| **[Playwright](https://playwright.dev)** | Auto via npx | Browser automation |
+| **[Repomix](https://github.com/yamadashy/repomix)** | Auto via npx | Repository packaging |
 
-### MCP Server Keys
+---
 
-| Service | Where to Get | Used By | Purpose |
-|---------|--------------|---------|---------|
-| **Context7** | https://context7.com | MCP | Search documentation for any library/framework |
-| **Firecrawl** | https://firecrawl.dev | MCP | Web scraping and crawling |
-| **TestSprite** | https://testsprite.com | MCP | AI-powered test generation |
-| **Atlassian** | Jira/Confluence Settings → API Tokens | MCP | Jira and Confluence integration |
+## 📝 Step-by-Step Instructions
 
-### Provider Keys (OpenClaude Only)
+### 🔹 OpenRouter
 
-| Service | Where to Get | Used By | Purpose |
-|---------|--------------|---------|---------|
-| **OpenAI** | https://platform.openai.com/api-keys | OpenClaude | GPT-4o model access |
-| **Google Gemini** | https://aistudio.google.com/apikey | OpenClaude | Gemini 2.0 Flash model |
-| **Anthropic** | https://console.anthropic.com/keys | OpenClaude | Claude Sonnet 4.5 model |
+**Primary LLM provider for both OpenCode and OpenClaude**
 
-## 🟢 No API Key Needed
+1. Visit **[https://openrouter.ai](https://openrouter.ai)**
+2. Click **"Sign In"** → Sign up with GitHub or email
+3. Navigate to **[Keys](https://openrouter.ai/keys)** section
+4. Click **"Create Key"**
+5. Give it a name (e.g., "my-ai-config")
+6. Copy the key (format: `sk-or-v1-...`)
 
-| Service | Installation | Used By | Purpose |
-|---------|--------------|---------|---------|
-| **Ollama** | https://ollama.com/download | OpenCode | Local LLM inference (models auto-detected) |
-| **Playwright** | Auto-installed via npx | MCP | Browser automation (no signup required) |
-| **Repomix** | Auto-installed via npx | MCP | Repository packaging (no signup required) |
+**Pricing:** $0.05 starting credits, pay-as-you-go ($0.001-$0.01 per request depending on model)
 
-## 📝 How to Get API Keys
+**Models available:** Qwen 2.5 Coder, GPT-4o, Claude, Gemini, and 100+ more
 
-### OpenRouter (Required)
+---
 
-1. Go to https://openrouter.ai
-2. Sign up with GitHub or email
-3. Navigate to **Keys** section
-4. Click **Create Key**
-5. Copy the key (starts with `sk-or-v1-...`)
+### 🔹 Groq
 
-**Free tier**: $0.05 credits to start, pay-as-you-go after
+**Fast inference for OpenClaude agent routing**
 
-### Groq (Required)
+1. Visit **[https://console.groq.com](https://console.groq.com)**
+2. Click **"Sign Up"** → Use Google or email
+3. Go to **[API Keys](https://console.groq.com/keys)**
+4. Click **"Create API Key"**
+5. Name it (e.g., "my-ai-config")
+6. Copy the key (format: `gsk_...`)
 
-1. Go to https://console.groq.com
-2. Sign up with Google or email
-3. Navigate to **API Keys**
-4. Click **Create API Key**
-5. Copy the key (starts with `gsk_...`)
+**Pricing:** Generous free tier (14,400 requests/day on Llama 3.3 70B)
 
-**Free tier**: Generous free tier with rate limits
+**Models available:** Llama 3.3 70B, Mixtral 8x7B, Gemma 2 9B
 
-### Context7 (Optional)
+---
 
-1. Go to https://context7.com
-2. Sign up with GitHub or email
+### 🔹 Context7
+
+**Documentation search MCP for libraries/frameworks**
+
+1. Visit **[https://context7.com](https://context7.com)**
+2. Click **"Get Started"** → Sign up with GitHub or email
 3. Navigate to **Settings → API Keys**
-4. Create a new key
-5. Copy the key (starts with `ctx7sk-...`)
+4. Click **"Create New Key"**
+5. Copy the key (format: `ctx7sk-...`)
 
-**Free tier**: 100 queries/month free
+**Pricing:** 100 queries/month free, then $10/month for unlimited
 
-### Firecrawl (Optional)
+**Use cases:** Search React docs, Next.js docs, Python stdlib, etc.
 
-1. Go to https://firecrawl.dev
-2. Sign up with GitHub or email
-3. Navigate to **API Keys** in dashboard
-4. Create a new key
-5. Copy the key (starts with `fc-...`)
+---
 
-**Free tier**: 500 pages/month free
+### 🔹 Firecrawl
 
-### TestSprite (Optional)
+**Advanced web scraping and crawling MCP**
 
-1. Go to https://testsprite.com
-2. Sign up for account
+1. Visit **[https://firecrawl.dev](https://firecrawl.dev)**
+2. Click **"Get Started"** → Sign up with GitHub or email
+3. Go to **[Dashboard](https://firecrawl.dev/dashboard)** → API Keys
+4. Click **"Create API Key"**
+5. Copy the key (format: `fc-...`)
+
+**Pricing:** 500 pages/month free, then $20/month for 5,000 pages
+
+**Features:** JavaScript rendering, PDF extraction, structured data extraction
+
+---
+
+### 🔹 TestSprite
+
+**AI-driven test generation MCP**
+
+1. Visit **[https://testsprite.com](https://testsprite.com)**
+2. Click **"Sign Up"** → Create account
 3. Navigate to **Settings → API**
-4. Generate API key
-5. Copy the key (starts with `sk-user-...`)
+4. Click **"Generate API Key"**
+5. Copy the key (format: `sk-user-...`)
 
-**Free tier**: Limited free tests available
+**Pricing:** Limited free tests, then paid plans starting at $29/month
 
-### OpenAI (Optional)
+**Features:** Auto-generate tests for React, Vue, Angular, Node.js, Python, Go, Java
 
-1. Go to https://platform.openai.com
-2. Sign up or login
-3. Navigate to **API Keys**
-4. Click **Create new secret key**
-5. Copy the key (starts with `sk-proj-...` or `sk-...`)
+---
 
-**Free tier**: $5 credit for new accounts
+### 🔹 OpenAI
 
-### Google Gemini (Optional)
+**Alternative LLM provider (GPT-4o, GPT-4 Turbo)**
 
-1. Go to https://aistudio.google.com
-2. Sign in with Google account
-3. Click **Get API key**
-4. Create new project or use existing
-5. Copy the API key (starts with `AIza...`)
+1. Visit **[https://platform.openai.com](https://platform.openai.com)**
+2. Click **"Sign Up"** or log in with existing account
+3. Go to **[API Keys](https://platform.openai.com/api-keys)**
+4. Click **"Create new secret key"**
+5. Give it a name (e.g., "my-ai-config")
+6. Copy the key (format: `sk-proj-...` or `sk-...`)
 
-**Free tier**: 60 requests/minute free
+**Pricing:** $5 free credits for new accounts, then pay-as-you-go ($0.03-$0.10 per 1M tokens)
 
-### Anthropic (Optional)
+**Models available:** GPT-4o, GPT-4 Turbo, GPT-3.5 Turbo, o1-preview
 
-1. Go to https://console.anthropic.com
-2. Sign up with email
-3. Navigate to **API Keys**
-4. Click **Create Key**
-5. Copy the key (UUID format)
+---
 
-**Free tier**: Trial credits for new accounts
+### 🔹 Google Gemini
 
-### Atlassian/Jira (Optional)
+**Google's AI model for multimodal tasks**
 
-1. Go to your Jira instance (e.g., `yourcompany.atlassian.net`)
-2. Click profile → **Account settings**
-3. Navigate to **Security → API tokens**
-4. Click **Create API token**
-5. Copy the token
-6. Encode as Basic Auth: `echo -n "your-email@company.com:TOKEN" | base64`
+1. Visit **[https://aistudio.google.com](https://aistudio.google.com)**
+2. Sign in with your Google account
+3. Click **"Get API key"** in the top navigation
+4. Create a new project or select existing one
+5. Click **"Create API key in new project"**
+6. Copy the key (format: `AIza...`)
 
-**Free tier**: Depends on your organization's plan
+**Pricing:** Free tier with 60 requests/minute (1,500 requests/day)
+
+**Models available:** Gemini 1.5 Pro, Gemini 1.5 Flash, Gemini 2.0 Flash
+
+---
+
+### 🔹 Anthropic
+
+**Claude AI models (Claude 3.5 Sonnet, Claude 3 Opus)**
+
+1. Visit **[https://console.anthropic.com](https://console.anthropic.com)**
+2. Click **"Sign Up"** → Use email to create account
+3. Navigate to **[API Keys](https://console.anthropic.com/settings/keys)**
+4. Click **"Create Key"**
+5. Name it (e.g., "my-ai-config")
+6. Copy the key (format: `sk-ant-...`)
+
+**Pricing:** $5 free credits for new accounts, then pay-as-you-go ($3-$15 per 1M tokens)
+
+**Models available:** Claude 3.5 Sonnet, Claude 3 Opus, Claude 3 Haiku
+
+---
+
+### 🔹 Atlassian
+
+**Jira/Confluence integration MCP**
+
+1. Visit **[https://id.atlassian.com/manage-profile/security/api-tokens](https://id.atlassian.com/manage-profile/security/api-tokens)**
+2. Sign in with your Atlassian account
+3. Click **"Create API token"**
+4. Give it a label (e.g., "my-ai-config")
+5. Copy the token (format: `ATATT3xFf...`)
+6. **Encode as Basic Auth:** `echo -n "your-email@company.com:YOUR_TOKEN" | base64`
+7. Use the base64 output as the API key in the installer
+
+**Pricing:** Free for up to 10 users, paid plans from $8.15/user/month
+
+**Use cases:** Query Jira issues, update tickets, search Confluence docs, link PRs to issues
+
+---
 
 ## 🔒 Security Best Practices
 

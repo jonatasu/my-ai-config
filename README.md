@@ -67,27 +67,27 @@ my-ai-config/
 The installer will prompt for API keys and MCP server selection.
 
 ### API Keys (all optional - press Enter to skip)
-- **OpenRouter** - Primary LLM provider for both OpenCode and OpenClaude
-- **Groq** - Fast inference for OpenClaude agent routing
-- **Context7** - Documentation search MCP
-- **Firecrawl** - Advanced web scraping MCP
-- **TestSprite** - AI-driven test generation MCP
-- **OpenAI** - Alternative LLM provider
-- **Google Gemini** - Alternative LLM provider
-- **Anthropic** - Alternative LLM provider (Claude)
-- **Atlassian** - Jira/Confluence integration MCP
+- **[OpenRouter](https://openrouter.ai)** - Primary LLM provider for both tools ([Get API Key](https://openrouter.ai/keys))
+- **[Groq](https://groq.com)** - Fast inference for agent routing ([Get API Key](https://console.groq.com/keys))
+- **[Context7](https://context7.com)** - Documentation search MCP ([Get API Key](https://context7.com))
+- **[Firecrawl](https://firecrawl.dev)** - Advanced web scraping MCP ([Get API Key](https://firecrawl.dev))
+- **[TestSprite](https://testsprite.com)** - AI-driven test generation MCP ([Get API Key](https://testsprite.com))
+- **[OpenAI](https://platform.openai.com)** - Alternative LLM provider ([Get API Key](https://platform.openai.com/api-keys))
+- **[Google Gemini](https://ai.google.dev)** - Alternative LLM provider ([Get API Key](https://aistudio.google.com/app/apikey))
+- **[Anthropic](https://anthropic.com)** - Claude API provider ([Get API Key](https://console.anthropic.com/settings/keys))
+- **[Atlassian](https://atlassian.com)** - Jira/Confluence integration ([Create API Token](https://id.atlassian.com/manage-profile/security/api-tokens))
 
 ### MCP Servers (all optional - choose which to enable)
-- **Context7** - Documentation search for libraries/frameworks
-- **Firecrawl** - Advanced web scraping and crawling
-- **Playwright** - Browser automation and testing (no API key needed)
-- **TestSprite** - AI-driven test generation
-- **Repomix** - Repository packaging for LLM analysis (no API key needed)
-- **Atlassian** - Jira and Confluence integration
+- **[Context7](https://context7.com)** - Documentation search for libraries/frameworks
+- **[Firecrawl](https://firecrawl.dev)** - Advanced web scraping and crawling
+- **[Playwright](https://playwright.dev)** - Browser automation and testing (no API key needed)
+- **[TestSprite](https://testsprite.com)** - AI-driven test generation
+- **[Repomix](https://github.com/yamadashy/repomix)** - Repository packaging for LLM analysis (no API key needed)
+- **[Atlassian](https://www.atlassian.com/software/jira)** - Jira and Confluence integration
 
 **Note:** Skills and custom commands are always installed by default.
 
-See [docs/API_KEYS.md](docs/API_KEYS.md) for where to get these keys.
+📚 **Detailed guide:** See [docs/API_KEYS.md](docs/API_KEYS.md) for step-by-step instructions on obtaining each API key.
 
 ## 🔄 Syncing Changes
 
