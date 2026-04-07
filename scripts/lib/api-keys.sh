@@ -38,33 +38,121 @@ prompt_api_key() {
   done
 }
 
-# Collect all required API keys
-collect_required_keys() {
-  step "Collecting required API keys..."
+# Prompt for MCP selection
+# Usage: prompt_mcp "MCP Name" "Description"
+# Returns: true or false
+prompt_mcp() {
+  local name=$1
+  local desc=$2
+  local answer=""
+  
+  while true; do
+    read -p "Enable $name MCP? ($desc) [y/n] (default: n): " answer
+    answer=${answer:-n}
+    
+    case $answer in
+      y|Y|yes|Yes|YES)
+        echo "true"
+        return 0
+        ;;
+      n|N|no|No|NO)
+        echo "false"
+        return 0
+        ;;
+      *)
+        warn "Please answer y or n"
+        ;;
+    esac
+  done
+}
+
+# Collect MCP selections (all optional)
+collect_mcp_selections() {
+  step "MCP Server Setup (all optional)..."
+  echo ""
+  info "MCPs provide extended capabilities like documentation search, web scraping, etc."
   echo ""
   
-  # OpenRouter (required)
-  API_OPENROUTER=$(prompt_api_key "OpenRouter" "required")
-  info "OpenRouter key saved"
+  # Context7
+  ENABLE_CONTEXT7=$(prompt_mcp "Context7" "Documentation search for libraries/frameworks")
+  if [ "$ENABLE_CONTEXT7" = "true" ]; then
+    info "Context7 MCP enabled"
+  else
+    warn "Context7 MCP skipped"
+  fi
   
-  # Groq (required)
-  API_GROQ=$(prompt_api_key "Groq" "required")
-  info "Groq key saved"
+  # Firecrawl
+  ENABLE_FIRECRAWL=$(prompt_mcp "Firecrawl" "Advanced web scraping and crawling")
+  if [ "$ENABLE_FIRECRAWL" = "true" ]; then
+    info "Firecrawl MCP enabled"
+  else
+    warn "Firecrawl MCP skipped"
+  fi
+  
+  # Playwright
+  ENABLE_PLAYWRIGHT=$(prompt_mcp "Playwright" "Browser automation and testing")
+  if [ "$ENABLE_PLAYWRIGHT" = "true" ]; then
+    info "Playwright MCP enabled"
+  else
+    warn "Playwright MCP skipped"
+  fi
+  
+  # TestSprite
+  ENABLE_TESTSPRITE=$(prompt_mcp "TestSprite" "AI-driven test generation")
+  if [ "$ENABLE_TESTSPRITE" = "true" ]; then
+    info "TestSprite MCP enabled"
+  else
+    warn "TestSprite MCP skipped"
+  fi
+  
+  # Repomix
+  ENABLE_REPOMIX=$(prompt_mcp "Repomix" "Repository packaging for LLM analysis")
+  if [ "$ENABLE_REPOMIX" = "true" ]; then
+    info "Repomix MCP enabled"
+  else
+    warn "Repomix MCP skipped"
+  fi
+  
+  # Atlassian
+  ENABLE_ATLASSIAN=$(prompt_mcp "Atlassian" "Jira and Confluence integration")
+  if [ "$ENABLE_ATLASSIAN" = "true" ]; then
+    info "Atlassian MCP enabled"
+  else
+    warn "Atlassian MCP skipped"
+  fi
   
   echo ""
 }
 
-# Collect optional API keys
-collect_optional_keys() {
-  step "Collecting optional API keys (press Enter to skip any)..."
+# Collect all API keys (all optional now)
+collect_api_keys() {
+  step "Collecting API keys (press Enter to skip any)..."
   echo ""
+  info "All API keys are optional - you can skip any and configure them later"
+  echo ""
+  
+  # OpenRouter
+  API_OPENROUTER=$(prompt_api_key "OpenRouter" "optional")
+  if [[ "$API_OPENROUTER" != YOUR_* ]]; then
+    info "OpenRouter key saved"
+  else
+    warn "OpenRouter skipped"
+  fi
+  
+  # Groq
+  API_GROQ=$(prompt_api_key "Groq" "optional")
+  if [[ "$API_GROQ" != YOUR_* ]]; then
+    info "Groq key saved"
+  else
+    warn "Groq skipped"
+  fi
   
   # Context7
   API_CONTEXT7=$(prompt_api_key "Context7" "optional")
   if [[ "$API_CONTEXT7" != YOUR_* ]]; then
     info "Context7 key saved"
   else
-    warn "Context7 skipped (can add later)"
+    warn "Context7 skipped"
   fi
   
   # Firecrawl
@@ -72,7 +160,7 @@ collect_optional_keys() {
   if [[ "$API_FIRECRAWL" != YOUR_* ]]; then
     info "Firecrawl key saved"
   else
-    warn "Firecrawl skipped (can add later)"
+    warn "Firecrawl skipped"
   fi
   
   # TestSprite
@@ -80,7 +168,7 @@ collect_optional_keys() {
   if [[ "$API_TESTSPRITE" != YOUR_* ]]; then
     info "TestSprite key saved"
   else
-    warn "TestSprite skipped (can add later)"
+    warn "TestSprite skipped"
   fi
   
   # OpenAI
@@ -88,7 +176,7 @@ collect_optional_keys() {
   if [[ "$API_OPENAI" != YOUR_* ]]; then
     info "OpenAI key saved"
   else
-    warn "OpenAI skipped (can add later)"
+    warn "OpenAI skipped"
   fi
   
   # Google
@@ -96,7 +184,7 @@ collect_optional_keys() {
   if [[ "$API_GOOGLE" != YOUR_* ]]; then
     info "Google key saved"
   else
-    warn "Google skipped (can add later)"
+    warn "Google skipped"
   fi
   
   # Anthropic
@@ -104,7 +192,7 @@ collect_optional_keys() {
   if [[ "$API_ANTHROPIC" != YOUR_* ]]; then
     info "Anthropic key saved"
   else
-    warn "Anthropic skipped (can add later)"
+    warn "Anthropic skipped"
   fi
   
   # Atlassian
@@ -112,7 +200,7 @@ collect_optional_keys() {
   if [[ "$API_ATLASSIAN" != YOUR_* ]]; then
     info "Atlassian key saved"
   else
-    warn "Atlassian skipped (can add later)"
+    warn "Atlassian skipped"
   fi
   
   echo ""
@@ -129,6 +217,84 @@ export_api_keys() {
   export API_GOOGLE
   export API_ANTHROPIC
   export API_ATLASSIAN
+}
+
+# Export MCP selections
+export_mcp_selections() {
+  export ENABLE_CONTEXT7
+  export ENABLE_FIRECRAWL
+  export ENABLE_PLAYWRIGHT
+  export ENABLE_TESTSPRITE
+  export ENABLE_REPOMIX
+  export ENABLE_ATLASSIAN
+}
+
+# Disable MCPs in config file based on selections
+# Usage: apply_mcp_selections "config_file_path"
+apply_mcp_selections() {
+  local file=$1
+  
+  if [ ! -f "$file" ]; then
+    warn "File not found: $file"
+    return 1
+  fi
+  
+  # Disable MCPs that were not selected
+  if [ "$ENABLE_CONTEXT7" = "false" ]; then
+    # Change "enabled": true to "enabled": false for context7
+    sed -i.bak '/context7/,/"enabled": true/ s/"enabled": true/"enabled": false/' "$file"
+  fi
+  
+  if [ "$ENABLE_FIRECRAWL" = "false" ]; then
+    sed -i.bak '/firecrawl/,/"enabled": true/ s/"enabled": true/"enabled": false/' "$file"
+  fi
+  
+  if [ "$ENABLE_PLAYWRIGHT" = "false" ]; then
+    sed -i.bak '/playwright/,/"enabled": true/ s/"enabled": true/"enabled": false/' "$file"
+  fi
+  
+  if [ "$ENABLE_TESTSPRITE" = "false" ]; then
+    sed -i.bak '/testsprite/,/"enabled": true/ s/"enabled": true/"enabled": false/' "$file"
+  fi
+  
+  if [ "$ENABLE_REPOMIX" = "false" ]; then
+    sed -i.bak '/repomix/,/"enabled": true/ s/"enabled": true/"enabled": false/' "$file"
+  fi
+  
+  if [ "$ENABLE_ATLASSIAN" = "false" ]; then
+    sed -i.bak '/atlassian/,/"enabled": true/ s/"enabled": true/"enabled": false/' "$file"
+  fi
+  
+  # Remove backup file
+  rm -f "${file}.bak"
+}
+
+# Remove disabled MCPs from OpenClaude config
+# Usage: apply_mcp_selections_openclaude "config_file_path"
+apply_mcp_selections_openclaude() {
+  local file=$1
+  
+  if [ ! -f "$file" ]; then
+    warn "File not found: $file"
+    return 1
+  fi
+  
+  # Build list of disabled MCPs
+  local disabled_mcps=""
+  [ "$ENABLE_CONTEXT7" = "false" ] && disabled_mcps="${disabled_mcps}context7,"
+  [ "$ENABLE_FIRECRAWL" = "false" ] && disabled_mcps="${disabled_mcps}firecrawl,"
+  [ "$ENABLE_PLAYWRIGHT" = "false" ] && disabled_mcps="${disabled_mcps}playwright,"
+  [ "$ENABLE_TESTSPRITE" = "false" ] && disabled_mcps="${disabled_mcps}testsprite,"
+  [ "$ENABLE_REPOMIX" = "false" ] && disabled_mcps="${disabled_mcps}repomix,"
+  [ "$ENABLE_ATLASSIAN" = "false" ] && disabled_mcps="${disabled_mcps}atlassian,"
+  
+  # Remove trailing comma
+  disabled_mcps="${disabled_mcps%,}"
+  
+  # Use Python script to remove disabled MCPs
+  if [ -n "$disabled_mcps" ]; then
+    python3 "$SCRIPT_DIR/lib/mcp-filter.py" "$file" "$disabled_mcps"
+  fi
 }
 
 # Replace API keys in config file

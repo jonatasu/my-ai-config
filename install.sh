@@ -69,11 +69,14 @@ step "API Key Setup"
 echo "See docs/API_KEYS.md for where to get these keys"
 echo ""
 
-collect_required_keys
-collect_optional_keys
+collect_api_keys
 export_api_keys
 
 show_keys_summary
+
+# Collect MCP selections
+collect_mcp_selections
+export_mcp_selections
 
 # Check Ollama
 OLLAMA_STATUS=$(check_ollama)
@@ -112,6 +115,9 @@ if [ "$INSTALL_OPENCODE" = true ]; then
   # Replace API keys
   replace_api_keys "$CONFIG_DIR/opencode.json"
   
+  # Apply MCP selections
+  apply_mcp_selections "$CONFIG_DIR/opencode.json"
+  
   info "✓ OpenCode installed at $CONFIG_DIR"
   echo ""
 fi
@@ -134,6 +140,9 @@ if [ "$INSTALL_OPENCLAUDE" = true ]; then
   
   # Replace /Users/YOUR_USERNAME with actual home
   replace_in_file "$HOME/.claude.json" "/Users/YOUR_USERNAME" "$HOME"
+  
+  # Apply MCP selections
+  apply_mcp_selections_openclaude "$HOME/.claude.json"
   
   # Copy profile
   info "Creating .openclaude-profile.json..."

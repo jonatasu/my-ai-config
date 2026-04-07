@@ -62,22 +62,30 @@ my-ai-config/
 └── sync.ps1                        # Windows sync script
 ```
 
-## 🔑 API Keys
+## 🔑 API Keys & MCPs
 
-The installer will prompt for these API keys:
+The installer will prompt for API keys and MCP server selection.
 
-### Required (cannot skip)
-- **OpenRouter** - Used by both OpenCode and OpenClaude
-- **Groq** - Used by OpenClaude for agent routing
+### API Keys (all optional - press Enter to skip)
+- **OpenRouter** - Primary LLM provider for both OpenCode and OpenClaude
+- **Groq** - Fast inference for OpenClaude agent routing
+- **Context7** - Documentation search MCP
+- **Firecrawl** - Advanced web scraping MCP
+- **TestSprite** - AI-driven test generation MCP
+- **OpenAI** - Alternative LLM provider
+- **Google Gemini** - Alternative LLM provider
+- **Anthropic** - Alternative LLM provider (Claude)
+- **Atlassian** - Jira/Confluence integration MCP
 
-### Optional (press Enter to skip)
-- Context7 - Documentation search MCP
-- Firecrawl - Web scraping MCP
-- TestSprite - Test generation MCP
-- OpenAI - Optional provider for OpenClaude
-- Google Gemini - Optional provider for OpenClaude
-- Anthropic - Optional provider for OpenClaude
-- Atlassian - Jira/Confluence MCP integration
+### MCP Servers (all optional - choose which to enable)
+- **Context7** - Documentation search for libraries/frameworks
+- **Firecrawl** - Advanced web scraping and crawling
+- **Playwright** - Browser automation and testing (no API key needed)
+- **TestSprite** - AI-driven test generation
+- **Repomix** - Repository packaging for LLM analysis (no API key needed)
+- **Atlassian** - Jira and Confluence integration
+
+**Note:** Skills and custom commands are always installed by default.
 
 See [docs/API_KEYS.md](docs/API_KEYS.md) for where to get these keys.
 
