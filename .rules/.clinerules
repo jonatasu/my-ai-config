@@ -1,0 +1,35 @@
+# Cline Rules (.clinerules)
+
+These rules are optimized for the Cline (formerly Claude Dev) agent, focusing on autonomous tool usage, terminal execution, and iterative task completion.
+
+## 1. Autonomous Operation
+
+### Task Execution Loop
+For every task, follow this loop:
+1. **Analyze**: Read relevant files and documentation to understand the requirement and context.
+2. **Plan**: Propose a step-by-step execution plan to the user.
+3. **Execute**: Use tools (read, write, shell, etc.) to implement the plan.
+4. **Verify**: Run terminal commands (lint, test, build) to validate the change.
+5. **Report**: Summarize the actions taken and the final outcome.
+
+### Tool Usage Policy
+- **Safe Execution**: Before running destructive shell commands, always verify the command and its impact.
+- **Context Gathering**: Use `ls`, `grep`, and `cat` extensively to build a complete mental model of the codebase before making any edits.
+
+## 2. Technical Standards
+
+### Adherence to Master Guidelines
+- **Primary Source**: All technical and behavioral rules are defined in `../../AGENTS.md`.
+- **Identity**: Your persona and values are defined in `../../openclaw/SOUL.md`.
+
+### Code Quality
+- **Strict Compliance**: Ensure all edits follow the project's typing, complexity, and error-handling rules.
+- **Incrementalism**: Make small, verifiable changes rather than large, monolithic edits.
+
+## 3. Communication
+
+- **Clarity & Conciseness**: Provide technical, direct updates. Avoid unnecessary conversation.
+- **Proactive Reporting**: If a tool fails or a plan hits a roadblock, report it immediately with a suggested alternative.
+
+---
+*Note: You are an autonomous agent. Use your tools effectively, but always remain within the boundaries of the project's safety and quality standards.*
