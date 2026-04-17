@@ -2,57 +2,68 @@
 
 This repository is the unified intelligence and tooling framework for the JOW-AI ecosystem. It is designed to provide AI agents with both a **Cognitive Core** (how to think and what to know) and an **Operational Toolkit** (how to act and execute).
 
+By separating the "Brain" from the "Hands" and implementing a **Long-Term Memory Pipeline**, we enable highly specialized, autonomous, and learning-capable AI agents.
+
 ---
 
 ## 🏗️ Architecture Overview
 
-The repository is organized into three primary functional layers to ensure a clear separation of concerns between identity, expertise, and execution.
+The repository is organized into three primary functional layers:
 
 ### 🧠 1. The Cognitive Core (`.core/`)
-This is the "Brain" of the agent. It defines the fundamental identity, mindset, and specialized knowledge.
-- **`.core/agents/`**: Defines the core identities and specialized personas (e.g., `hermes`, `openclaw`). Each agent has its own `SOUL.md` and `GUIDELINES.md`.
-- **`.core/mindset/`**: Contains the fundamental behavioral guidelines and decision-making protocols (e.g., `AGENTS.md` with the "Caveman Mode").
-- **`.core/skills/`**: A library of professional expertise modules. These are "Specialist" personas (e.g., `security`, `ux`, `performance`) that agents can invoke to perform deep-dive reviews.
+This is the "Brain" of the agent. It defines the identity, mindset, and expert knowledge.
+
+- **`.core/agents/`**: Defines the identities and specialized personas (e.g., `hermes`, `openclaw`). Each agent has its own `SOUL.md` (essence) and `GUIDELINES.md` (operational rules).
+- **`.core/mindset/`**: Contains the fundamental behavioral guidelines, including the **Caveman-inspired Communication Efficiency** and decision-making protocols.
+- **`.core/skills/`**: A library of professional expertise modules (e.g., `security-audit`, `ux-specialist`).
+- **`.core/memory_engine/`**: (Integrated via Obsidian) The logic for managing context and memory.
 
 ### 🛠️ 2. The Operational Toolkit (`.tools/`)
-This represents the "Hands" of the agent. It contains the tools and configurations needed to interact with the external world.
-- **`.tools/tool-configs/`**: Configuration files for external tools and services (e.g., `claude-api`, `copilot`, `vercel`).
-- **`.tools/tool-implementations/`**: Scripts, templates, and code for task execution (e.g., automation scripts, file manipulation tools).
+This represents the "Hands" of the agent. It contains the tools and configurations required to interact with the external world.
+
+- **`.tools/mcp_setup/`**: The master catalog of MCP tools and their configuration requirements.
+- **`.tools/tool-configs/`**: Tool-specific configuration files (e.g., `copilot`, `claude-api`, `vercel`).
+- **`.tools/tool-implementations/`**: Actual scripts and automation logic.
 
 ### 📏 3. The Rulebook (`.rules/`)
-Standardized instruction files for IDEs and CLI tools to ensure local development compliance.
-- Includes `.cursorrules`, `.clinerules`, `.windsurfrules`, and `.aider.conf.yml`.
+Standardized instruction files for IDEs and CLI tools (e.g., `.cursorrules`, `.clinerules`, `.windsurfrules`).
 
 ---
 
-## 🤖 Agent Decision Protocol
+## 🧠 The Memory Loop (MemGPT-style)
 
-Agents operating within this ecosystem follow a specific cognitive workflow:
+The ecosystem implements a multi-layer memory architecture using **Obsidian** as the persistent storage layer (`.vault/`).
 
-1.  **Identify Capability**: When a request is received, the agent checks its `.core/skills/` to see if a specialist is required.
-2.  **Decompose Task**: The agent uses the `writing-plans` principles to break complex tasks into atomic, bite-sized steps.
-3.  **Execute with Precision**: Tasks are executed following the TDD (Test-Driven Development) cycle: *Write failing test $\rightarrow$ Implement minimal code $\rightarrow$ Verify success*.
-4.  **Self-Review**: Before reporting completion, the agent must perform an autonomous review based on its assigned persona's expertise.
+1.  **Working Memory (Contextual)**: The immediate task context and active files.
+2.  **Episodic Memory (`.vault/memories/`)**: A record of events, decisions, and "lessons learned" from recent tasks.
+3.  **Semantic Memory (`.vault/knowledge_base/`)**: A structured library of technical patterns and learned expertise.
 
-## 🚀 Configuration Guide for Orchestrators
-
-This repository is optimized for integration with orchestrators like **OpenCode**, **Cline**, **Cursor**, and **Windsurf**.
-
-### Configuring the Hermes Agent
-To configure the **Hermes Agent** using this framework, point its context-awareness to this repository and instruct it to:
-1.  **Load Identity**: Read `.core/agents/hermes/GUIDELINES.md`.
-2.  **Adopt Mindset**: Adhere to the principles in `.core/mindset/AGENTS.md`.
-3.  **Use Capabilities**: Invoke specialists via slash commands (e.g., `/as-security-helper`) defined in the `.core/skills/` library.
-4.  **Follow Workflow**: Use the implementation protocols defined in `.core/workflow.md`.
+**Agents are mandated to:**
+- **Capture**: Record decisions and learnings after significant tasks.
+- **Retrieve**: Proactively search the vault before starting new tasks.
 
 ---
 
-## 📜 Philosophy: The Caveman Principle
+## 🤖 Agent Deployment Protocol
 
-To maximize efficiency and minimize token consumption, this ecosystem operates under the **Caveman Principle**:
-- **Extreme Brevity**: Prioritize high information density. Minimize linguistic fluff.
-- **Technical Precision**: Use direct, technical statements.
-- **On-Demand Verbosity**: Only provide detailed, conversational, or pedagogical explanations when explicitly requested.
+### For Hermes Agent (Orchestrator)
+1. Set the agent's system prompt to reference `.core/agents/hermes/` for identity.
+2. Point the agent's knowledge base/context to `.core/` to grant it access to the Skill Catalog and Mindset.
+3. Instruct the agent to use the **Memory Loop** to manage task-to-task continuity.
+
+### For OpenClaw (Deep-Engineer)
+1. Set the agent's system prompt to reference `.core/agents/openclaw/` for identity.
+2. Ensure the agent follows the **Deep-Implementation Plan (DIP)** protocol for complex tasks.
+3. Require the agent to perform **Decision Logging** in the `.vault/` after structural changes.
 
 ---
-*Built for the future of autonomous engineering.*
+
+## 🚀 Philosophy: The Caveman Principle
+
+To maximize efficiency and minimize token consumption, all agents operate in a **"Caveman-inspired"** mode:
+- **Direct & Technical**: No fluff, no pleasantries.
+- **High Density**: Maximum technical substance per token.
+- **Precision-First**: Every word must serve a functional purpose.
+
+---
+*Developed for the next generation of autonomous engineering partners.*
