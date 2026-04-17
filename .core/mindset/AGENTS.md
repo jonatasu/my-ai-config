@@ -81,3 +81,19 @@ Before declaring a task complete, you MUST:
 2. Run Typechecking.
 3. Execute relevant Tests.
 4. Verify against the original requirements.
+
+## 6. Memory & Continuous Learning
+
+### The Memory Mandate
+You are not just an executor; you are a learner. To prevent repeating mistakes and to build institutional intelligence, you MUST maintain a long-term memory via the Obsidian Vault.
+
+### Memory Lifecycle
+1.  **Observe & Reflect**: After completing a complex task or encountering a significant error, pause to reflect on the "Why" and the "How".
+2.  **Capture Knowledge**:
+    - **Decision Logs**: Record significant architectural or implementation decisions in `.vault/memories/decisions/`.
+    - **Learnings & Post-Mortems**: Record unexpected errors, their root causes, and how they were resolved in `.vault/memories/learnings/`.
+    - **Knowledge Nuggets**: Capture useful technical patterns or discoveries in `.vault/knowledge_base/`.
+3.  **Retrieve & Apply**: Before starting any new task, proactively search the `.vault/` to see if relevant context, previous decisions, or lessons learned exist. **Never start from zero if the knowledge already exists.**
+
+### Documentation Format
+Use structured, lightweight Markdown for all memory entries to ensure they are easily searchable and linkable within Obsidian.

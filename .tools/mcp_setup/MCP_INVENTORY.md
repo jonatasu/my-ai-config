@@ -26,7 +26,7 @@ When you encounter a task that requires external data, web interaction, or speci
     - Bypass anti-bot measures.
 - **Agent Persona**: `Web Researcher`
 - **Setup Guide**:
-    1. Go to [Firecrawl Dashboard](https://www.firecrawl.dev/).
+    1. Go to [Firecrawl Dashboard](httpshttps://www.firecrawl.dev/).
     2. Sign up and generate an API Key.
     3. Set environment variable: `FIRECRAWL_API_KEY`.
 
@@ -56,7 +56,7 @@ When you encounter a task that requires external data, web interaction, or speci
     - Check feature flag status in real-time.
 - **Agent Persona**: `Product Analyst`
 - **Setup Guide**:
-    1. Log in to your [PostHog Instance](httpss://app.posthog.com/).
+    1. Log in to your [PostHog Instance](httpshttps://app.posthog.com/).
     2. Navigate to **Project Settings** -> **Personal API Keys**.
     3. Generate a new key.
     4. Set environment variable: `POSTHOG_API_KEY`.
@@ -109,6 +109,19 @@ When you encounter a task that requires external data, web interaction, or speci
     2. Ensure `repo` scope is selected.
     3. Set environment variable: `GITHUB_PERSONAL_ACCESS_TOKEN`.
 
+### 7. Obsidian (Knowledge Management & Memory)
+*Best for: Persistent long-term memory, decision logging, and personal knowledge management.*
+
+- **Capabilities**: 
+    - Read/Write notes in the Obsidian Vault.
+    - Search through existing notes and connections.
+    - Create structured entries for decisions, learnings, and knowledge nuggets.
+- **Agent Persona**: `Librarian / Memory Keeper`
+- **Setup Guide**:
+    1. Install the **Obsidian MCP Server** (e.g., via community plugins or dedicated MCP implementation).
+    2. Configure the server to point to your Vault directory.
+    3. Ensure the agent has write permissions to the Vault.
+
 ---
 
 ## 📝 Integration Checklist for Agents
@@ -116,5 +129,5 @@ When you encounter a task that requires external data, web interaction, or speci
 When you are tasked with using a new tool, follow this internal checklist:
 - [ ] **Auth Check**: Do I have the required API Key in my environment?
 - [ ] **Scope Check**: Is the tool's capability aligned with the task requirements?
-- [ ] **Safety Check**: Am use the tool in a way that respects data privacy (no PII leakage)?
+- [ ] **Safety Check**: Am I using the tool in a way that respects data privacy (no PII leakage)?
 - [ ] **Verification**: Did the tool return the expected structured data (JSON/Markdown)?
