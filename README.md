@@ -1,6 +1,6 @@
-# 🧠 JOW-AI Omni-Agent Ecosystem
+# 🧠 Jowmni: The Omni-Agent Ecosystem
 
-This repository is the unified intelligence and tooling framework for the JOW-AI ecosystem. It is designed to provide AI agents with both a **Cognitive Core** (how to think and what to know) and an **Operational Toolkit** (how to act and execute).
+This repository is the unified intelligence and tooling framework for the **Jowmni** ecosystem. It is designed to provide AI agents with both a **Cognitive Core** (how to think and what to know) and an **Operational Toolkit** (how to act and execute).
 
 By separating the "Brain" from the "Hands" and implementing a **Long-Term Memory Pipeline**, we enable highly specialized, autonomous, and learning-capable AI agents.
 
@@ -66,4 +66,6 @@ To maximize efficiency and minimize token consumption, all agents operate in a *
 - **Precision-First**: Every word must serve a functional purpose.
 
 ---
+
 *Developed for the next generation of autonomous engineering partners.*
+
