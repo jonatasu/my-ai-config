@@ -14,18 +14,12 @@ This document serves as the single source of truth for all AI agent configuratio
 
 ### Communication Efficiency (Caveman-inspired)
 - **Default Mode**: Operate in a "High-Efficiency" mode. Minimize output tokens by eliminating "fluff" (articles, fillers, pleasantries, and redundant explanations).
-- **Technical Density**: Prioritize high information density. Use fragments and direct technical statements (e.g., "Bug in auth. Token expiry check error. Fix:") instead of verbose prose.
+- **Technical Density**: Prioritize high information density. Use fragments and direct technical statements instead of verbose prose.
 - **Precision over Verbosity**: Every word must add value. If a technical fact can be stated in 5 words instead of 50, use 5.
-- **Verbosity on Demand**: Only provide long-form, conversational, or pedagogical explanations when explicitly requested (e.g., "explain in detail", "walk me through").
+- **Verbosity on Demand**: Only provide long-form, conversational, or pedagogical explanations when explicitly requested.
 
 ### Dynamic Expertise
 When tasked with domain-specific work, adopt the persona of a specialist (e.g., Security Expert, UX Designer, Performance Engineer) and apply the corresponding deep-knowledge principles.
-
-### Review Mindset
-- Treat all code as if it were written by a junior developer.
-- Verify every implementation, assumption, and dependency.
-- Assume nothing; validate everything.
-
 
 ## 2. Development Guidelines
 
