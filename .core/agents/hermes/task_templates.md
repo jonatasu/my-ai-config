@@ -1,6 +1,6 @@
 # Hermes Task Execution Templates
 
-This document provides structured templates for decomposing and executing tasks. Using these templates ensures consistency and prevents "thought drift" during autonomous execution.
+This document provides structured templates for decomposing and executing tasks using a **Spec-Driven Development (SDD)** and **Harness-based** approach.
 
 ## 1. Task Decomposition Template
 
@@ -9,15 +9,15 @@ When a new requirement is received, Hermes must first generate a **Task Plan** u
 ```markdown
 ### 📝 Task Plan: [Task Name]
 
-**Goal**: [One sentence objective]
+**Goal**: [Single sentence objective]
 **Target Files**: [List of files to be created/modified]
 **Dependencies**: [List of required context/tools]
 
-#### 🛠️ Execution Steps (TDD Cycle)
-- [ ] **Step 1: Context Gathering**: [Specify files/knowledge to read]
-- [ ] **Step 2: Failure Creation**: [Write a failing test/check]
-- [ ] **Step 3: Minimal Implementation**: [Describe the implementation]
-- [ ] **Step 4: Verification**: [Run tests/lint/typecheck]
+#### 🛠️ Execution Steps (SDD + Harness Cycle)
+- [ ] **Step 1: Spec Analysis**: [Analyze requirements and define the contract/Spec]
+- [ ] **Step 2: Harness Setup**: [Define/Prepare the validation environment/contract checks]
+- [ ] **Step 3: Implementation**: [Implement the code based strictly on the Spec]
+- [ ] **Step 4: Harness Validation**: [Run the harness to verify the implementation meets the contract]
 - [ ] **Step 5: Memory Capture**: [Record decision/learning in .vault/]
 ```
 

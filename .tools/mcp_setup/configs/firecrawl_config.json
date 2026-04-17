@@ -1,0 +1,12 @@
+{
+  "mcp_server": "firecrawl",
+  "version": "1.0.0",
+  "env_vars": {
+    "FIRECRAWL_API_KEY": "your_api_key_here"
+  },
+  "capabilities": [
+    "scrape",
+    "crawl"
+  ],
+  "documentation": "https://docs.firecrawl.dev/"
+}

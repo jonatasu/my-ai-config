@@ -26,7 +26,7 @@ When you encounter a task that requires external data, web interaction, or speci
     - Bypass anti-bot measures.
 - **Agent Persona**: `Web Researcher`
 - **Setup Guide**:
-    1. Go to [Firecrawl Dashboard](httpshttps://www.firecrawl.dev/).
+    1. Go to [Firecrawl Dashboard](https://www.firecrawl.dev/).
     2. Sign up and generate an API Key.
     3. Set environment variable: `FIRECRAWL_API_KEY`.
 
@@ -42,11 +42,24 @@ When you encounter a task that requires external data, web interaction, or speci
     2. Generate your API Token.
     3. Set environment variable: `CONTEXT7_API_KEY`.
 
+### 3. Playwright (Browser Automation & Testing)
+*Best for: Interacting with complex web UIs, performing click/type actions, and capturing screenshots.*
+
+- **Capabilities**: 
+    - Navigate through SPAs (Single Page Applications).
+    - Perform multi-step user workflows (Login $\rightarrow$ Search $\rightarrow$ Checkout).
+    - Capture high-fidelity screenshots and accessibility trees.
+- **Agent Persona**: `Interaction Specialist`
+- **Setup Guide**:
+    1. Install Playwright: `npm install @playwright/test`.
+    2. Install browsers: `npx playwright install`.
+    3. Ensure the MCP server for Playwright is active in your execution environment.
+
 ---
 
 ## 📊 Analytics & Product Intelligence
 
-### 3. PostHog (Product Analytics & Event Tracking)
+### 4. PostHog (Product Analytics & Event Tracking)
 *Best for: Understanding user behavior, feature adoption, and production telemetry.*
 
 - **Capabilities**: 
@@ -56,7 +69,7 @@ When you encounter a task that requires external data, web interaction, or speci
     - Check feature flag status in real-time.
 - **Agent Persona**: `Product Analyst`
 - **Setup Guide**:
-    1. Log in to your [PostHog Instance](httpshttps://app.posthog.com/).
+    1. Log in to your [PostHog Instance](https://app.posthog.com/).
     2. Navigate to **Project Settings** -> **Personal API Keys**.
     3. Generate a new key.
     4. Set environment variable: `POSTHOG_API_KEY`.
@@ -66,7 +79,7 @@ When you encounter a task that requires external data, web interaction, or speci
 
 ## 🧪 Testing & Quality Assurance
 
-### 4. TestSprite (AI-Driven Testing)
+### 5. TestSprite (AI-Driven Testing)
 *Best for: Autonomous generation and execution of end-to-end tests.*
 
 - **Capabilities**: 
@@ -83,7 +96,7 @@ When you encounter a task that requires external data, web interaction, or speci
 
 ## 🛠️ Development & Infrastructure
 
-### 5. Vercel CLI (Deployment & Preview)
+### 6. Vercel CLI (Deployment & Preview)
 *Best for: Managing deployments and inspecting production environments.*
 
 - **Capabilities**: 
@@ -96,7 +109,7 @@ When you encounter a task that requires external data, web interaction, or speci
     2. Login via CLI: `vercel login`.
     3. Use the session token or set `VERCEL_TOKEN` from your Vercel Dashboard.
 
-### 6. GitHub MCP (Repository Management)
+### 7. GitHub MCP (Repository Management)
 *Best for: Managing PRs, issues, and repository state.*
 
 - **Capabilities**: 
@@ -109,7 +122,35 @@ When you encounter a task that requires external data, web interaction, or speci
     2. Ensure `repo` scope is selected.
     3. Set environment variable: `GITHUB_PERSONAL_ACCESS_TOKEN`.
 
-### 7. Obsidian (Knowledge Management & Memory)
+### 8. Atlassian MCP (Jira & Confluence)
+*Best for: Managing agile workflows, issues, and project documentation.*
+
+- **Capabilities**: 
+    - Create/Update Jira issues and transitions.
+    - Search and edit Confluence pages.
+    - Sync tasks between development and project management.
+- **Agent Persona**: `Project Coordinator`
+- **Setup Guide**:
+    1. Access [Atlassian API Tokens](https://id.atlassian.com/manage-profile/security/api-tokens).
+    2. Generate a new token.
+    3. Set environment variable: `ATLASSIAN_API_TOKEN`.
+    4. Provide `ATLASSIAN_EMAIL` and `ATLASSIAN_DOMAIN` (e.g., `your-company.atlassian.net`).
+
+### 9. Slack MCP (Communication & Notifications)
+*Best for: Real-time human-in-the-loop interaction and automated reporting.*
+
+- **Capabilities**: 
+    - Post messages to channels.
+    - Search conversation history.
+    - Trigger alerts for critical findings (e.g., Security/Performance issues).
+- **Agent Persona**: `Communication Liaison`
+- **Setup Guide**:
+    1. Create a Slack App at [api.slack.com](https://api.slack.com/apps).
+    2. Enable Bot Token Scopes (e.g., `chat:write`, `channels:history`).
+    3. Install App to Workspace.
+    4. Set environment variable: `SLACK_BOT_TOKEN`.
+
+### 10. Obsidian (Knowledge Management & Memory)
 *Best for: Persistent long-term memory, decision logging, and personal knowledge management.*
 
 - **Capabilities**: 
@@ -131,3 +172,4 @@ When you are tasked with using a new tool, follow this internal checklist:
 - [ ] **Scope Check**: Is the tool's capability aligned with the task requirements?
 - [ ] **Safety Check**: Am I using the tool in a way that respects data privacy (no PII leakage)?
 - [ ] **Verification**: Did the tool return the expected structured data (JSON/Markdown)?
+
