@@ -30,6 +30,19 @@ Standardized instruction files for IDEs and CLI tools (e.g., `.cursorrules`, `.c
 
 ---
 
+## 🚀 AI-Harness Mode
+
+The AI-Harness is a meta-framework for observing, scoring, and evolving agent behavior through a data-driven feedback loop.
+
+### Onboarding a New Agent
+1. **Setup `.env`**: Configure necessary API keys and environment variables.
+2. **Bootstrap**: Run `bash .tools/harness/bin/environment_bootstrap.sh` to initialize the harness environment.
+3. **Policy**: Configure `.tools/harness/harness_policy.yaml` to define scoring criteria and evaluation benchmarks.
+4. **Collect**: Begin collecting traces via `python .tools/harness/scripts/trace_collector.py`.
+5. **Evolve**: Run `ai-harness` (score) and `python .tools/harness/scripts/meta_optimizer.py` (evolve) to optimize agent performance.
+
+---
+
 ## 🧠 The Memory Loop (MemGPT-style)
 
 The ecosystem implements a multi-layer memory architecture using **Obsidian** as the persistent storage layer (`.vault/`).
@@ -68,4 +81,3 @@ To maximize efficiency and minimize token consumption, all agents operate in a *
 ---
 
 *Developed for the next generation of autonomous engineering partners.*
-

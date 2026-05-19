@@ -1,0 +1,14 @@
+{
+  "proposal_id": "test-proposal",
+  "created_at": "2026-05-19T00:00:00Z",
+  "window_trace_count": 100,
+  "changes": [
+    {
+      "file": ".core/system_prompt.txt",
+      "old_string": "Be concise.",
+      "new_string": "Be concise and always verify tool output before finalizing the answer.",
+      "reason": "Failure ratio above 50%.",
+      "justification": "Testing the git workflow."
+    }
+  ]
+}

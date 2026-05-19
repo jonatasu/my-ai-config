@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Agent Trace Schema",
+  "type": "object",
+  "properties": {
+    "agent_id": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "query": { "type": "string" },
+    "tools_used": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tokens_consumed": { "type": "integer" },
+    "outcome": { "type": "string", "enum": ["success", "fail"] },
+    "score": { "type": "number" },
+    "redacted_trace": { "type": "string" }
+  },
+  "required": ["agent_id", "timestamp", "query", "outcome"]
+}

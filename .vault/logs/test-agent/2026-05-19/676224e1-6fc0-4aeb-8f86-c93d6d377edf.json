@@ -1,0 +1,10 @@
+{
+  "agent_id": "test-agent",
+  "timestamp": "2026-05-19T16:03:45.976677Z",
+  "query": "hello",
+  "tools_used": [],
+  "tokens_consumed": 0,
+  "outcome": "success",
+  "score": null,
+  "redacted_trace": ""
+}

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+DB_PATH="/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.vault/harness/index/harness.db"
+
+case "$1" in
+    good)
+        if [ -z "$2" ]; then echo "Usage: ai-harness good <trace_id>"; exit 1; fi
+        sqlite3 "$DB_PATH" "UPDATE traces SET outcome = 'success' WHERE trace_id = '$2';"
+        echo "Trace $2 marked as good."
+        ;;
+    bad)
+        if [ -z "$2" ]; then echo "Usage: ai-harness bad <trace_id>"; exit 1; fi
+        sqlite3 "$DB_PATH" "UPDATE traces SET outcome = 'failure' WHERE trace_id = '$2';"
+        echo "Trace $2 marked as bad."
+        ;;
+    score)
+        if [ -z "$2" ] || [ -z "$3" ]; then echo "Usage: ai-harness score <trace_id> <float>"; exit 1; fi
+        sqlite3 "$DB_PATH" "UPDATE traces SET score = $3 WHERE trace_id = '$2';"
+        echo "Trace $2 scored as $3."
+        ;;
+    *)
+        echo "Usage: ai-harness {good|bad|score} <trace_id> [score]"
+        exit 1
+        ;;
+esac

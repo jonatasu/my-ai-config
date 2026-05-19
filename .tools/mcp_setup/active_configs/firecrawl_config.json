@@ -2,7 +2,7 @@
   "mcp_server": "firecrawl",
   "version": "1.0.0",
   "env_vars": {
-    "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
+    "FIRECRAWL_API_KEY": "sk_test_123456789"
   },
   "capabilities": [
     "scrape",

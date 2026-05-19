@@ -1,0 +1,92 @@
+import sqlite3
+import subprocess
+import os
+import sys
+import time
+from pathlib import Path
+
+DB_PATH = Path("/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.vault/harness/index/harness.db")
+STATE_TABLE = "autopilot_state"
+SUCCESS_THRESHOLD = 0.8
+NEW_TRACES_THRESHOLD = 100
+
+    SCRIPTS = {
+        "optimizer": Path("/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.tools/harness/scripts/meta_optimizer.py"),
+        "ab_eval": Path("/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.tools/harness/scripts/run_ab_eval.sh"),
+        "patch": Path("/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.tools/harness/scripts/apply_patch.py"),
+        "dashboard": Path("/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.tools/harness/scripts/generate_dashboard.py"),
+    }
+
+def init_db():
+    with sqlite3.connect(DB_PATH) as conn:
+        conn.execute(f"CREATE TABLE IF NOT EXISTS {STATE_TABLE} (key TEXT PRIMARY KEY, value INTEGER)")
+        conn.commit()
+
+def get_state(key, default=0):
+    with sqlite3.connect(DB_PATH) as conn:
+        res = conn.execute(f"SELECT value FROM {STATE_TABLE} WHERE key = ?", (key,)).fetchone()
+        return res[0] if res else default
+
+def set_state(key, value):
+    with sqlite3.connect(DB_PATH) as conn:
+        conn.execute(f"INSERT OR REPLACE INTO {STATE_TABLE} (key, value) VALUES (?, ?)", (key, value))
+        conn.commit()
+
+def check_triggers():
+    with sqlite3.connect(DB_PATH) as conn:
+        # Condition A: New Traces
+        total_traces = conn.execute("SELECT count(*) FROM traces").fetchone()[0]
+        last_processed = get_state("last_processed_trace")
+        new_traces = total_traces - last_processed
+        
+        if new_traces >= NEW_TRACES_THRESHOLD:
+            print(f"Triggered: {new_traces} new traces found.")
+            return True, "new_traces"
+
+        # Condition B: Quality Drop (last 50)
+        # Using 'outcome' column: assume 'success' or 'fail'
+        res = conn.execute("SELECT outcome FROM traces ORDER BY trace_id DESC LIMIT 50").fetchall()
+        if len(res) >= 50:
+            successes = sum(1 for row in res if row[0] == 'success')
+            success_rate = successes / 50
+            if success_rate < SUCCESS_THRESHOLD:
+                print(f"Triggered: Success rate dropped to {success_rate:.2%}.")
+                return True, "quality_drop"
+                
+    return False, None
+
+def run_loop():
+    print("Monitoring harness...")
+    while True:
+        triggered, reason = check_triggers()
+        if triggered:
+            print(f"Executing optimization loop due to {reason}...")
+            try:
+                # 1. Meta Optimizer
+                subprocess.run([sys.executable, str(SCRIPTS["optimizer"])], check=True)
+                
+                # 2. A/B Eval
+                eval_res = subprocess.run([str(SCRIPTS["ab_eval"])], capture_output=True, text=True)
+                if eval_res.returncode == 0:
+                    print("A/B Eval successful. Applying patch...")
+                    # 3. Apply Patch
+                    subprocess.run([sys.executable, str(SCRIPTS["patch"])], check=True)
+                    
+                    # Update state
+                    with sqlite3.connect(DB_PATH) as conn:
+                        total_traces = conn.execute("SELECT count(*) FROM traces").fetchone()[0]
+                        set_state("last_processed_trace", total_traces)
+                    
+                    # Generate updated dashboard
+                    subprocess.run([sys.executable, str(SCRIPTS["dashboard"])], check=True)
+                    print("Optimization complete and dashboard updated.")
+                else:
+                    print("A/B Eval failed. Skipping patch.")
+            except subprocess.CalledProcessError as e:
+                print(f"Error in loop: {e}")
+        
+        time.sleep(60)
+
+if __name__ == "__main__":
+    init_db()
+    run_loop()
