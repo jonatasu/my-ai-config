@@ -69,6 +69,15 @@ The ecosystem implements a multi-layer memory architecture using **Obsidian** as
 2. Ensure the agent follows the **Deep-Implementation Plan (DIP)** protocol for complex tasks.
 3. Require the agent to perform **Decision Logging** in the `.vault/` after structural changes.
 
+## 🤖 Opencode Integration
+
+This repository serves as the **DNA** for the Opencode agent, providing the structural intelligence, tool configurations, and professional skills required for high-fidelity software engineering.
+
+### Onboarding Flow
+1. **Sync DNA**: Run `bin/opencode_bootstrap.sh` to initialize and synchronize the agent's core configuration.
+2. **Manage Budgets**: Use `select_mcp_profile.py` to configure and manage MCP tool budgets.
+3. **Load Skills**: Use `scripts/opencode_skill_mapper.py` to map and load specialized skills into the agent's active context.
+
 ---
 
 ## 🚀 Philosophy: The Caveman Principle

@@ -10,7 +10,7 @@ STATE_TABLE = "autopilot_state"
 SUCCESS_THRESHOLD = 0.8
 NEW_TRACES_THRESHOLD = 100
 
-    SCRIPTS = {
+SCRIPTS = {
         "optimizer": Path("/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.tools/harness/scripts/meta_optimizer.py"),
         "ab_eval": Path("/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.tools/harness/scripts/run_ab_eval.sh"),
         "patch": Path("/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.tools/harness/scripts/apply_patch.py"),

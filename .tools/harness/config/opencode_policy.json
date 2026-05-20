@@ -1,0 +1,31 @@
+{
+  "global_budget": 100,
+  "profiles": {
+    "research": {
+      "budget": 100,
+      "tools": [
+        { "mcp": "firecrawl", "cost": 30 },
+        { "mcp": "context7", "cost": 30 },
+        { "mcp": "webfetch", "cost": 20 },
+        { "mcp": "playwright", "cost": 20 }
+      ]
+    },
+    "coding": {
+      "budget": 100,
+      "tools": [
+        { "mcp": "repomix", "cost": 30 },
+        { "mcp": "testsprite", "cost": 30 },
+        { "mcp": "bash", "cost": 20 },
+        { "mcp": "edit", "cost": 20 }
+      ]
+    },
+    "ops": {
+      "budget": 100,
+      "tools": [
+        { "mcp": "atlassian", "cost": 40 },
+        { "mcp": "bash", "cost": 30 },
+        { "mcp": "git", "cost": 30 }
+      ]
+    }
+  }
+}
