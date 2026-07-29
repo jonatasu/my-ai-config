@@ -381,20 +381,20 @@ The 12 JowCodes Specialists are domain experts, each with distinct personality s
 ### Domain Areas
 
 These agents specialize across diverse domains:
-- **Accessibility & WCAG Compliance** (lhg-a11y)
-- **Android Development** (lhg-android)
-- **Design Systems & Components** (lhg-design-system)
-- **DevOps & CI/CD** (lhg-devops)
-- **Technical Documentation** (lhg-docs)
-- **iOS Development** (lhg-ios)
-- **API & Integration Tools** (lhg-mcp)
-- **Project Management** (lhg-pm)
-- **Quality Assurance & Testing** (lhg-qa)
-- **Release Management** (lhg-release)
-- **Architecture & Design** (lhg-sdui-architect)
-- **Security & Threat Modeling** (lhg-security)
+- **Accessibility & WCAG Compliance** (jc-a11y)
+- **Android Development** (jc-android)
+- **Design Systems & Components** (jc-design-system)
+- **DevOps & CI/CD** (jc-devops)
+- **Technical Documentation** (jc-docs)
+- **iOS Development** (jc-ios)
+- **API & Integration Tools** (jc-mcp)
+- **Project Management** (jc-pm)
+- **Quality Assurance & Testing** (jc-qa)
+- **Release Management** (jc-release)
+- **Architecture & Design** (jc-sdui-architect)
+- **Security & Threat Modeling** (jc-security)
 
-### 1. lhg-a11y (Cassiano) — Accessibility Specialist
+### 1. jc-a11y (Cassiano) — Accessibility Specialist
 
 #### Soul Profile
 
@@ -427,7 +427,7 @@ These agents specialize across diverse domains:
 
 ---
 
-### 2. lhg-android (Rodrigo) — Android Development Specialist
+### 2. jc-android (Rodrigo) — Android Development Specialist
 
 #### Soul Profile
 
@@ -460,7 +460,7 @@ These agents specialize across diverse domains:
 
 ---
 
-### 3. lhg-design-system (Luis) — Design System Specialist
+### 3. jc-design-system (Luis) — Design System Specialist
 
 #### Soul Profile
 
@@ -494,7 +494,7 @@ These agents specialize across diverse domains:
 
 ---
 
-### 4. lhg-devops (Phill) — DevOps & CI/CD Specialist
+### 4. jc-devops (Phill) — DevOps & CI/CD Specialist
 
 #### Soul Profile
 
@@ -528,7 +528,7 @@ These agents specialize across diverse domains:
 
 ---
 
-### 5. lhg-docs (Dani) — Documentation Specialist
+### 5. jc-docs (Dani) — Documentation Specialist
 
 #### Soul Profile
 
@@ -562,7 +562,7 @@ These agents specialize across diverse domains:
 
 ---
 
-### 6. lhg-ios (Donizete) — iOS Development Specialist
+### 6. jc-ios (Donizete) — iOS Development Specialist
 
 #### Soul Profile
 
@@ -596,7 +596,7 @@ These agents specialize across diverse domains:
 
 ---
 
-### 7. lhg-mcp (Hirama) — MCP & Integration Specialist
+### 7. jc-mcp (Hirama) — MCP & Integration Specialist
 
 #### Soul Profile
 
@@ -630,7 +630,7 @@ These agents specialize across diverse domains:
 
 ---
 
-### 8. lhg-pm (Cadu) — Project Management Specialist
+### 8. jc-pm (Cadu) — Project Management Specialist
 
 #### Soul Profile
 
@@ -664,7 +664,7 @@ These agents specialize across diverse domains:
 
 ---
 
-### 9. lhg-qa (Iuri) — QA & Testing Specialist
+### 9. jc-qa (Iuri) — QA & Testing Specialist
 
 #### Soul Profile
 
@@ -698,7 +698,7 @@ These agents specialize across diverse domains:
 
 ---
 
-### 10. lhg-release (Jacinthe) — Release Management Specialist
+### 10. jc-release (Jacinthe) — Release Management Specialist
 
 #### Soul Profile
 
@@ -732,7 +732,7 @@ These agents specialize across diverse domains:
 
 ---
 
-### 11. lhg-sdui-architect (Tupan) — SDUI Architecture Specialist
+### 11. jc-sdui-architect (Tupan) — SDUI Architecture Specialist
 
 #### Soul Profile
 
@@ -766,7 +766,7 @@ These agents specialize across diverse domains:
 
 ---
 
-### 12. lhg-security (Mark) — Security Specialist
+### 12. jc-security (Mark) — Security Specialist
 
 #### Soul Profile
 
@@ -979,23 +979,23 @@ JowCodes Specialists coordinate horizontally across domains:
 
 ```
 Example: Feature Development Workflow
-  lhg-pm (Scope & Priority)
+  jc-pm (Scope & Priority)
     ↓
-  lhg-sdui-architect (Design) — if architectural
+  jc-sdui-architect (Design) — if architectural
     ↓
-  lhg-design-system (Components & Design Tokens)
-  lhg-android (Implementation) — parallel
-  lhg-ios (Implementation) — parallel
+  jc-design-system (Components & Design Tokens)
+  jc-android (Implementation) — parallel
+  jc-ios (Implementation) — parallel
     ↓
-  lhg-qa (Testing & Quality)
+  jc-qa (Testing & Quality)
     ↓
-  lhg-a11y (Accessibility Review)
+  jc-a11y (Accessibility Review)
     ↓
-  lhg-security (Security Audit)
+  jc-security (Security Audit)
     ↓
-  lhg-release (Versioning & Release Planning)
+  jc-release (Versioning & Release Planning)
     ↓
-  lhg-devops (Deployment & CI/CD)
+  jc-devops (Deployment & CI/CD)
 
 This pattern is platform-agnostic and works in any team/project context.
 ```

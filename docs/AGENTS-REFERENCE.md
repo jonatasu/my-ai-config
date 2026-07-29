@@ -16,7 +16,7 @@ The 12 JowCodes Specialists are **platform-agnostic domain experts**. They opera
 
 | Domain | Agents | Count |
 |--------|--------|-------|
-| JowCodes Specialists | lhg-a11y, lhg-android, lhg-design-system, lhg-devops, lhg-docs, lhg-ios, lhg-mcp, lhg-pm, lhg-qa, lhg-release, lhg-sdui-architect, lhg-security | 12 |
+| JowCodes Specialists | jc-a11y, jc-android, jc-design-system, jc-devops, jc-docs, jc-ios, jc-mcp, jc-pm, jc-qa, jc-release, jc-sdui-architect, jc-security | 12 |
 | Development Tools | dev-tools:skill-creator-agent | 1 |
 | Caveman Specialists | caveman:cavecrew-builder, caveman:cavecrew-investigator, caveman:cavecrew-reviewer | 3 |
 | Research & Documentation | context7:docs-researcher | 1 |
@@ -33,7 +33,7 @@ The specialists are named after experienced professionals with whom these behavi
 
 ---
 
-### 1. `lhg-a11y` — Accessibility & WCAG Specialist
+### 1. `jc-a11y` — Accessibility & WCAG Specialist
 **Alias:** Cassiano
 
 **Purpose:** Ensure JowCodes products meet WCAG 2.1/2.2 accessibility standards.
@@ -65,10 +65,10 @@ The specialists are named after experienced professionals with whom these behavi
 - Test case specifications
 
 **Coordination Partners:**
-- lhg-design-system (component implementation)
-- lhg-android (Android-specific a11y)
-- lhg-ios (iOS-specific a11y)
-- lhg-qa (testing execution)
+- jc-design-system (component implementation)
+- jc-android (Android-specific a11y)
+- jc-ios (iOS-specific a11y)
+- jc-qa (testing execution)
 
 **Use Cases:**
 - WCAG 2.1/2.2 compliance audits
@@ -79,7 +79,7 @@ The specialists are named after experienced professionals with whom these behavi
 
 ---
 
-### 2. `lhg-android` — Android Development Specialist
+### 2. `jc-android` — Android Development Specialist
 **Alias:** Rodrigo
 
 **Purpose:** Develop and maintain the multi-tenant lh-group-app-android platform.
@@ -120,10 +120,10 @@ The specialists are named after experienced professionals with whom these behavi
 - Test suites
 
 **Coordination Partners:**
-- lhg-sdui-architect (schema and contracts)
-- lhg-qa (testing and QA)
-- lhg-devops (CI/CD for Android)
-- lhg-design-system (component library)
+- jc-sdui-architect (schema and contracts)
+- jc-qa (testing and QA)
+- jc-devops (CI/CD for Android)
+- jc-design-system (component library)
 
 **Use Cases:**
 - Feature development
@@ -136,7 +136,7 @@ The specialists are named after experienced professionals with whom these behavi
 
 ---
 
-### 3. `lhg-design-system` — Design System Specialist
+### 3. `jc-design-system` — Design System Specialist
 **Alias:** Luis
 
 **Purpose:** Maintain DH-DesignSystem and component library standards.
@@ -178,9 +178,9 @@ The specialists are named after experienced professionals with whom these behavi
 - Accessibility compliance reports
 
 **Coordination Partners:**
-- lhg-a11y (accessibility compliance)
-- lhg-qa (testing strategy)
-- lhg-devops (release automation)
+- jc-a11y (accessibility compliance)
+- jc-qa (testing strategy)
+- jc-devops (release automation)
 - web-component-renderer-react (renderer integration)
 
 **Use Cases:**
@@ -194,7 +194,7 @@ The specialists are named after experienced professionals with whom these behavi
 
 ---
 
-### 4. `lhg-devops` — DevOps & CI/CD Specialist
+### 4. `jc-devops` — DevOps & CI/CD Specialist
 **Alias:** Phill
 
 **Purpose:** Optimize and maintain CI/CD infrastructure across JowCodes.
@@ -234,10 +234,10 @@ The specialists are named after experienced professionals with whom these behavi
 - Runbooks for common failures
 
 **Coordination Partners:**
-- lhg-android (Android build optimization)
-- lhg-ios (iOS build optimization)
-- lhg-qa (test execution in pipeline)
-- lhg-release (release automation)
+- jc-android (Android build optimization)
+- jc-ios (iOS build optimization)
+- jc-qa (test execution in pipeline)
+- jc-release (release automation)
 
 **Use Cases:**
 - Pipeline creation/updates
@@ -250,7 +250,7 @@ The specialists are named after experienced professionals with whom these behavi
 
 ---
 
-### 5. `lhg-docs` — Documentation Specialist
+### 5. `jc-docs` — Documentation Specialist
 **Alias:** Dani
 
 **Purpose:** Maintain and sync technical documentation across JowCodes.
@@ -291,9 +291,9 @@ The specialists are named after experienced professionals with whom these behavi
 
 **Coordination Partners:**
 - All DH agents (documentation input)
-- lhg-pm (release documentation)
-- lhg-devops (deployment docs)
-- lhg-qa (testing documentation)
+- jc-pm (release documentation)
+- jc-devops (deployment docs)
+- jc-qa (testing documentation)
 
 **Use Cases:**
 - Architecture documentation
@@ -306,7 +306,7 @@ The specialists are named after experienced professionals with whom these behavi
 
 ---
 
-### 6. `lhg-ios` — iOS Development Specialist
+### 6. `jc-ios` — iOS Development Specialist
 **Alias:** Donizete
 
 **Purpose:** Develop and maintain the multi-tenant lh-group-app-ios platform.
@@ -346,10 +346,10 @@ The specialists are named after experienced professionals with whom these behavi
 - Build configuration updates
 
 **Coordination Partners:**
-- lhg-sdui-architect (schema and contracts)
-- lhg-qa (testing and QA)
-- lhg-devops (CI/CD for iOS)
-- lhg-design-system (component library)
+- jc-sdui-architect (schema and contracts)
+- jc-qa (testing and QA)
+- jc-devops (CI/CD for iOS)
+- jc-design-system (component library)
 
 **Use Cases:**
 - Feature development
@@ -362,7 +362,7 @@ The specialists are named after experienced professionals with whom these behavi
 
 ---
 
-### 7. `lhg-mcp` — MCP & Jira Integration Specialist
+### 7. `jc-mcp` — MCP & Jira Integration Specialist
 **Alias:** Hirama
 
 **Purpose:** Design and maintain MCP servers and Jira/TrackSpace integrations.
@@ -402,9 +402,9 @@ The specialists are named after experienced professionals with whom these behavi
 - API integration examples
 
 **Coordination Partners:**
-- lhg-pm (workflow requirements)
-- lhg-devops (deployment infrastructure)
-- lhg-docs (integration documentation)
+- jc-pm (workflow requirements)
+- jc-devops (deployment infrastructure)
+- jc-docs (integration documentation)
 - Development teams (tool integration)
 
 **Use Cases:**
@@ -418,7 +418,7 @@ The specialists are named after experienced professionals with whom these behavi
 
 ---
 
-### 8. `lhg-pm` — Project Management Specialist
+### 8. `jc-pm` — Project Management Specialist
 **Alias:** Cadu
 
 **Purpose:** Manage backlog, prioritization, and Definition of Ready (DOR).
@@ -450,10 +450,10 @@ The specialists are named after experienced professionals with whom these behavi
 - Dependency maps
 
 **Coordination Partners:**
-- lhg-qa (testing readiness)
-- lhg-docs (documentation completeness)
-- lhg-devops (deployment readiness)
-- lhg-release (release coordination)
+- jc-qa (testing readiness)
+- jc-docs (documentation completeness)
+- jc-devops (deployment readiness)
+- jc-release (release coordination)
 - Development teams (implementation feasibility)
 
 **Use Cases:**
@@ -467,7 +467,7 @@ The specialists are named after experienced professionals with whom these behavi
 
 ---
 
-### 9. `lhg-qa` — Testing & QA Specialist
+### 9. `jc-qa` — Testing & QA Specialist
 **Alias:** Iuri
 
 **Purpose:** Define and execute comprehensive testing strategies across all stacks.
@@ -505,10 +505,10 @@ The specialists are named after experienced professionals with whom these behavi
 - Regression test suites
 
 **Coordination Partners:**
-- lhg-devops (CI/CD integration)
-- lhg-android (Android testing)
-- lhg-ios (iOS testing)
-- lhg-design-system (component testing)
+- jc-devops (CI/CD integration)
+- jc-android (Android testing)
+- jc-ios (iOS testing)
+- jc-design-system (component testing)
 - Development teams (test implementation)
 
 **Use Cases:**
@@ -522,7 +522,7 @@ The specialists are named after experienced professionals with whom these behavi
 
 ---
 
-### 10. `lhg-release` — Release Management Specialist
+### 10. `jc-release` — Release Management Specialist
 **Alias:** Jacinthe
 
 **Purpose:** Manage versioning, changelogs, and release pipeline coordination.
@@ -554,10 +554,10 @@ The specialists are named after experienced professionals with whom these behavi
 - Release coordination timeline
 
 **Coordination Partners:**
-- lhg-devops (deployment execution)
-- lhg-qa (testing verification)
-- lhg-docs (release documentation)
-- lhg-pm (release planning)
+- jc-devops (deployment execution)
+- jc-qa (testing verification)
+- jc-docs (release documentation)
+- jc-pm (release planning)
 - Development teams (commit information)
 
 **Use Cases:**
@@ -571,7 +571,7 @@ The specialists are named after experienced professionals with whom these behavi
 
 ---
 
-### 11. `lhg-sdui-architect` — SDUI Cross-Platform Architect
+### 11. `jc-sdui-architect` — SDUI Cross-Platform Architect
 **Alias:** Tupan
 
 **Purpose:** Design and coordinate Server-Driven UI (SDUI) architecture across platforms.
@@ -609,11 +609,11 @@ The specialists are named after experienced professionals with whom these behavi
 - Architecture decision records (ADR)
 
 **Coordination Partners:**
-- lhg-android (Android renderer updates)
-- lhg-ios (iOS renderer updates)
+- jc-android (Android renderer updates)
+- jc-ios (iOS renderer updates)
 - Web team (React renderer updates)
-- lhg-devops (deployment coordination)
-- lhg-release (version coordination)
+- jc-devops (deployment coordination)
+- jc-release (version coordination)
 
 **Use Cases:**
 - Schema design and evolution
@@ -626,7 +626,7 @@ The specialists are named after experienced professionals with whom these behavi
 
 ---
 
-### 12. `lhg-security` — Security Specialist
+### 12. `jc-security` — Security Specialist
 **Alias:** Mark
 
 **Purpose:** Audit and enforce security standards across JowCodes.
@@ -664,9 +664,9 @@ The specialists are named after experienced professionals with whom these behavi
 
 **Coordination Partners:**
 - All DH development teams (code review)
-- lhg-devops (infrastructure security)
-- lhg-design-system (component security)
-- lhg-qa (security testing)
+- jc-devops (infrastructure security)
+- jc-design-system (component security)
+- jc-qa (security testing)
 
 **Use Cases:**
 - Pre-release security audits
@@ -895,42 +895,42 @@ cavecrew-reviewer → One-line severity-tagged findings
 
 #### Feature Development Workflow
 ```
-lhg-pm (Planning)
-  → lhg-android/ios/design-system (Implementation)
-  → lhg-qa (Testing)
-  → lhg-a11y (Accessibility review)
-  → lhg-security (Security review)
-  → lhg-release (Versioning)
-  → lhg-devops (Deployment)
+jc-pm (Planning)
+  → jc-android/ios/design-system (Implementation)
+  → jc-qa (Testing)
+  → jc-a11y (Accessibility review)
+  → jc-security (Security review)
+  → jc-release (Versioning)
+  → jc-devops (Deployment)
 ```
 
 #### SDUI Schema Change Workflow
 ```
-lhg-sdui-architect (Design)
-  → lhg-android (Android renderer)
-  → lhg-ios (iOS renderer)
+jc-sdui-architect (Design)
+  → jc-android (Android renderer)
+  → jc-ios (iOS renderer)
   → Web team (React renderer)
-  → lhg-release (Version coordination)
-  → lhg-devops (Deployment in sequence)
+  → jc-release (Version coordination)
+  → jc-devops (Deployment in sequence)
   → Monitoring (24h error rate tracking)
 ```
 
 #### Documentation Sync Workflow
 ```
-lhg-docs (Audit)
+jc-docs (Audit)
   → All agents (Input collection)
-  → lhg-docs (Documentation update)
-  → lhg-qa (Verification testing)
-  → lhg-devops (CI/CD integration)
+  → jc-docs (Documentation update)
+  → jc-qa (Verification testing)
+  → jc-devops (CI/CD integration)
 ```
 
 #### Release Workflow
 ```
-lhg-release (Planning)
-  → lhg-qa (Testing verification)
-  → lhg-docs (CHANGELOG generation)
-  → lhg-devops (Deployment execution)
-  → lhg-security (Post-release audit)
+jc-release (Planning)
+  → jc-qa (Testing verification)
+  → jc-docs (CHANGELOG generation)
+  → jc-devops (Deployment execution)
+  → jc-security (Post-release audit)
 ```
 
 ---
@@ -942,31 +942,31 @@ lhg-release (Planning)
 **Platform Domain?**
 
 - 🎨 **Design & Components**
-  - → `lhg-design-system` (component work)
-  - → `lhg-a11y` (accessibility review)
+  - → `jc-design-system` (component work)
+  - → `jc-a11y` (accessibility review)
 
 - 📱 **Mobile Development**
-  - → `lhg-android` (Android features)
-  - → `lhg-ios` (iOS features)
+  - → `jc-android` (Android features)
+  - → `jc-ios` (iOS features)
 
 - 🛠️ **Infrastructure & Automation**
-  - → `lhg-devops` (CI/CD, pipelines)
-  - → `lhg-mcp` (integrations, automation)
+  - → `jc-devops` (CI/CD, pipelines)
+  - → `jc-mcp` (integrations, automation)
 
 - 📊 **Project & Process**
-  - → `lhg-pm` (planning, prioritization)
-  - → `lhg-release` (versioning, release)
+  - → `jc-pm` (planning, prioritization)
+  - → `jc-release` (versioning, release)
 
 - ✅ **Quality & Testing**
-  - → `lhg-qa` (test strategy, execution)
-  - → `lhg-security` (security audit)
+  - → `jc-qa` (test strategy, execution)
+  - → `jc-security` (security audit)
 
 - 📚 **Documentation & Knowledge**
-  - → `lhg-docs` (technical documentation)
+  - → `jc-docs` (technical documentation)
   - → `context7:docs-researcher` (library docs)
 
 - 🏗️ **Architecture**
-  - → `lhg-sdui-architect` (SDUI/cross-platform)
+  - → `jc-sdui-architect` (SDUI/cross-platform)
 
 - 📝 **Code Editing (Compressed)**
   - → `caveman:cavecrew-builder` (1-2 files)
@@ -982,18 +982,18 @@ lhg-release (Planning)
 
 | Agent | Type | Focus | Compression | Coordination |
 |-------|------|-------|-------------|--------------|
-| lhg-a11y | Specialist | Accessibility | Standard | High |
-| lhg-android | Specialist | Android dev | Standard | High |
-| lhg-design-system | Specialist | Components | Standard | High |
-| lhg-devops | Specialist | CI/CD | Standard | High |
-| lhg-docs | Specialist | Documentation | Standard | Medium |
-| lhg-ios | Specialist | iOS dev | Standard | High |
-| lhg-mcp | Specialist | Integrations | Standard | Medium |
-| lhg-pm | Specialist | Project mgmt | Standard | High |
-| lhg-qa | Specialist | Testing | Standard | High |
-| lhg-release | Specialist | Releases | Standard | High |
-| lhg-sdui-architect | Specialist | Architecture | Standard | Very High |
-| lhg-security | Specialist | Security | Standard | High |
+| jc-a11y | Specialist | Accessibility | Standard | High |
+| jc-android | Specialist | Android dev | Standard | High |
+| jc-design-system | Specialist | Components | Standard | High |
+| jc-devops | Specialist | CI/CD | Standard | High |
+| jc-docs | Specialist | Documentation | Standard | Medium |
+| jc-ios | Specialist | iOS dev | Standard | High |
+| jc-mcp | Specialist | Integrations | Standard | Medium |
+| jc-pm | Specialist | Project mgmt | Standard | High |
+| jc-qa | Specialist | Testing | Standard | High |
+| jc-release | Specialist | Releases | Standard | High |
+| jc-sdui-architect | Specialist | Architecture | Standard | Very High |
+| jc-security | Specialist | Security | Standard | High |
 | dev-tools:skill-creator | Orchestrator | Skill lifecycle | Standard | Medium |
 | cavecrew-builder | Specialist | Code editing | Compressed | Low |
 | cavecrew-investigator | Specialist | Code search | Compressed | Low |
@@ -1006,18 +1006,18 @@ lhg-release (Planning)
 
 | Agent | Typical Duration | Context Impact | Token Overhead | Parallelizable |
 |-------|-----------------|-----------------|-----------------|-----------------|
-| lhg-a11y | 10-20min | High | Medium | Yes |
-| lhg-android | 15-45min | Very High | High | Yes |
-| lhg-design-system | 10-30min | High | Medium | Yes |
-| lhg-devops | 5-15min | Medium | Medium | Yes |
-| lhg-docs | 10-30min | High | Medium | Yes |
-| lhg-ios | 15-45min | Very High | High | Yes |
-| lhg-mcp | 10-20min | Medium | Medium | Yes |
-| lhg-pm | 5-15min | Low | Low | Yes |
-| lhg-qa | 15-60min | Very High | High | Yes |
-| lhg-release | 5-10min | Low | Low | Yes |
-| lhg-sdui-architect | 20-60min | Very High | Very High | Limited |
-| lhg-security | 20-60min | Very High | High | Limited |
+| jc-a11y | 10-20min | High | Medium | Yes |
+| jc-android | 15-45min | Very High | High | Yes |
+| jc-design-system | 10-30min | High | Medium | Yes |
+| jc-devops | 5-15min | Medium | Medium | Yes |
+| jc-docs | 10-30min | High | Medium | Yes |
+| jc-ios | 15-45min | Very High | High | Yes |
+| jc-mcp | 10-20min | Medium | Medium | Yes |
+| jc-pm | 5-15min | Low | Low | Yes |
+| jc-qa | 15-60min | Very High | High | Yes |
+| jc-release | 5-10min | Low | Low | Yes |
+| jc-sdui-architect | 20-60min | Very High | Very High | Limited |
+| jc-security | 20-60min | Very High | High | Limited |
 | dev-tools:skill-creator | 30-120min | Very High | Very High | No |
 | cavecrew-builder | <5min | Minimal | Minimal | Yes |
 | cavecrew-investigator | 2-5min | Minimal | Minimal | Yes |

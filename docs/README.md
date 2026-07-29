@@ -66,17 +66,17 @@ This documentation package enables teams to understand, select, coordinate, and 
 4. Implement: Workflow orchestration
 
 **📚 Tech Writer / Documentarian**
-1. Read: AGENTS-REFERENCE.md → lhg-docs section
+1. Read: AGENTS-REFERENCE.md → jc-docs section
 2. Read: SKILLS-REFERENCE.md → docs and readme skills
 3. Reference: Documentation best practices in ECOSYSTEM-GUIDE.md
 
 **🔒 Security Specialist**
-1. Read: AGENTS-REFERENCE.md → lhg-security section
+1. Read: AGENTS-REFERENCE.md → jc-security section
 2. Read: ECOSYSTEM-GUIDE.md → Security Audit example
 3. Reference: SKILLS-REFERENCE.md → prod-ready skill
 
 **🎨 Designer / UX**
-1. Read: AGENTS-REFERENCE.md → lhg-a11y and lhg-design-system sections
+1. Read: AGENTS-REFERENCE.md → jc-a11y and jc-design-system sections
 2. Read: ECOSYSTEM-GUIDE.md → Design Systems example
 3. Reference: SKILLS-REFERENCE.md → readme skill
 
@@ -151,7 +151,7 @@ my-ai-config/
 - Multi-step problem solving
 - Complete context required as input
 - Isolated execution with synthesis
-- Examples: lhg-security, lhg-sdui-architect, lhg-qa
+- Examples: jc-security, jc-sdui-architect, jc-qa
 
 ### Coordination
 - Skills work together via explicit data handoff

@@ -33,7 +33,7 @@
 ✅ Compressed output: cavecrew, cavecrew-builder, cavecrew-investigator, cavecrew-reviewer
 
 ### **17 Agents** (All Covered)
-✅ JowCodes: 12 specialists (lhg-a11y, lhg-android, lhg-design-system, lhg-devops, lhg-docs, lhg-ios, lhg-mcp, lhg-pm, lhg-qa, lhg-release, lhg-sdui-architect, lhg-security)  
+✅ JowCodes: 12 specialists (jc-a11y, jc-android, jc-design-system, jc-devops, jc-docs, jc-ios, jc-mcp, jc-pm, jc-qa, jc-release, jc-sdui-architect, jc-security)  
 ✅ Dev-Tools: dev-tools:skill-creator-agent  
 ✅ Caveman Specialists: caveman:cavecrew-builder, caveman:cavecrew-investigator, caveman:cavecrew-reviewer  
 ✅ Research: context7:docs-researcher
@@ -208,7 +208,7 @@
 ### Scenario 3: "I need to audit security"
 **Time:** 2-4 hours
 1. Read: README.md (2 min)
-2. Review: AGENTS-REFERENCE.md → lhg-security
+2. Review: AGENTS-REFERENCE.md → jc-security
 3. Reference: COPILOT-ECOSYSTEM-GUIDE.md → Example 3 (Security Audit)
 4. Design: STRIDE-based investigation
 5. Execute: Autonomous agent reasoning + tool use

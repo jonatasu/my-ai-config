@@ -199,7 +199,7 @@ Agent Output (structured findings)
 
 **Example: Security Audit**
 ```
-lhg-security agent receives:
+jc-security agent receives:
   - Codebase context
   - Architecture diagrams
   - API specifications
@@ -241,20 +241,20 @@ Orchestration Result
 
 **Example: SDUI Schema Change**
 ```
-lhg-sdui-architect:
+jc-sdui-architect:
   - Design schema changes
   - Version strategy
   - Rollout plan
      ↓
-lhg-android:
+jc-android:
   - Implement Android renderer
   - Test compatibility
      ↓
-lhg-ios:
+jc-ios:
   - Implement iOS renderer
   - Test compatibility
      ↓
-lhg-release:
+jc-release:
   - Coordinate versioning
   - Plan rollout sequence
      ↓
@@ -455,8 +455,8 @@ cavecrew-reviewer   → Diff review
 ```
 prod-ready          → Pre-release audit
 test                → Test verification
-lhg-qa              → Test strategy
-lhg-release         → Version management
+jc-qa              → Test strategy
+jc-release         → Version management
 ```
 
 #### Documentation
@@ -464,26 +464,26 @@ lhg-release         → Version management
 readme              → Project docs
 docs                → Library docs
 context7-mcp        → Doc fetching
-lhg-docs            → Technical docs
+jc-docs            → Technical docs
 ```
 
 #### Research & Analysis
 ```
 deep-explore        → Multi-source investigation
 spawn-agent         → Isolated analysis
-lhg-sdui-arch       → Architecture analysis
-lhg-security        → Security analysis
+jc-sdui-arch       → Architecture analysis
+jc-security        → Security analysis
 ```
 
 #### Platform-Specific
 ```
-lhg-a11y            → Accessibility audit
-lhg-android         → Android development
-lhg-ios             → iOS development
-lhg-design-system   → Component library
-lhg-devops          → CI/CD automation
-lhg-mcp             → Integration automation
-lhg-pm              → Project management
+jc-a11y            → Accessibility audit
+jc-android         → Android development
+jc-ios             → iOS development
+jc-design-system   → Component library
+jc-devops          → CI/CD automation
+jc-mcp             → Integration automation
+jc-pm              → Project management
 ```
 
 #### Efficiency
@@ -497,22 +497,22 @@ caveman-compress    → Memory compression
 
 | Input | Skills | Agents |
 |-------|--------|--------|
-| Code | quick-epct, test, yaml-validator | lhg-android, lhg-ios, lhg-design-system, lhg-security, cavecrew-* |
-| Architecture | - | lhg-sdui-architect, lhg-security, lhg-devops |
-| Requirements | prompt, readme | lhg-pm, lhg-qa, lhg-docs |
-| Design | - | lhg-design-system, lhg-a11y |
-| Data/Logs | deep-explore | lhg-qa, lhg-security, cavecrew-investigator |
-| Config | yaml-validator, customize-cloud-agent | lhg-devops, lhg-mcp |
-| Research | deep-explore | context7:docs-researcher, lhg-docs |
+| Code | quick-epct, test, yaml-validator | jc-android, jc-ios, jc-design-system, jc-security, cavecrew-* |
+| Architecture | - | jc-sdui-architect, jc-security, jc-devops |
+| Requirements | prompt, readme | jc-pm, jc-qa, jc-docs |
+| Design | - | jc-design-system, jc-a11y |
+| Data/Logs | deep-explore | jc-qa, jc-security, cavecrew-investigator |
+| Config | yaml-validator, customize-cloud-agent | jc-devops, jc-mcp |
+| Research | deep-explore | context7:docs-researcher, jc-docs |
 
 ### By Output Type
 
 | Output | Skills | Agents |
 |--------|--------|--------|
-| Code | quick-epct, skill-creator | lhg-android, lhg-ios, lhg-design-system |
-| Reports | prod-ready, test | lhg-security, lhg-qa, lhg-a11y |
-| Documentation | readme, docs, handoff | lhg-docs, lhg-release, lhg-sdui-architect |
-| Decisions | prompt | lhg-pm, lhg-release, lhg-sdui-architect |
+| Code | quick-epct, skill-creator | jc-android, jc-ios, jc-design-system |
+| Reports | prod-ready, test | jc-security, jc-qa, jc-a11y |
+| Documentation | readme, docs, handoff | jc-docs, jc-release, jc-sdui-architect |
+| Decisions | prompt | jc-pm, jc-release, jc-sdui-architect |
 | Findings | deep-explore, yaml-validator | cavecrew-reviewer, all specialists |
 | Compressed | caveman, cavecrew, caveman-compress | cavecrew-*, context7:docs-researcher |
 
@@ -674,7 +674,7 @@ caveman-compress    → Memory compression
 
 **Workflow:**
 ```
-1. lhg-security (if JowCodes)
+1. jc-security (if JowCodes)
    OR
    spawn-agent (generic agent)
    
@@ -704,11 +704,11 @@ caveman-compress    → Memory compression
 
 **Workflow:**
 ```
-1. lhg-release
+1. jc-release
    Input: Commit history, CHANGELOG
    Output: Version recommendation, release notes
 
-2. lhg-qa
+2. jc-qa
    Input: Release version
    Output: Testing results
 
@@ -720,7 +720,7 @@ caveman-compress    → Memory compression
    Input: Release changes
    Output: Release PR
 
-5. lhg-devops
+5. jc-devops
    Input: Approved release
    Output: Deployment status
 
@@ -735,15 +735,15 @@ caveman-compress    → Memory compression
 
 **Workflow:**
 ```
-1. lhg-sdui-architect
+1. jc-sdui-architect
    Input: Schema changes, design requirements
    Output: Architecture decision, versioning strategy
 
-2. lhg-android (parallel)
+2. jc-android (parallel)
    Input: Schema changes, renderer requirements
    Output: Android implementation plan
 
-3. lhg-ios (parallel)
+3. jc-ios (parallel)
    Input: Schema changes, renderer requirements
    Output: iOS implementation plan
 
@@ -751,11 +751,11 @@ caveman-compress    → Memory compression
    Input: Schema changes, renderer requirements
    Output: Web implementation plan
 
-5. lhg-release (synthesis)
+5. jc-release (synthesis)
    Input: All renderer status
    Output: Rollout coordination plan
 
-6. lhg-devops
+6. jc-devops
    Input: Rollout plan
    Output: Deployment automation
 ```
@@ -788,12 +788,12 @@ commit → create-pr (via az CLI) → test → prod-ready → trackspace integra
 - Use cavecrew-investigator to locate code
 - Use quick-epct for isolated feature work
 - Use prod-ready before cross-module changes
-- Coordinate with lhg-devops for CI/CD
+- Coordinate with jc-devops for CI/CD
 
 ### For Microservices
 
 **Recommended Approach:**
-- Use lhg-mcp for API/integration coordination
+- Use jc-mcp for API/integration coordination
 - Use prod-ready at service boundaries
 - Coordinate agents for cross-service changes
 - Track state with handoff
@@ -801,10 +801,10 @@ commit → create-pr (via az CLI) → test → prod-ready → trackspace integra
 ### For Design Systems
 
 **Recommended Approach:**
-- Use lhg-design-system for component work
-- Use lhg-a11y for accessibility review
+- Use jc-design-system for component work
+- Use jc-a11y for accessibility review
 - Use cavecrew-reviewer for component diffs
-- Coordinate versioning with lhg-release
+- Coordinate versioning with jc-release
 
 ---
 

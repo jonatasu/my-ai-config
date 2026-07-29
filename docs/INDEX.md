@@ -56,7 +56,7 @@ This documentation enables teams to understand, select, and integrate the comple
 **Complete specification of 17 domain-expert agents**
 
 - Quick reference table
-- 12 JowCodes specialists (lhg-prefix) with aliases
+- 12 JowCodes specialists (jc-prefix) with aliases
 - 3 caveman compression specialists
 - Dev-tools and research agents
 - Agent specializations and coordination
@@ -156,9 +156,9 @@ This documentation enables teams to understand, select, and integrate the comple
 |------|----------|
 | Remove barrel files | BEST-PRACTICES-BARREL-FILES.md → Full implementation guide |
 | Optimize build performance | BEST-PRACTICES-BARREL-FILES.md + ECOSYSTEM-GUIDE.md → quick-epct |
-| Design SDUI changes | AGENTS-REFERENCE.md → lhg-sdui-architect |
-| Review architecture | AGENTS-REFERENCE.md → lhg-sdui-architect or domain expert |
-| Component library work | AGENTS-REFERENCE.md → lhg-design-system agent |
+| Design SDUI changes | AGENTS-REFERENCE.md → jc-sdui-architect |
+| Review architecture | AGENTS-REFERENCE.md → jc-sdui-architect or domain expert |
+| Component library work | AGENTS-REFERENCE.md → jc-design-system agent |
 | Platform coordination | ECOSYSTEM-GUIDE.md → Agent Orchestration pattern |
 
 ### Git & Collaboration
@@ -167,7 +167,7 @@ This documentation enables teams to understand, select, and integrate the comple
 | Create a commit | SKILLS-REFERENCE.md → commit skill |
 | Create a pull request | SKILLS-REFERENCE.md → create-pr skill |
 | Review a diff | SKILLS-REFERENCE.md → cavecrew-reviewer skill |
-| Multi-repo coordination | AGENTS-REFERENCE.md → lhg-release agent |
+| Multi-repo coordination | AGENTS-REFERENCE.md → jc-release agent |
 
 ### Development & Coding
 | Task | Resource |
@@ -181,24 +181,24 @@ This documentation enables teams to understand, select, and integrate the comple
 | Task | Resource |
 |------|----------|
 | Audit code quality | AGENTS-REFERENCE.md → prod-ready skill |
-| Plan a release | AGENTS-REFERENCE.md → lhg-release agent |
+| Plan a release | AGENTS-REFERENCE.md → jc-release agent |
 | Test everything | SKILLS-REFERENCE.md → test skill |
-| Coordinate rollout | AGENTS-REFERENCE.md → lhg-devops or lhg-release |
+| Coordinate rollout | AGENTS-REFERENCE.md → jc-devops or jc-release |
 
 ### Security & Compliance
 | Task | Resource |
 |------|----------|
-| Security audit | AGENTS-REFERENCE.md → lhg-security agent |
+| Security audit | AGENTS-REFERENCE.md → jc-security agent |
 | Dependency scan | SKILLS-REFERENCE.md → test skill |
-| Access control review | AGENTS-REFERENCE.md → lhg-security agent |
-| Secret management | AGENTS-REFERENCE.md → lhg-security agent |
+| Access control review | AGENTS-REFERENCE.md → jc-security agent |
+| Secret management | AGENTS-REFERENCE.md → jc-security agent |
 
 ### Architecture & Design
 | Task | Resource |
 |------|----------|
-| Design SDUI changes | AGENTS-REFERENCE.md → lhg-sdui-architect |
-| Review architecture | AGENTS-REFERENCE.md → lhg-sdui-architect or domain expert |
-| Component library work | AGENTS-REFERENCE.md → lhg-design-system agent |
+| Design SDUI changes | AGENTS-REFERENCE.md → jc-sdui-architect |
+| Review architecture | AGENTS-REFERENCE.md → jc-sdui-architect or domain expert |
+| Component library work | AGENTS-REFERENCE.md → jc-design-system agent |
 | Platform coordination | ECOSYSTEM-GUIDE.md → Agent Orchestration pattern |
 
 ### Documentation
@@ -206,7 +206,7 @@ This documentation enables teams to understand, select, and integrate the comple
 |------|----------|
 | Create README | SKILLS-REFERENCE.md → readme skill |
 | Research library docs | SKILLS-REFERENCE.md → docs or context7-mcp skills |
-| Technical documentation | AGENTS-REFERENCE.md → lhg-docs agent |
+| Technical documentation | AGENTS-REFERENCE.md → jc-docs agent |
 | API documentation | SKILLS-REFERENCE.md → docs skill |
 
 ### Research & Analysis
@@ -291,18 +291,18 @@ This documentation enables teams to understand, select, and integrate the comple
 ### JowCodes Specialists (12)
 **Platform-agnostic domain experts — work in any context**
 
-1. **lhg-a11y** (Cassiano): Accessibility & WCAG compliance
-2. **lhg-android** (Rodrigo): Android/mobile development
-3. **lhg-design-system** (Luis): Design systems & components
-4. **lhg-devops** (Phill): DevOps & automation
-5. **lhg-docs** (Dani): Technical documentation
-6. **lhg-ios** (Donizete): iOS/mobile development
-7. **lhg-mcp** (Hirama): API & integration tools
-8. **lhg-pm** (Cadu): Project management
-9. **lhg-qa** (Iuri): Testing & quality assurance
-10. **lhg-release** (Jacinthe): Release coordination
-11. **lhg-sdui-architect** (Tupan): Architecture & design
-12. **lhg-security** (Mark): Security & threat modeling
+1. **jc-a11y** (Cassiano): Accessibility & WCAG compliance
+2. **jc-android** (Rodrigo): Android/mobile development
+3. **jc-design-system** (Luis): Design systems & components
+4. **jc-devops** (Phill): DevOps & automation
+5. **jc-docs** (Dani): Technical documentation
+6. **jc-ios** (Donizete): iOS/mobile development
+7. **jc-mcp** (Hirama): API & integration tools
+8. **jc-pm** (Cadu): Project management
+9. **jc-qa** (Iuri): Testing & quality assurance
+10. **jc-release** (Jacinthe): Release coordination
+11. **jc-sdui-architect** (Tupan): Architecture & design
+12. **jc-security** (Mark): Security & threat modeling
 
 ### Dev-Tools (1)
 - **dev-tools:skill-creator-agent**: Skill lifecycle orchestration
