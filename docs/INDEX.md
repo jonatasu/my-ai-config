@@ -8,6 +8,29 @@ This documentation enables teams to understand, select, and integrate the comple
 
 ## 📚 Core Documents
 
+### 0. [BEST-PRACTICES-BARREL-FILES.md](./BEST-PRACTICES-BARREL-FILES.md)
+**High-Impact Architectural Practice: Barrel File Removal**
+
+- Problem analysis: Why barrel files create dependency graph bloat
+- Evidence: Atlassian's 75% build speedup proof-of-concept
+- Technical implementation: ESLint fixable rules for automated transformation
+- Wave-based landing strategy: Safe migration for large codebases (1000+ developers)
+- Integration: How to coordinate across specialist agents
+- Risk mitigation and acceptance criteria
+
+**When to use:** You're optimizing TypeScript/JavaScript build performance or planning architecture improvements.
+
+**Key sections:**
+- Lines 1-50: Executive summary and metrics
+- Lines 50-150: Technical problem explanation
+- Lines 150-300: Implementation patterns (before/after)
+- Lines 300-400: Automation approach (ESLint fixable)
+- Lines 400-550: Wave-based landing strategy
+- Lines 550-700: Integration with specialist agents
+- Lines 700-750: Risk mitigation
+
+---
+
 ### 1. [SKILLS-REFERENCE.md](./SKILLS-REFERENCE.md)
 **Complete specification of 19 reusable skills**
 
@@ -79,6 +102,13 @@ This documentation enables teams to understand, select, and integrate the comple
 
 ## 🗺️ Navigation Guide
 
+### "I'm optimizing code architecture"
+1. Start: [BEST-PRACTICES-BARREL-FILES.md](./BEST-PRACTICES-BARREL-FILES.md) (if TypeScript/JavaScript)
+2. Understand: Problem statement and Atlassian's results
+3. Review: Implementation approach and wave-based strategy
+4. Coordinate: Invoke relevant specialist agents (design-system, devops, qa, release)
+5. Execute: Automation via ESLint + 3-wave landing
+
 ### "I need to accomplish a task"
 1. Start: [COPILOT-ECOSYSTEM-GUIDE.md](./COPILOT-ECOSYSTEM-GUIDE.md) → **Decision routing** section
 2. Select skill or agent
@@ -120,6 +150,16 @@ This documentation enables teams to understand, select, and integrate the comple
 ---
 
 ## 🎯 Quick Reference by Use Case
+
+### Architecture & Performance Optimization
+| Task | Resource |
+|------|----------|
+| Remove barrel files | BEST-PRACTICES-BARREL-FILES.md → Full implementation guide |
+| Optimize build performance | BEST-PRACTICES-BARREL-FILES.md + ECOSYSTEM-GUIDE.md → quick-epct |
+| Design SDUI changes | AGENTS-REFERENCE.md → lhg-sdui-architect |
+| Review architecture | AGENTS-REFERENCE.md → lhg-sdui-architect or domain expert |
+| Component library work | AGENTS-REFERENCE.md → lhg-design-system agent |
+| Platform coordination | ECOSYSTEM-GUIDE.md → Agent Orchestration pattern |
 
 ### Git & Collaboration
 | Task | Resource |
@@ -191,10 +231,11 @@ This documentation enables teams to understand, select, and integrate the comple
 
 | Document | Lines | Sections | Skills/Agents | Focus |
 |----------|-------|----------|-----------------|-------|
+| BEST-PRACTICES-BARREL-FILES.md | 750 | 8 | 4 agents | Architecture optimization |
 | SKILLS-REFERENCE.md | 1050 | 12 | 19 skills | Capability specification |
 | AGENTS-REFERENCE.md | 1045 | 14 | 17 agents | Domain expertise & coordination |
 | COPILOT-ECOSYSTEM-GUIDE.md | 886 | 15 | All 36 | Integration & orchestration |
-| **Total** | **2981** | **41** | **36** | **Complete ecosystem** |
+| **Total** | **3731** | **49** | **40** | **Complete ecosystem + practices** |
 
 ---
 

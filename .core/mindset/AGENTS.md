@@ -84,7 +84,7 @@ When tasked with domain-specific work, you MUST NOT attempt to solve it using ge
 
 ### Communication & Documentation
 - **Language Policy**: 
-    - Communication: [Insert Preferred Language, e.g., Portuguese (BR)].
+    - Communication: Portuguese (BR).
     - Technical Output (Code, Commits, Docs): English.
 - **Documentation**: Mandatory updates to `CHANGELOG.md` and technical documentation following any significant change.
 
@@ -161,7 +161,7 @@ Use structured, lightweight Markdown for all memory entries to ensure they are e
 
 ### Communication & Documentation
 - **Language Policy**: 
-    - Communication: [Insert Preferred Language, e.g., Portuguese (BR)].
+    - Communication: Portuguese (BR).
     - Technical Output (Code, Commits, Docs): English.
 - **Documentation**: Mandatory updates to `CHANGELOG.md` and technical documentation following any significant change.
 
