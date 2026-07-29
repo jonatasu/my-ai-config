@@ -33,7 +33,7 @@
 ✅ Compressed output: cavecrew, cavecrew-builder, cavecrew-investigator, cavecrew-reviewer
 
 ### **17 Agents** (All Covered)
-✅ Digital Hangar: 12 specialists (lhg-a11y, lhg-android, lhg-design-system, lhg-devops, lhg-docs, lhg-ios, lhg-mcp, lhg-pm, lhg-qa, lhg-release, lhg-sdui-architect, lhg-security)  
+✅ JowCodes: 12 specialists (lhg-a11y, lhg-android, lhg-design-system, lhg-devops, lhg-docs, lhg-ios, lhg-mcp, lhg-pm, lhg-qa, lhg-release, lhg-sdui-architect, lhg-security)  
 ✅ Dev-Tools: dev-tools:skill-creator-agent  
 ✅ Caveman Specialists: caveman:cavecrew-builder, caveman:cavecrew-investigator, caveman:cavecrew-reviewer  
 ✅ Research: context7:docs-researcher
@@ -81,7 +81,7 @@
 ### AGENTS-REFERENCE.md
 **Complete specification of 17 agents**
 - Quick reference table (all agents at a glance)
-- 12 Digital Hangar Specialists with:
+- 12 JowCodes Specialists with:
   - Alias names (Cassiano, Rodrigo, Luis, etc.)
   - Specialization & expertise
   - Primary repositories

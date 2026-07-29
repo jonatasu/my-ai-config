@@ -674,7 +674,7 @@ caveman-compress    → Memory compression
 
 **Workflow:**
 ```
-1. lhg-security (if Digital Hangar)
+1. lhg-security (if JowCodes)
    OR
    spawn-agent (generic agent)
    

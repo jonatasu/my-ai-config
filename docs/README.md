@@ -25,7 +25,7 @@ This documentation package enables teams to understand, select, coordinate, and 
 
 3. **AGENTS-REFERENCE.md** — Detailed specification of 17 agents
    - Quick reference table
-   - 12 Digital Hangar domain specialists with coordination patterns
+   - 12 JowCodes domain specialists with coordination patterns
    - 3 caveman compression specialists
    - Dev-tools and research agents
    - Agent coordination workflows (Feature Dev, SDUI, Doc Sync, Release)
@@ -90,7 +90,7 @@ This documentation package enables teams to understand, select, coordinate, and 
 | Agents | 17 |
 | Total Capabilities | 36 |
 | Skill Domains | 9 |
-| Agent Specializations | 12 (Digital Hangar) + 5 (Others) |
+| Agent Specializations | 12 (JowCodes) + 5 (Others) |
 | Workflow Patterns | 5 (Integration) + 4 (Orchestration) = 9 |
 | Coordination Models | 3 |
 | Complete Examples | 5 |

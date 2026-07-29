@@ -33,7 +33,7 @@ This documentation enables teams to understand, select, and integrate the comple
 **Complete specification of 17 domain-expert agents**
 
 - Quick reference table
-- 12 Digital Hangar specialists (lhg-prefix) with aliases
+- 12 JowCodes specialists (lhg-prefix) with aliases
 - 3 caveman compression specialists
 - Dev-tools and research agents
 - Agent specializations and coordination
@@ -247,21 +247,21 @@ This documentation enables teams to understand, select, and integrate the comple
 
 ## 🧠 Agents Directory (17 Total)
 
-### Digital Hangar Specialists (12)
-**Coordinate on:** Feature Dev, SDUI Schema, Doc Sync, Release workflows
+### JowCodes Specialists (12)
+**Platform-agnostic domain experts — work in any context**
 
 1. **lhg-a11y** (Cassiano): Accessibility & WCAG compliance
-2. **lhg-android** (Rodrigo): Android/Compose/SDUI development
-3. **lhg-design-system** (Luis): Lit web components & design tokens
-4. **lhg-devops** (Phill): Azure Pipelines & CI/CD
-5. **lhg-docs** (Dani): Technical documentation & ADR
-6. **lhg-ios** (Donizete): iOS/SwiftUI/SDUI development
-7. **lhg-mcp** (Hirama): MCP servers & Jira integration
-8. **lhg-pm** (Cadu): Project management & backlog
-9. **lhg-qa** (Iuri): Test strategy & flakiness
-10. **lhg-release** (Jacinthe): SemVer & release coordination
-11. **lhg-sdui-architect** (Tupan): Cross-platform SDUI architecture
-12. **lhg-security** (Mark): Threat modeling & vulnerability audit
+2. **lhg-android** (Rodrigo): Android/mobile development
+3. **lhg-design-system** (Luis): Design systems & components
+4. **lhg-devops** (Phill): DevOps & automation
+5. **lhg-docs** (Dani): Technical documentation
+6. **lhg-ios** (Donizete): iOS/mobile development
+7. **lhg-mcp** (Hirama): API & integration tools
+8. **lhg-pm** (Cadu): Project management
+9. **lhg-qa** (Iuri): Testing & quality assurance
+10. **lhg-release** (Jacinthe): Release coordination
+11. **lhg-sdui-architect** (Tupan): Architecture & design
+12. **lhg-security** (Mark): Security & threat modeling
 
 ### Dev-Tools (1)
 - **dev-tools:skill-creator-agent**: Skill lifecycle orchestration

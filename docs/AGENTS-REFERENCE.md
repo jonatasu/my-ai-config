@@ -1,10 +1,14 @@
 # Agents Reference Guide
 
 **Version:** 1.0  
-**Last Updated:** 2026-07-28  
-**Scope:** AI-Agnostic, Stack-Agnostic Agent Specifications
+**Last Updated:** 2026-07-29  
+**Scope:** AI-Agnostic, Stack-Agnostic, Context-Independent Agent Specifications
 
-This document provides a complete reference for all 17 custom agents in the Copilot ecosystem. Each agent is documented with its purpose, capabilities, domain specialization, and integration patterns, independent of any specific AI model or development stack.
+This document provides a complete reference for all 17 agents in the Copilot ecosystem. Each agent is documented with its purpose, capabilities, domain specialization, and integration patterns, **independent of any specific AI model, development stack, or organizational context**.
+
+### About JowCodes Specialists
+
+The 12 JowCodes Specialists are **platform-agnostic domain experts**. They operate independently of any specific team, company, or project. They are named after experienced professionals but are replicable behavioral archetypes that work in any development environment, team structure, or organizational setting.
 
 ---
 
@@ -12,31 +16,27 @@ This document provides a complete reference for all 17 custom agents in the Copi
 
 | Domain | Agents | Count |
 |--------|--------|-------|
-| Digital Hangar Platform | lhg-a11y, lhg-android, lhg-design-system, lhg-devops, lhg-docs, lhg-ios, lhg-mcp, lhg-pm, lhg-qa, lhg-release, lhg-sdui-architect, lhg-security | 12 |
+| JowCodes Specialists | lhg-a11y, lhg-android, lhg-design-system, lhg-devops, lhg-docs, lhg-ios, lhg-mcp, lhg-pm, lhg-qa, lhg-release, lhg-sdui-architect, lhg-security | 12 |
 | Development Tools | dev-tools:skill-creator-agent | 1 |
 | Caveman Specialists | caveman:cavecrew-builder, caveman:cavecrew-investigator, caveman:cavecrew-reviewer | 3 |
 | Research & Documentation | context7:docs-researcher | 1 |
 
 ---
 
-## Digital Hangar Platform Agents (12)
+## JowCodes Specialists (12)
 
 ### Organization Context
-These agents are specialized for the **Digital Hangar (DH)** platform ecosystem, which includes:
-- **DH-DesignSystem**: Lit web components, design tokens, multi-tenant theming
-- **lh-group-app-android**: Multi-tenant Android application (Compose, Hilt, Gradle)
-- **lh-group-app-ios**: Multi-tenant iOS application (Swift/SwiftUI)
-- **Web-component-renderer-react**: React-based component renderer
-- **MCP/Jira Integration**: TrackSpace workflow automation
 
-All DH agents are domain-specific to the Digital Hangar architecture and can coordinate on cross-platform initiatives.
+These are 12 platform-agnostic domain specialists. They operate independently of any specific platform, team, or organizational context. They can be used in any development environment, project structure, or team configuration.
+
+The specialists are named after experienced professionals with whom these behavioral archetypes originated, but the agents themselves are context-independent and replicable in any setting.
 
 ---
 
 ### 1. `lhg-a11y` — Accessibility & WCAG Specialist
 **Alias:** Cassiano
 
-**Purpose:** Ensure Digital Hangar products meet WCAG 2.1/2.2 accessibility standards.
+**Purpose:** Ensure JowCodes products meet WCAG 2.1/2.2 accessibility standards.
 
 **Specialization Areas:**
 - ARIA pattern implementation and review
@@ -197,7 +197,7 @@ All DH agents are domain-specific to the Digital Hangar architecture and can coo
 ### 4. `lhg-devops` — DevOps & CI/CD Specialist
 **Alias:** Phill
 
-**Purpose:** Optimize and maintain CI/CD infrastructure across Digital Hangar.
+**Purpose:** Optimize and maintain CI/CD infrastructure across JowCodes.
 
 **Specialization Areas:**
 - Azure Pipelines configuration and optimization
@@ -253,7 +253,7 @@ All DH agents are domain-specific to the Digital Hangar architecture and can coo
 ### 5. `lhg-docs` — Documentation Specialist
 **Alias:** Dani
 
-**Purpose:** Maintain and sync technical documentation across Digital Hangar.
+**Purpose:** Maintain and sync technical documentation across JowCodes.
 
 **Specialization Areas:**
 - AGENTS.md authoring and updates
@@ -629,7 +629,7 @@ All DH agents are domain-specific to the Digital Hangar architecture and can coo
 ### 12. `lhg-security` — Security Specialist
 **Alias:** Mark
 
-**Purpose:** Audit and enforce security standards across Digital Hangar.
+**Purpose:** Audit and enforce security standards across JowCodes.
 
 **Specialization Areas:**
 - Threat modeling (STRIDE methodology)
