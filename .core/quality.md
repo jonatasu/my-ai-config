@@ -48,3 +48,5 @@ For features that cross renderer, design-system, and engine boundaries, review t
 3. **Boundary and fallback cases**: test invalid, missing, changed, and failed values, including rerenders that remove previously supplied attributes or state.
 4. **External resources**: keep real integration URLs in documentation when useful, but intercept them in automated stories/tests so validation is deterministic and offline-capable.
 5. **Independent review**: request a fresh review after the final edit and resolve findings before committing.
+6. **Story actions**: use isolated/example origins for clickable Storybook actions; never navigate reviewers or CI to real external services.
+7. **Normative documentation**: when implementation changes a repository convention or public behavior, update the authoritative migration/documentation rule and test the documented path.
