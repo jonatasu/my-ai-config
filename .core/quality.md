@@ -39,3 +39,12 @@ When performing a code review, the agent should adopt specific "Helper" perspect
 - **A11y Helper**: Focus on WCAG compliance and accessibility.
 - **Performance Helper**: Focus on bundle size and runtime efficiency.
 - **Security Helper**: Focus on auth, XSS, and data handling.
+
+### Cross-Repository Feature Review
+For features that cross renderer, design-system, and engine boundaries, review the complete contract path before declaring completion:
+
+1. **Authoritative contract**: verify the source model, published OpenAPI schema, generated client model, and renderer adapter use the same discriminator, fields, enums, defaults, and optional values.
+2. **Shared repository contracts**: inspect and exercise project-enforced helpers such as root-prop, registry, accessibility, and event contracts instead of duplicating their behavior locally.
+3. **Boundary and fallback cases**: test invalid, missing, changed, and failed values, including rerenders that remove previously supplied attributes or state.
+4. **External resources**: keep real integration URLs in documentation when useful, but intercept them in automated stories/tests so validation is deterministic and offline-capable.
+5. **Independent review**: request a fresh review after the final edit and resolve findings before committing.
