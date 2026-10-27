@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/my-ai-config/agentic.config.schema.json",
+  "title": "Portable Agentic Configuration",
+  "type": "object",
+  "required": ["version", "core", "skills", "agents", "tools", "memory", "policies", "schemas", "adapters", "loading"],
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "core": {
+      "type": "object",
+      "required": ["architecture", "mindset", "system_prompt", "principles", "orchestration"],
+      "properties": {
+        "architecture": { "type": "string", "minLength": 1 },
+        "mindset": { "type": "string", "minLength": 1 },
+        "system_prompt": { "type": "string", "minLength": 1 },
+        "principles": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "orchestration": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      }
+    },
+    "skills": {
+      "type": "object",
+      "required": ["index", "directory"],
+      "properties": {
+        "index": { "type": "string", "minLength": 1 },
+        "directory": { "type": "string", "minLength": 1 }
+      }
+    },
+    "agents": {
+      "type": "object",
+      "required": ["registry"],
+      "properties": { "registry": { "type": "string", "minLength": 1 } }
+    },
+    "tools": {
+      "type": "object",
+      "required": ["catalog", "adapters"],
+      "properties": {
+        "catalog": { "type": "string", "minLength": 1 },
+        "adapters": { "type": "string", "minLength": 1 }
+      }
+    },
+    "memory": {
+      "type": "object",
+      "required": ["contract", "adapter"],
+      "properties": {
+        "contract": { "type": "string", "minLength": 1 },
+        "adapter": { "type": "string", "minLength": 1 }
+      }
+    },
+    "policies": {
+      "type": "object",
+      "required": ["permissions", "verification"],
+      "properties": {
+        "permissions": { "type": "string", "minLength": 1 },
+        "verification": { "type": "string", "minLength": 1 }
+      }
+    },
+    "schemas": {
+      "type": "object",
+      "required": ["directory", "manifest", "agents", "permissions", "verification"],
+      "properties": {
+        "directory": { "type": "string", "minLength": 1 },
+        "manifest": { "type": "string", "minLength": 1 },
+        "agents": { "type": "string", "minLength": 1 },
+        "permissions": { "type": "string", "minLength": 1 },
+        "verification": { "type": "string", "minLength": 1 }
+      }
+    },
+    "adapters": {
+      "type": "object",
+      "required": ["directory", "host_templates", "review", "provider_examples"],
+      "properties": {
+        "directory": { "type": "string", "minLength": 1 },
+        "host_templates": { "type": "string", "minLength": 1 },
+        "review": { "type": "string", "minLength": 1 },
+        "provider_examples": { "type": "string", "minLength": 1 }
+      }
+    },
+    "loading": {
+      "type": "object",
+      "required": ["order", "provider_specific_content_is_optional"],
+      "properties": {
+        "order": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "provider_specific_content_is_optional": { "type": "boolean", "const": true }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+version: 1
+host:
+  name: hermes-agent
+portable_mapping:
+  loading:
+    - docs/AGENTIC-ENVIRONMENT.md
+    - agentic.config.yaml
+    - docs/hosts/hermes-agent.md
+    - .core/system_prompt.txt
+    - .core/skills/index.md
+    - agents/registry.yaml
+  orchestrator: tars
+  skills: .core/skills
+  agents: agents/registry.yaml
+  permissions: policies/permissions.yaml
+capabilities:
+  instructions: true
+  skills: host_dependent
+  mcp: host_dependent
+  subagents: host_dependent
+  durable_memory: host_dependent
+  independent_review: host_dependent
+policy:
+  writes: approval_required
+  git_add: approval_required
+  git_commit: approval_required
+  secrets_persistence: denied

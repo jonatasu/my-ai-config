@@ -1,0 +1,59 @@
+version: 1
+
+core:
+  architecture: docs/AGENTIC-ENVIRONMENT.md
+  mindset: .core/mindset/AGENTS.md
+  system_prompt: .core/system_prompt.txt
+  principles:
+    - .core/engineering-principles.md
+    - .core/quality.md
+  orchestration:
+    - .core/orchestration.md
+    - .core/workflow.md
+
+skills:
+  index: .core/skills/index.md
+  directory: .core/skills
+
+agents:
+  registry: agents/registry.yaml
+
+tools:
+  catalog: .tools/TOOL-CATALOG.md
+  adapters: adapters/tools
+
+memory:
+  contract: .core/skills/memory.md
+  adapter: adapters/memory
+
+policies:
+  permissions: policies/permissions.yaml
+  verification: verification/default.yaml
+
+schemas:
+  directory: schemas
+  manifest: schemas/agentic.config.schema.json
+  agents: schemas/agents.registry.schema.json
+  permissions: schemas/permissions.schema.json
+  verification: schemas/verification.schema.json
+
+adapters:
+  directory: adapters
+  host_templates: adapters/hosts
+  review: adapters/review
+  provider_examples: .tools/mcp_setup
+
+loading:
+  order:
+    - core.architecture
+    - core.system_prompt
+    - core.mindset
+    - core.principles
+    - skills.index
+    - agents.registry
+    - tools.catalog
+    - core.orchestration
+    - memory.contract
+    - policies.permissions
+    - policies.verification
+  provider_specific_content_is_optional: true

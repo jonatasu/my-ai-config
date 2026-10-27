@@ -1,0 +1,50 @@
+version: 1
+host:
+  name: github-copilot
+  instruction_index: ~/.copilot/instructions/INDEX.md
+  skill_directory: ~/.copilot/skills
+portable_mapping:
+  loading:
+    - docs/AGENTIC-ENVIRONMENT.md
+    - agentic.config.yaml
+    - docs/hosts/github-copilot.md
+    - .core/system_prompt.txt
+    - .core/skills/index.md
+    - agents/registry.yaml
+  orchestrator: tars
+  skills:
+    - .core/skills/generate-feature-map.md
+    - .core/skills/guardrail-audit.md
+    - .core/skills/closed-loop.md
+    - .core/skills/verification-ledger.md
+  host_skill_bridges:
+    - ~/.copilot/skills/agentic-config/SKILL.md
+    - ~/.copilot/skills/generate-feature-map/SKILL.md
+    - ~/.copilot/skills/guardrail-audit/SKILL.md
+  agents: agents/registry.yaml
+  permissions: policies/permissions.yaml
+capabilities:
+  instructions: true
+  skills: true
+  mcp: supported
+  subagents: host_dependent
+  durable_memory: host_dependent
+  independent_review: host_dependent
+mcp_servers:
+  repomix:
+    transport: local
+    command:
+      - npx
+      - -y
+      - repomix
+      - --mcp
+      - --sandbox
+      - .
+    purpose: sandboxed, read-only codebase context packaging
+    credentials: none
+    remote_repository_packing: disabled
+policy:
+  writes: approval_required
+  git_add: approval_required
+  git_commit: approval_required
+  secrets_persistence: denied

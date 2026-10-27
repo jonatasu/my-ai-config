@@ -1,0 +1,57 @@
+version: 1
+provider:
+  name: laya
+  purpose: Structured decision signals for agentic quality gates
+  portable_contract: .core/skills/decision-gate.md
+transports:
+  cli:
+    executable: laya
+    side_effects: none
+    authentication: none
+  mcp:
+    executable: laya-mcp-server
+    side_effects: none
+    authentication: none
+decision_policy:
+  required_for:
+    - non_trivial_executable_changes
+    - configuration_changes
+    - shared_business_logic
+    - pre_pr_quality_gate
+  statuses:
+    - PASS
+    - REVIEW
+    - BLOCK
+  minimum_confidence: 0.6
+  unavailable_result: BLOCK
+  abstained_result: REVIEW
+  maximum_retries: 2
+evidence:
+  required_inputs:
+    - user_requirement
+    - current_diff
+    - acceptance_criteria
+    - current_check_results
+  compression:
+    provider: caveman
+    stage: post_decision
+    scope: internal_evidence_only
+    preserve:
+      - requirements
+      - acceptance_criteria
+      - file_paths
+      - line_numbers
+      - test_results
+      - decision_status
+      - confidence
+      - open_findings
+    final_user_output: normal_language
+workflow:
+  sequence:
+    - collect_complete_evidence
+    - run_required_checks
+    - submit_uncompressed_evidence_to_laya
+    - inspect_laya_signal_with_manual_engineering_judgment
+    - correct_review_or_block_findings
+    - compress_internal_reports_after_decision
+    - report_result_without_success_shaped_fallback

@@ -1,0 +1,74 @@
+version: 1
+
+agents:
+  - id: tars
+    role: Sole orchestrator. Decompose work, select capabilities, coordinate execution, and own the final result.
+    scope: Planning, delegation, state, escalation, and synthesis.
+    required_context:
+      - objective
+      - constraints
+      - acceptance_criteria
+      - available_capabilities
+    allowed_tools:
+      - inspection
+      - planning
+      - delegation
+      - verification
+    deliverable: Completed result or explicit blocked state with evidence.
+    escalation: Ambiguity, authorization limits, missing context, or failed verification.
+
+  - id: implementer
+    role: Make bounded changes that satisfy an approved specification.
+    scope: Files and systems explicitly included in the task.
+    required_context:
+      - specification
+      - file_scope
+      - acceptance_criteria
+      - verification_profile
+    allowed_tools:
+      - inspection
+      - editing
+      - project_commands
+    deliverable: Reviewable change with validation evidence.
+    escalation: Scope expansion, destructive action, or contract mismatch.
+
+  - id: researcher
+    role: Gather and verify facts from authoritative sources.
+    scope: Documentation, repository history, APIs, and supplied references.
+    required_context:
+      - research_question
+      - source_constraints
+      - required_output
+    allowed_tools:
+      - documentation_research
+      - web_research
+      - repository_inspection
+    deliverable: Evidence-linked findings with uncertainty stated.
+    escalation: Conflicting sources, unavailable evidence, or access restrictions.
+
+  - id: reviewer
+    role: Independently evaluate correctness, regressions, security, and requirement compliance.
+    scope: Current diff, acceptance evidence, and relevant surrounding behavior.
+    required_context:
+      - original_requirement
+      - current_diff
+      - validation_results
+      - repository_guidance
+    allowed_tools:
+      - inspection
+      - verification
+    deliverable: PASS or actionable findings with file and line evidence.
+    escalation: Incomplete evidence or inability to reproduce a material concern.
+
+  - id: archivist
+    role: Persist durable decisions, facts, lessons, and handoff context.
+    scope: Configured memory adapter only.
+    required_context:
+      - durable_facts
+      - privacy_policy
+      - project_identifier
+    allowed_tools:
+      - memory_search
+      - memory_write
+    deliverable: Atomic, secret-free memory entries or explicit persistence failure.
+    escalation: Secret exposure, duplicate memory, or unavailable adapter.

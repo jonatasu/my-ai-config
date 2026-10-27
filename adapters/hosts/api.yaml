@@ -1,0 +1,8 @@
+version: 1
+host:
+  type: api
+  instruction_entrypoint: agentic.config.yaml
+  working_directory: request_workspace
+  tool_transport: service_tools
+  memory_adapter: configured
+  approval_channel: caller_policy

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/my-ai-config/verification.schema.json",
+  "title": "Agentic Verification Policy",
+  "type": "object",
+  "required": ["version", "completion", "checks", "evidence"],
+  "properties": {
+    "version": { "type": "integer", "const": 1 },
+    "completion": {
+      "type": "object",
+      "required": ["require_acceptance_criteria", "require_current_evidence", "require_independent_review", "allow_open_findings"],
+      "properties": {
+        "require_acceptance_criteria": { "type": "boolean", "const": true },
+        "require_current_evidence": { "type": "boolean", "const": true },
+        "require_independent_review": { "type": "boolean", "const": true },
+        "allow_open_findings": { "type": "boolean", "const": false }
+      }
+    },
+    "checks": { "type": "object", "minProperties": 1 },
+    "evidence": { "type": "object", "required": ["record", "stale_when"] }
+  }
+}

@@ -1,0 +1,8 @@
+version: 1
+host:
+  type: cli
+  instruction_entrypoint: agentic.config.yaml
+  working_directory: repository_root
+  tool_transport: native_cli
+  memory_adapter: configured
+  approval_channel: interactive

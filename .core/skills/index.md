@@ -7,6 +7,10 @@ This is the master index of all professional expertise modules available to the 
 ### 💻 Software Engineering (Core)
 *High-density expertise for the software development lifecycle.*
 
+- **`engineering-principles`**: SOLID, object-oriented design, Clean Code,
+  KISS, DRY, YAGNI, and maintainable boundaries.
+- **`closed-loop`**: Acceptance criteria, fresh verification, independent
+  review, bounded correction, and honest completion states.
 - **`coding`**: Implementation of algorithms, data structures, and language-specific patterns.
 - **`architecture`**: Structural design, design patterns, and system decomposition.
 - **`refactoring`**: Code cleanup, complexity reduction, and pattern migration.
@@ -41,7 +45,33 @@ This is the master index of all professional expertise modules available to the 
 
 - **`analysis`**: Deep-dive debugging, root cause analysis, and log investigation.
 - **`documentation`**: Technical writing, API docs, and knowledge synthesis.
-- **`knowledge-management`**: Managing the Obsidian Vault, episodic memory, and semantic links.
+- **`knowledge-management`**: Managing durable context, episodic memory, and
+  semantic links through a configured adapter.
+- **`memory`**: Portable durable context, search-before-add, handoff, and
+  secret-free persistence.
+- **`decision-gate`**: Narrow compliance decisions with criteria, confidence,
+  evidence, and human confirmation.
+- **`caveman-workflow`**: Evidence-preserving internal compression after
+  decision gates and verification.
+- **`grilling`**: Adversarial questioning of plans, assumptions, risks, and
+  architecture before execution.
+- **`quality-gate`**: Acceptance criteria, fresh verification evidence, and
+  independent review before completion.
+- **`feature-validation`**: Observable acceptance criteria, boundary cases,
+  current evidence, and explicit validation outcomes.
+- **`subagent-briefs`**: Complete, bounded briefs for delegated work.
+- **`session-lifecycle`**: Safe pause, resume, handoff, and checkpoint state.
+- **`verification-ledger`**: Verification evidence bound to current commits and
+  other immutable fingerprints.
+- **`adversarial-review`**: Multi-lens review of correctness, architecture,
+  security, testing, and evidence quality.
+- **`skill-lifecycle`**: Create, validate, test, and maintain reusable skills.
+- **`capability-mapping`**: Map portable capabilities to host-specific support.
+- **`codebase-context`**: Safely package and inspect large repositories.
+- **`generate-feature-map`**: Generate a verified `FEATURE_MAP.md` for a
+  project.
+- **`guardrail-audit`**: Audit soft rules and generate enforceable CI and
+  static-analysis guardrails.
 
 ---
 

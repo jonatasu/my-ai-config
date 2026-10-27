@@ -1,0 +1,8 @@
+version: 1
+host:
+  type: mcp
+  instruction_entrypoint: agentic.config.yaml
+  working_directory: repository_root
+  tool_transport: mcp
+  memory_adapter: configured
+  approval_channel: host_policy

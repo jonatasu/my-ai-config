@@ -1,0 +1,55 @@
+version: 1
+
+defaults:
+  approval_required: true
+  persist_secrets: false
+  expose_credentials_to_models: false
+  external_network: deny
+  destructive_actions: deny
+  git_add: approval_required
+  git_commit: approval_required
+
+capabilities:
+  inspection:
+    access: read
+    approval_required: false
+  planning:
+    access: none
+    approval_required: false
+  editing:
+    access: write
+    approval_required: true
+  project_commands:
+    access: execute
+    approval_required: true
+  verification:
+    access: execute
+    approval_required: false
+  delegation:
+    access: create_agents
+    approval_required: false
+  documentation_research:
+    access: network_read
+    approval_required: false
+  web_research:
+    access: network_read
+    approval_required: true
+  memory_search:
+    access: memory_read
+    approval_required: false
+  memory_write:
+    access: memory_write
+    approval_required: true
+  external_writes:
+    access: network_write
+    approval_required: true
+  destructive_actions:
+    access: delete_or_irreversible
+    approval_required: true
+
+rules:
+  - Never store credentials, tokens, private keys, or unnecessary personal data.
+  - Verify target paths before writing or deleting.
+  - Prefer dry-run or preview modes for external mutations.
+  - Report authorization failures explicitly.
+  - Do not treat a tool response as successful without checking its result.

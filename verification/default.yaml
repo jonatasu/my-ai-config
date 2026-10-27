@@ -1,0 +1,42 @@
+version: 1
+
+completion:
+  require_acceptance_criteria: true
+  require_current_evidence: true
+  require_independent_review: true
+  allow_open_findings: false
+  allow_unverified_success: false
+
+checks:
+  documentation:
+    command: null
+    required: true
+    purpose: Documentation and configuration consistency.
+  syntax:
+    command: null
+    required: true
+    purpose: Validate syntax for files changed by the task.
+  tests:
+    command: null
+    required: false
+    purpose: Run repository-native tests when available.
+  lint:
+    command: null
+    required: false
+    purpose: Run repository-native lint checks when available.
+  security:
+    command: null
+    required: true
+    purpose: Check for secrets and unsafe configuration.
+
+evidence:
+  record:
+    - command
+    - exit_code
+    - timestamp
+    - repository_fingerprint
+    - relevant_output
+  stale_when:
+    - relevant_file_changes
+    - dependency_changes
+    - environment_changes_affecting_results

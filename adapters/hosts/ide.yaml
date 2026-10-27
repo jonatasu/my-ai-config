@@ -1,0 +1,8 @@
+version: 1
+host:
+  type: ide
+  instruction_entrypoint: agentic.config.yaml
+  working_directory: workspace_root
+  tool_transport: ide_tools
+  memory_adapter: configured
+  approval_channel: host_ui

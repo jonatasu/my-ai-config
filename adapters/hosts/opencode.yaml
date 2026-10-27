@@ -1,0 +1,99 @@
+version: 1
+host:
+  name: opencode
+  config_file: ~/.config/opencode/opencode.jsonc
+  global_instructions: ~/.config/opencode/AGENTS.md
+  global_agents: ~/.config/opencode/agents
+  global_skills: ~/.config/opencode/skills
+portable_mapping:
+  manifest: agentic.config.yaml
+  loading:
+    - docs/AGENTIC-ENVIRONMENT.md
+    - agentic.config.yaml
+    - docs/hosts/opencode.md
+    - .core/system_prompt.txt
+    - .core/skills/index.md
+    - agents/registry.yaml
+  orchestrator: tars
+  instructions:
+    - .core/system_prompt.txt
+    - .core/mindset/AGENTS.md
+    - .core/engineering-principles.md
+    - .core/quality.md
+    - .core/orchestration.md
+    - .core/workflow.md
+  skills: .core/skills
+  agents: agents/registry.yaml
+  tools: .tools/TOOL-CATALOG.md
+  memory: .core/skills/memory.md
+  permissions: policies/permissions.yaml
+  verification: verification/default.yaml
+capabilities:
+  instructions: true
+  agents: true
+  subagents: true
+  skills: true
+  commands: true
+  mcp: supported
+  laya_cli: supported
+  caveman_internal_compression: supported
+  context7_mcp: supported
+  playwright_mcp: supported
+  firecrawl_mcp: supported
+  repomix_mcp: supported
+  external_memory: host_managed
+  independent_review: host_agent
+policy:
+  writes: approval_required
+  git_add: approval_required
+  git_commit: approval_required
+  shell: approval_required
+  external_network: denied_by_default
+  destructive_actions: denied_by_default
+  secrets_persistence: denied
+  laya:
+    required_for_non_trivial_changes: true
+    unavailable_result: BLOCK
+    automatic_post_edit_execution: false
+  caveman:
+    stage: post_decision
+    scope: internal_evidence_only
+    final_user_output: normal_language
+mcp_servers:
+  context7:
+    transport: remote
+    url: https://mcp.context7.com/mcp
+    purpose: versioned library and framework documentation
+    credentials: host_managed
+    file_access: none
+  playwright:
+    transport: local
+    command:
+      - npx
+      - -y
+      - "@playwright/mcp@latest"
+    purpose: browser automation and UI verification
+    unrestricted_file_access: false
+  firecrawl:
+    transport: local
+    command:
+      - npx
+      - -y
+      - firecrawl-mcp
+    purpose: web scraping, crawling, and structured web research
+    credentials: host_environment
+    environment_variable: FIRECRAWL_API_KEY
+    secret_persistence: denied
+  repomix:
+    transport: local
+    command:
+      - npx
+      - -y
+      - repomix
+      - --mcp
+      - --sandbox
+      - .
+    purpose: sandboxed, read-only codebase context packaging
+    credentials: none
+    writes: denied
+    remote_repository_packing: disabled
