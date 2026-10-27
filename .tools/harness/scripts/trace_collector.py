@@ -10,12 +10,18 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-def load_policy():
-    policy_path = Path(".tools/harness/harness_policy.yaml")
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = Path(os.environ.get("AI_CONFIG_ROOT", SCRIPT_DIR.parents[2]))
+HARNESS_ROOT = Path(os.environ.get("HARNESS_ROOT", REPO_ROOT / ".harness"))
+
+
+def load_policy() -> dict[str, Any]:
+    policy_path = REPO_ROOT / ".tools" / "harness" / "harness_policy.yaml"
     if policy_path.exists():
         try:
             import yaml
-            with open(policy_path, "r") as f:
+            with policy_path.open("r", encoding="utf-8") as f:
                 return yaml.safe_load(f)
         except ImportError:
             pass
@@ -34,11 +40,14 @@ def main() -> int:
     args = parser.parse_args()
     
     policy = load_policy()
-    root_dir = policy.get("trace_root", os.getenv("TRACE_ROOT", ".vault/logs"))
+    configured_root = os.getenv("TRACE_ROOT")
+    root_dir = Path(configured_root or policy.get("trace_root", ".harness/logs"))
+    if not root_dir.is_absolute():
+        root_dir = HARNESS_ROOT / root_dir.relative_to(".harness") if str(root_dir).startswith(".harness/") else HARNESS_ROOT / root_dir
     
     timestamp = datetime.now(timezone.utc)
-    # Structure: .vault/logs/<agent_id>/<year-month-day>/
-    partition = Path(root_dir) / args.agent_id / timestamp.strftime("%Y-%m-%d")
+    # Structure: .harness/logs/<agent_id>/<year-month-day>/
+    partition = root_dir / args.agent_id / timestamp.strftime("%Y-%m-%d")
     partition.mkdir(parents=True, exist_ok=True)
     
     trace_id = str(uuid.uuid4())
@@ -49,9 +58,10 @@ def main() -> int:
         "tools_used": json.loads(args.tools),
         "tokens_consumed": args.tokens,
         "outcome": args.outcome,
-        "score": args.score,
         "redacted_trace": args.trace_content
     }
+    if args.score is not None:
+        payload["score"] = args.score
     
     trace_path = partition / f"{trace_id}.json"
     trace_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")

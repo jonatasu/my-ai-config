@@ -4,8 +4,15 @@ import os
 from pathlib import Path
 from datetime import datetime
 
-DB_PATH = Path("/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.vault/harness/index/harness.db")
-OUTPUT_PATH = Path("/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.vault/harness/dashboard/index.html")
+REPO_ROOT = Path(
+    os.environ.get(
+        "AI_CONFIG_ROOT",
+        Path(__file__).resolve().parents[3],
+    )
+)
+HARNESS_ROOT = Path(os.environ.get("HARNESS_ROOT", REPO_ROOT / ".harness"))
+DB_PATH = Path(os.environ.get("HARNESS_DB_PATH", HARNESS_ROOT / "index" / "harness.db"))
+OUTPUT_PATH = HARNESS_ROOT / "dashboard" / "index.html"
 
 HTML_TEMPLATE = """
 <!DOCTYPE html>

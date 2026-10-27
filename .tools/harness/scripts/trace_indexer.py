@@ -4,9 +4,14 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sqlite3
 import time
 from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[3]
+DEFAULT_HARNESS_ROOT = Path(os.environ.get("HARNESS_ROOT", REPO_ROOT / ".harness"))
+DEFAULT_DB_PATH = Path(os.environ.get("HARNESS_DB_PATH", DEFAULT_HARNESS_ROOT / "index" / "harness.db"))
 
 
 def parse_args() -> argparse.Namespace:
@@ -15,13 +20,13 @@ def parse_args() -> argparse.Namespace:
 
     index = subparsers.add_parser("index", help="Insert or update one trace record.")
     index.add_argument("--trace-file", required=True, help="Path to normalized trace JSON.")
-    index.add_argument("--db", default="/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.vault/harness/index/harness.db", help="SQLite database path.")
+    index.add_argument("--db", default=str(DEFAULT_DB_PATH), help="SQLite database path.")
     index.add_argument("--max-retries", type=int, default=5, help="Retries on database lock.")
     index.add_argument("--retry-delay-ms", type=int, default=100, help="Base retry delay in ms.")
 
     scan = subparsers.add_parser("scan", help="Scan logs directory and index all traces.")
-    scan.add_argument("--logs-dir", default="/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.vault/logs", help="Logs directory to scan.")
-    scan.add_argument("--db", default="/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.vault/harness/index/harness.db", help="SQLite database path.")
+    scan.add_argument("--logs-dir", default=str(DEFAULT_HARNESS_ROOT / "logs"), help="Logs directory to scan.")
+    scan.add_argument("--db", default=str(DEFAULT_DB_PATH), help="SQLite database path.")
 
     return parser.parse_args()
 

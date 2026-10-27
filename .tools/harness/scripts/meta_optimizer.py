@@ -4,11 +4,16 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sqlite3
 from collections import Counter
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
+
+
+REPO_ROOT = Path(os.environ.get("AI_CONFIG_ROOT", Path(__file__).resolve().parents[3]))
+HARNESS_ROOT = Path(os.environ.get("HARNESS_ROOT", REPO_ROOT / ".harness"))
 
 
 @dataclass
@@ -25,10 +30,10 @@ class TraceRow:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Analyze recent traces and generate harness optimization proposals.")
     parser.add_argument("--window", type=int, default=100, help="Number of recent traces to inspect.")
-    parser.add_argument("--db", default=".vault/harness/index/harness.db", help="Path to trace index SQLite DB.")
-    parser.add_argument("--traces-root", default=".vault/harness/traces", help="Path to trace files root.")
-    parser.add_argument("--reports-root", default=".vault/harness/reports", help="Directory for markdown reports.")
-    parser.add_argument("--proposals-root", default=".vault/harness/proposals", help="Directory for proposal files.")
+    parser.add_argument("--db", default=str(HARNESS_ROOT / "index" / "harness.db"), help="Path to trace index SQLite DB.")
+    parser.add_argument("--traces-root", default=str(HARNESS_ROOT / "traces"), help="Path to trace files root.")
+    parser.add_argument("--reports-root", default=str(HARNESS_ROOT / "reports"), help="Directory for markdown reports.")
+    parser.add_argument("--proposals-root", default=str(HARNESS_ROOT / "proposals"), help="Directory for proposal files.")
     parser.add_argument("--emit-report", action="store_true", help="Write markdown report to reports root.")
     parser.add_argument("--emit-proposal", action="store_true", help="Write proposal file to proposals root.")
     return parser.parse_args()
@@ -86,7 +91,7 @@ def build_changes(rows: list[TraceRow]) -> list[dict]:
     changes: list[dict] = []
     
     # Generic analysis for .core/ files
-    failures = [r for r in rows if r.outcome == "failure"]
+    failures = [r for r in rows if r.outcome in {"failure", "fail"}]
     if failures and len(failures) / max(len(rows), 1) >= 0.5:
         # Instead of generic hints, we propose a patch to a representative file in .core/
         # In a real scenario, we would analyze which file in .core/ is causing the failure.

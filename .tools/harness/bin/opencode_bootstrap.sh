@@ -3,7 +3,8 @@
 # Opencode Bootstrap Mechanism
 # Goal: Ensure agent starts with the latest DNA and verify configuration integrity.
 
-REPO_ROOT="/Users/jonatas.vieira.ext/Github_repos/my-ai-config"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="${AI_CONFIG_ROOT:-$(cd "$SCRIPT_DIR/../../.." && pwd)}"
 cd "$REPO_ROOT" || exit 1
 
 echo "## 🧬 Opencode Bootstrap Summary"

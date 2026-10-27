@@ -1,4 +1,9 @@
-# 🛠️ MCP Tool Inventory & Configuration Guide
+# 🛠️ Optional MCP Adapter Inventory & Configuration Guide
+
+> This file is a provider-specific adapter example. It is not required by the
+> portable core and must not be treated as a vendor-neutral capability
+> contract. Keep credentials and organization-specific settings outside the
+> repository.
 
 This document serves as the master catalog of Model Context Protocol (MCP) tools available to the JOW-AI ecosystem. It defines the capabilities of each tool and provides the necessary instructions for an agent (or human) to configure them.
 
@@ -172,4 +177,3 @@ When you are tasked with using a new tool, follow this internal checklist:
 - [ ] **Scope Check**: Is the tool's capability aligned with the task requirements?
 - [ ] **Safety Check**: Am I using the tool in a way that respects data privacy (no PII leakage)?
 - [ ] **Verification**: Did the tool return the expected structured data (JSON/Markdown)?
-

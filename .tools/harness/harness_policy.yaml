@@ -1,1 +1,1 @@
-trace_root: .vault/logs
+trace_root: .harness/logs

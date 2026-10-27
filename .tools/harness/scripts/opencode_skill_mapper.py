@@ -2,7 +2,11 @@ import os
 import sys
 import argparse
 
-SKILLS_ROOT = "/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.core/skills/"
+REPO_ROOT = os.environ.get(
+    "AI_CONFIG_ROOT",
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")),
+)
+SKILLS_ROOT = os.path.join(REPO_ROOT, ".core", "skills")
 
 # Mapping of aliases to skill names/filenames
 ALIASES = {

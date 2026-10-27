@@ -1,0 +1,10 @@
+# Local secrets and generated runtime files
+.env
+.env.*
+.tools/mcp_setup/active_configs/
+.harness/
+!.env.example
+**/__pycache__/
+*.py[cod]
+*.db-shm
+*.db-wal

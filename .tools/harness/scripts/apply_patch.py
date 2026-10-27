@@ -4,10 +4,15 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+
+
+REPO_ROOT = Path(os.environ.get("AI_CONFIG_ROOT", Path(__file__).resolve().parents[3]))
+HARNESS_ROOT = Path(os.environ.get("HARNESS_ROOT", REPO_ROOT / ".harness"))
 
 
 def parse_args() -> argparse.Namespace:
@@ -17,7 +22,7 @@ def parse_args() -> argparse.Namespace:
     mode.add_argument("--dry-run", action="store_true", help="Validate and simulate changes without writing config.")
     mode.add_argument("--apply", action="store_true", help="Apply proposal changes to config.")
     mode.add_argument("--mode-git", action="store_true", help="Apply proposal changes through Git workflow.")
-    parser.add_argument("--backup-dir", default=".vault/harness/backups", help="Directory to store timestamped backups.")
+    parser.add_argument("--backup-dir", default=str(HARNESS_ROOT / "backups"), help="Directory to store timestamped backups.")
     return parser.parse_args()
 
 
@@ -92,8 +97,14 @@ def main() -> int:
         try:
             # Seamless handover to git_proposal.py
             subprocess.run(
-                ["python3", ".tools/harness/scripts/git_proposal.py", "--proposal", str(proposal_path)],
-                check=True
+                [
+                    sys.executable,
+                    str(REPO_ROOT / ".tools" / "harness" / "scripts" / "git_proposal.py"),
+                    "--proposal",
+                    str(proposal_path.resolve()),
+                ],
+                check=True,
+                cwd=REPO_ROOT,
             )
             response = {
                 "status": "git_applied",

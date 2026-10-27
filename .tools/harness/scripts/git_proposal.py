@@ -32,7 +32,12 @@ def git_proposal(proposal_path: Path) -> None:
             justification = reason
 
     # 2. Setup environment
-    repo_root = Path("/Users/jonatas.vieira.ext/Github_repos/my-ai-config/")
+    repo_root = Path(
+        __import__("os").environ.get(
+            "AI_CONFIG_ROOT",
+            Path(__file__).resolve().parents[3],
+        )
+    )
     branch_name = f"proposal/{proposal_id}"
     
     try:

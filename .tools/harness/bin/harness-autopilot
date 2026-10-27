@@ -5,21 +5,48 @@ import sys
 import time
 from pathlib import Path
 
-DB_PATH = Path("/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.vault/harness/index/harness.db")
+REPO_ROOT = Path(
+    os.environ.get(
+        "AI_CONFIG_ROOT",
+        Path(__file__).resolve().parents[3],
+    )
+)
+HARNESS_ROOT = Path(os.environ.get("HARNESS_ROOT", REPO_ROOT / ".harness"))
+DB_PATH = Path(os.environ.get("HARNESS_DB_PATH", HARNESS_ROOT / "index" / "harness.db"))
 STATE_TABLE = "autopilot_state"
 SUCCESS_THRESHOLD = 0.8
 NEW_TRACES_THRESHOLD = 100
 
 SCRIPTS = {
-        "optimizer": Path("/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.tools/harness/scripts/meta_optimizer.py"),
-        "ab_eval": Path("/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.tools/harness/scripts/run_ab_eval.sh"),
-        "patch": Path("/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.tools/harness/scripts/apply_patch.py"),
-        "dashboard": Path("/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.tools/harness/scripts/generate_dashboard.py"),
+        "optimizer": REPO_ROOT / ".tools/harness/scripts/meta_optimizer.py",
+        "ab_eval": REPO_ROOT / ".tools/harness/scripts/run_ab_eval.sh",
+        "patch": REPO_ROOT / ".tools/harness/scripts/apply_patch.py",
+        "dashboard": REPO_ROOT / ".tools/harness/scripts/generate_dashboard.py",
     }
 
 def init_db():
+    DB_PATH.parent.mkdir(parents=True, exist_ok=True)
     with sqlite3.connect(DB_PATH) as conn:
         conn.execute(f"CREATE TABLE IF NOT EXISTS {STATE_TABLE} (key TEXT PRIMARY KEY, value INTEGER)")
+        conn.execute(
+            """
+            CREATE TABLE IF NOT EXISTS traces (
+                trace_id TEXT PRIMARY KEY,
+                timestamp TEXT NOT NULL,
+                session_id TEXT NOT NULL,
+                task_type TEXT,
+                total_tokens INTEGER,
+                outcome TEXT,
+                score REAL,
+                query TEXT,
+                final_answer TEXT,
+                trace_path TEXT NOT NULL,
+                indexed_at TEXT NOT NULL
+            )
+            """
+        )
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_traces_timestamp ON traces(timestamp)")
+        conn.execute("CREATE INDEX IF NOT EXISTS idx_traces_task_type ON traces(task_type)")
         conn.commit()
 
 def get_state(key, default=0):
@@ -63,7 +90,21 @@ def run_loop():
             print(f"Executing optimization loop due to {reason}...")
             try:
                 # 1. Meta Optimizer
-                subprocess.run([sys.executable, str(SCRIPTS["optimizer"])], check=True)
+                subprocess.run(
+                    [
+                        sys.executable,
+                        str(SCRIPTS["optimizer"]),
+                        "--db",
+                        str(DB_PATH),
+                        "--traces-root",
+                        str(HARNESS_ROOT / "traces"),
+                        "--reports-root",
+                        str(HARNESS_ROOT / "reports"),
+                        "--proposals-root",
+                        str(HARNESS_ROOT / "proposals"),
+                    ],
+                    check=True,
+                )
                 
                 # 2. A/B Eval
                 eval_res = subprocess.run([str(SCRIPTS["ab_eval"])], capture_output=True, text=True)

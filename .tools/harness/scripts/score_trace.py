@@ -4,17 +4,35 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sqlite3
 import sys
 from pathlib import Path
 
-VALID_OUTCOMES = {"success", "failure"}
+REPO_ROOT = Path(__file__).resolve().parents[3]
+DEFAULT_HARNESS_ROOT = Path(os.environ.get("HARNESS_ROOT", REPO_ROOT / ".harness"))
+DEFAULT_DB_PATH = Path(os.environ.get("HARNESS_DB_PATH", DEFAULT_HARNESS_ROOT / "index" / "harness.db"))
+
+VALID_OUTCOMES = {"success", "fail"}
+OUTCOME_ALIASES = {"failure": "fail"}
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Score a trace based on performance metrics.")
-    parser.add_argument("--db", default="/Users/jonatas.vieira.ext/Github_repos/my-ai-config/.vault/harness/index/harness.db", help="Path to trace index SQLite database.")
+    parser.add_argument("--db", default=str(DEFAULT_DB_PATH), help="Path to trace index SQLite database.")
     parser.add_argument("--trace-id", required=True, help="Trace identifier to score.")
+    parser.add_argument(
+        "--outcome",
+        choices=["success", "fail", "failure"],
+        help="Persist an explicit trace outcome instead of using the indexed outcome.",
+    )
+    parser.add_argument(
+        "--score",
+        type=float,
+        help="Persist an explicit score between 0 and 1 instead of calculating one.",
+    )
     args = parser.parse_args()
+    if args.score is not None and not 0.0 <= args.score <= 1.0:
+        parser.error("--score must be between 0 and 1")
     return args
 
 def calculate_score(trace_data: dict) -> float:
@@ -30,7 +48,7 @@ def calculate_score(trace_data: dict) -> float:
     
     # Basic score: 1 if successful, 0 otherwise.
     # Using a simplified version of the requested formula since 'success' is boolean
-    outcome = trace_data.get("outcome", "failure")
+    outcome = trace_data.get("outcome", "fail")
     success_val = 1.0 if outcome == "success" else 0.0
     
     tokens = trace_data.get("total_tokens") or 1 # avoid div by zero
@@ -56,16 +74,23 @@ def main() -> int:
             print(f"trace_id not found: {args.trace_id}", file=sys.stderr)
             return 1
         
+        raw_outcome = args.outcome if args.outcome else row[2]
+        outcome = OUTCOME_ALIASES.get(raw_outcome, raw_outcome) or "fail"
+        if outcome not in VALID_OUTCOMES:
+            raise ValueError(f"unsupported trace outcome: {outcome}")
         trace_data = {
             "trace_id": row[0],
             "total_tokens": row[1],
-            "outcome": row[2],
+            "outcome": outcome,
             "trace_path": row[3]
         }
         
-        score = calculate_score(trace_data)
+        score = args.score if args.score is not None else calculate_score(trace_data)
         
-        conn.execute("UPDATE traces SET score = ? WHERE trace_id = ?", (score, args.trace_id))
+        conn.execute(
+            "UPDATE traces SET outcome = ?, score = ? WHERE trace_id = ?",
+            (outcome, score, args.trace_id),
+        )
         conn.commit()
         print(f"Trace {args.trace_id} scored: {score}")
         
