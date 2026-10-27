@@ -6,22 +6,24 @@
 
 ## 📦 Deliverables
 
-### 5 Documents Created
+### 6 Core Documents
 
 | Document | Lines | Size | Focus |
 |----------|-------|------|-------|
-| README.md | 302 | 12K | Entry point & role-based navigation |
-| INDEX.md | 392 | 16K | Master index & quick reference |
-| SKILLS-REFERENCE.md | 832 | 24K | 19 skills detailed specifications |
-| AGENTS-REFERENCE.md | 1045 | 28K | 17 agents detailed specifications |
-| COPILOT-ECOSYSTEM-GUIDE.md | 886 | 24K | Integration patterns & orchestration |
-| **TOTAL** | **3,457** | **104K** | **Complete ecosystem** |
+| README.md | 309 | 10K | Entry point & role-based navigation |
+| INDEX.md | 461 | 17K | Master index & quick reference |
+| SKILLS-REFERENCE.md | 882 | 24K | 25 skills detailed specifications |
+| AGENTS-REFERENCE.md | 1052 | 28K | 17 agents detailed specifications |
+| COPILOT-ECOSYSTEM-GUIDE.md | 885 | 22K | Integration patterns & orchestration |
+| AGENTIC-ENVIRONMENT.md | 225 | 7K | Portable agentic architecture |
+| **TOTAL** | **3,814** | **108K** | **Complete ecosystem** |
 
 ---
 
 ## 🎯 What's Documented
 
-### **19 Skills** (All Covered)
+### **25 Skills** (All Covered)
+✅ Engineering foundations: engineering-principles, quality-gate, decision-gate, grilling, closed-loop, memory
 ✅ Commitment tracking: commit, create-pr  
 ✅ Research & exploration: deep-explore, spawn-agent, context7-mcp  
 ✅ Development: quick-epct, test, yaml-validator  
@@ -33,7 +35,7 @@
 ✅ Compressed output: cavecrew, cavecrew-builder, cavecrew-investigator, cavecrew-reviewer
 
 ### **17 Agents** (All Covered)
-✅ JowCodes: 12 specialists (jc-a11y, jc-android, jc-design-system, jc-devops, jc-docs, jc-ios, jc-mcp, jc-pm, jc-qa, jc-release, jc-sdui-architect, jc-security)  
+✅ Optional local domain specialists: 12 profiles (jc-a11y, jc-android, jc-design-system, jc-devops, jc-docs, jc-ios, jc-mcp, jc-pm, jc-qa, jc-release, jc-sdui-architect, jc-security)
 ✅ Dev-Tools: dev-tools:skill-creator-agent  
 ✅ Caveman Specialists: caveman:cavecrew-builder, caveman:cavecrew-investigator, caveman:cavecrew-reviewer  
 ✅ Research: context7:docs-researcher
@@ -53,14 +55,14 @@
 ### INDEX.md
 **Master navigation & decision tool**
 - Quick reference by use case (Git, Dev, QA, Security, Docs, Research, Efficiency)
-- Skills directory (19 total, organized by domain)
+- Skills directory (25 total, organized by domain)
 - Agents directory (17 total, organized by type)
 - Navigation guide for different scenarios
 - Pre-integration checklist
 - **Who reads this:** Decision-makers, coordinators
 
 ### SKILLS-REFERENCE.md
-**Complete specification of 19 skills**
+**Complete specification of 25 skills**
 - Quick reference table (all skills at a glance)
 - 9 skill domains with detailed specs:
   - Git Automation (3 skills)
@@ -81,7 +83,7 @@
 ### AGENTS-REFERENCE.md
 **Complete specification of 17 agents**
 - Quick reference table (all agents at a glance)
-- 12 JowCodes Specialists with:
+- 12 optional local domain specialist profiles with:
   - Alias names (Cassiano, Rodrigo, Luis, etc.)
   - Specialization & expertise
   - Primary repositories
@@ -163,7 +165,7 @@
 - Applicable to any development environment
 
 ✅ **Complete Coverage**
-- All 19 skills documented with full specifications
+- All 25 skills documented with full specifications
 - All 17 agents documented with specialization & coordination
 - All integration patterns documented with examples
 - Platform guidance for major environments
@@ -175,7 +177,7 @@
 - Troubleshooting guide for common issues
 
 ✅ **Structured & Navigable**
-- 4 entry points (README, INDEX, SKILLS, AGENTS)
+- 6 core documents (README, INDEX, SKILLS, AGENTS, ecosystem guide, agentic architecture)
 - Role-based navigation (Team Lead, Dev, DevOps, Security, Docs, Designer)
 - Use-case based indexing (Git, Dev, QA, Docs, Security, Research)
 - Cross-referenced throughout
@@ -240,9 +242,9 @@
 - **Navigation:** 2 (README, INDEX) — 694 lines
 
 ### By Topic
-- **Skills Specifications:** 832 lines
+- **Skills Specifications:** 882 lines
 - **Agent Specifications:** 1,045 lines
-- **Integration Patterns:** 886 lines
+- **Integration Patterns:** 885 lines
 - **Navigation & Entry Points:** 694 lines
 
 ### By Use Case Coverage
@@ -262,7 +264,7 @@
 
 | Requirement | Status | Evidence |
 |-------------|--------|----------|
-| All 19 skills documented | ✅ | SKILLS-REFERENCE.md sections 2-10 |
+| All 25 skills documented | ✅ | SKILLS-REFERENCE.md sections 0-10 |
 | All 17 agents documented | ✅ | AGENTS-REFERENCE.md sections 2-6 |
 | AI-agnostic framing | ✅ | All docs avoid LLM-specific language |
 | Stack-agnostic framing | ✅ | All docs avoid tech-stack specifics |
@@ -332,7 +334,7 @@
 ## 🎯 Success Criteria
 
 ✅ **Completeness**
-- All 19 skills documented with full specs
+- All 25 skills documented with full specs
 - All 17 agents documented with specialization
 - All integration patterns documented with examples
 - Platform guidance for major environments
@@ -368,13 +370,12 @@ This documentation package provides a comprehensive, practical, reusable referen
 - Coordinating teams and platforms
 - Troubleshooting common issues
 
-**All 19 skills and 17 agents are fully documented** with no gaps, ready for immediate use in any context, regardless of LLM platform or development stack.
+**All 25 skills and 17 agents are fully documented** with no gaps, ready for immediate use in any context, regardless of LLM platform or development stack.
 
 **Start with README.md → Navigate with INDEX.md → Reference SKILLS/AGENTS/ECOSYSTEM documents as needed.**
 
 ---
 
 **Documentation Suite Created:** 2026-07-28  
-**Repository:** `/Users/U152826/jow_gh_repos/my-ai-config/docs/`  
+**Repository:** Current checkout `docs/` directory
 **Status:** Ready for Team Integration
-

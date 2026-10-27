@@ -46,6 +46,17 @@ When tasked with domain-specific work, you MUST NOT attempt to solve it using ge
 
 ## 2. Development Guidelines
 
+### Engineering Principles
+- Apply the portable principles in `.core/engineering-principles.md`.
+- Use SOLID where it improves boundaries and changeability, not as a
+  ceremonial checklist.
+- Prefer composition over inheritance and explicit dependency injection.
+- Apply KISS and YAGNI before introducing abstractions.
+- Remove duplication when the underlying knowledge is shared, while keeping
+  independently changing behavior separate.
+- Keep code cohesive, loosely coupled, testable, and explicit about side
+  effects and errors.
+
 ### Code Quality & Typing
 - **Strict Typing**: Mandatory use of strong typing. Prohibit the use of `any`. Use `interface` for object structures and `import type` for type-only imports.
 - **Complexity Control**: 
@@ -108,18 +119,25 @@ Before declaring a task complete, you MUST:
 ## 6. Memory & Continuous Learning
 
 ### The Memory Mandate
-You are not just an executor; you are a learner. To prevent repeating mistakes and to build institutional intelligence, you MUST maintain a long-term memory via the Obsidian Vault.
+You are not just an executor; you are a learner. To prevent repeating mistakes
+and to build institutional intelligence, use the configured searchable memory
+adapter. The portable core must not require a specific storage provider.
 
 ### Memory Lifecycle
 1.  **Observe & Reflect**: After completing a complex task or encountering a significant error, pause to reflect on the "Why" and the "How".
 2.  **Capture Knowledge**:
-    - **Decision Logs**: Record significant architectural or implementation decisions in `.vault/memories/decisions/`.
-    - **Learnings & Post-Mortems**: Record unexpected errors, their root causes, and how they were resolved in `.vault/memories/learnings/`.
-    - **Knowledge Nuggets**: Capture useful technical patterns or discoveries in `.vault/knowledge_base/`.
-3.  **Retrieve & Apply**: Before starting any new task, proactively search the `.vault/` to see if relevant context, previous decisions, or lessons learned exist. **Never start from zero if the knowledge already exists.**
+    - **Decision Logs**: Record significant architectural or implementation
+      decisions in the configured durable store.
+    - **Learnings & Post-Mortems**: Record unexpected errors, their root causes,
+      and how they were resolved.
+    - **Knowledge Nuggets**: Capture useful technical patterns or discoveries.
+3.  **Retrieve & Apply**: Before starting any new task, proactively search the
+    configured memory adapter for relevant context, previous decisions, or
+    lessons learned. **Never start from zero if the knowledge already exists.**
 
 ### Documentation Format
-Use structured, lightweight Markdown for all memory entries to ensure they are easily searchable and linkable within Obsidian.
+Use structured, lightweight records so memory remains searchable, linkable, and
+portable across storage providers.
 
 ## 2. Development Guidelines
 
@@ -185,15 +203,22 @@ Before declaring a task complete, you MUST:
 ## 6. Memory & Continuous Learning
 
 ### The Memory Mandate
-You are not just an executor; you are a learner. To prevent repeating mistakes and to build institutional intelligence, you MUST maintain a long-term memory via the Obsidian Vault.
+You are not just an executor; you are a learner. To prevent repeating mistakes
+and to build institutional intelligence, use the configured searchable memory
+adapter. The portable core must not require a specific storage provider.
 
 ### Memory Lifecycle
 1.  **Observe & Reflect**: After completing a complex task or encountering a significant error, pause to reflect on the "Why" and the "How".
 2.  **Capture Knowledge**:
-    - **Decision Logs**: Record significant architectural or implementation decisions in `.vault/memories/decisions/`.
-    - **Learnings & Post-Mortems**: Record unexpected errors, their root causes, and how they were resolved in `.vault/memories/learnings/`.
-    - **Knowledge Nuggets**: Capture useful technical patterns or discoveries in `.vault/knowledge_base/`.
-3.  **Retrieve & Apply**: Before starting any new task, proactively search the `.vault/` to see if relevant context, previous decisions, or lessons learned exist. **Never start from zero if the knowledge already exists.**
+    - **Decision Logs**: Record significant architectural or implementation
+      decisions in the configured durable store.
+    - **Learnings & Post-Mortems**: Record unexpected errors, their root causes,
+      and how they were resolved.
+    - **Knowledge Nuggets**: Capture useful technical patterns or discoveries.
+3.  **Retrieve & Apply**: Before starting any new task, proactively search the
+    configured memory adapter for relevant context, previous decisions, or
+    lessons learned. **Never start from zero if the knowledge already exists.**
 
 ### Documentation Format
-Use structured, lightweight Markdown for all memory entries to ensure they are easily searchable and linkable within Obsidian.
+Use structured, lightweight records so memory remains searchable, linkable, and
+portable across storage providers.

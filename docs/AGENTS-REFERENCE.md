@@ -2,13 +2,19 @@
 
 **Version:** 1.0  
 **Last Updated:** 2026-07-29  
-**Scope:** AI-Agnostic, Stack-Agnostic, Context-Independent Agent Specifications
+**Scope:** AI-Agnostic, Stack-Agnostic Agent Specifications and optional local
+adapter profiles
 
-This document provides a complete reference for all 17 agents in the Copilot ecosystem. Each agent is documented with its purpose, capabilities, domain specialization, and integration patterns, **independent of any specific AI model, development stack, or organizational context**.
+This document provides a reference for reusable agents and optional local
+domain profiles. The reusable contracts are portable. The named local profiles
+below are adapter examples only and must not be copied into a portable core
+without replacing organization-specific names, systems, URLs, and workflows.
 
-### About JowCodes Specialists
+### About Optional Local Domain Profiles
 
-The 12 JowCodes Specialists are **platform-agnostic domain experts**. They operate independently of any specific team, company, or project. They are named after experienced professionals but are replicable behavioral archetypes that work in any development environment, team structure, or organizational setting.
+The 12 profiles in this section are local adapter examples. Their behavioral
+patterns may be reusable, but their names, aliases, platforms, repositories,
+and operational integrations are not part of the portable core.
 
 ---
 
@@ -16,14 +22,14 @@ The 12 JowCodes Specialists are **platform-agnostic domain experts**. They opera
 
 | Domain | Agents | Count |
 |--------|--------|-------|
-| JowCodes Specialists | jc-a11y, jc-android, jc-design-system, jc-devops, jc-docs, jc-ios, jc-mcp, jc-pm, jc-qa, jc-release, jc-sdui-architect, jc-security | 12 |
+| Optional local profiles | jc-a11y, jc-android, jc-design-system, jc-devops, jc-docs, jc-ios, jc-mcp, jc-pm, jc-qa, jc-release, jc-sdui-architect, jc-security | 12 |
 | Development Tools | dev-tools:skill-creator-agent | 1 |
 | Caveman Specialists | caveman:cavecrew-builder, caveman:cavecrew-investigator, caveman:cavecrew-reviewer | 3 |
 | Research & Documentation | context7:docs-researcher | 1 |
 
 ---
 
-## JowCodes Specialists (12)
+## Optional Local Profiles (12)
 
 ### Organization Context
 
@@ -36,7 +42,7 @@ The specialists are named after experienced professionals with whom these behavi
 ### 1. `jc-a11y` — Accessibility & WCAG Specialist
 **Alias:** Cassiano
 
-**Purpose:** Ensure JowCodes products meet WCAG 2.1/2.2 accessibility standards.
+**Purpose:** Ensure products meet WCAG 2.1/2.2 accessibility standards.
 
 **Specialization Areas:**
 - ARIA pattern implementation and review
@@ -197,7 +203,8 @@ The specialists are named after experienced professionals with whom these behavi
 ### 4. `jc-devops` — DevOps & CI/CD Specialist
 **Alias:** Phill
 
-**Purpose:** Optimize and maintain CI/CD infrastructure across JowCodes.
+**Purpose:** Optimize and maintain CI/CD infrastructure across a product
+portfolio.
 
 **Specialization Areas:**
 - Azure Pipelines configuration and optimization
@@ -253,7 +260,8 @@ The specialists are named after experienced professionals with whom these behavi
 ### 5. `jc-docs` — Documentation Specialist
 **Alias:** Dani
 
-**Purpose:** Maintain and sync technical documentation across JowCodes.
+**Purpose:** Maintain and sync technical documentation across a product
+portfolio.
 
 **Specialization Areas:**
 - AGENTS.md authoring and updates
@@ -629,7 +637,7 @@ The specialists are named after experienced professionals with whom these behavi
 ### 12. `jc-security` — Security Specialist
 **Alias:** Mark
 
-**Purpose:** Audit and enforce security standards across JowCodes.
+**Purpose:** Audit and enforce security standards across a product portfolio.
 
 **Specialization Areas:**
 - Threat modeling (STRIDE methodology)
@@ -1042,4 +1050,3 @@ To update this reference:
 3. Update coordination patterns and workflows
 4. Validate decision trees and use cases
 5. Submit review via standard PR process
-

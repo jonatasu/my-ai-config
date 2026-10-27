@@ -1,6 +1,8 @@
-# 🧠 Jowmni: The Omni-Agent Ecosystem
+# Portable AI Configuration
 
-This repository is the unified intelligence and tooling framework for the **Jowmni** ecosystem. It is designed to provide AI agents with both a **Cognitive Core** (how to think and what to know) and an **Operational Toolkit** (how to act and execute).
+This repository is a portable intelligence and tooling framework for AI
+agents. It provides a **Cognitive Core** (how to reason and what to value) and
+an **Operational Toolkit** (how to inspect, act, and verify).
 
 By separating the "Brain" from the "Hands" and implementing a **Long-Term Memory Pipeline**, we enable highly specialized, autonomous, and learning-capable AI agents.
 
@@ -13,20 +15,45 @@ The repository is organized into three primary functional layers:
 ### 🧠 1. The Cognitive Core (`.core/`)
 This is the "Brain" of the agent. It defines the identity, mindset, and expert knowledge.
 
-- **`.core/agents/`**: Defines the identities and specialized personas (e.g., `hermes`, `openclaw`). Each agent has its own `SOUL.md` (essence) and `GUIDELINES.md` (operational rules).
-- **`.core/mindset/`**: Contains the fundamental behavioral guidelines, including the **Caveman-inspired Communication Efficiency** and decision-making protocols.
+- **`.core/agents/`**: Defines TARS as the orchestrator and optional specialist personas.
+- **`.core/mindset/`**: Contains behavioral guidelines and decision-making
+  protocols.
+- **`.core/engineering-principles.md`**: Portable guidance for SOLID,
+  object-oriented design, Clean Code, KISS, DRY, YAGNI, and related practices.
+- **`docs/AGENTIC-ENVIRONMENT.md`**: Portable architecture and contracts for
+  turning an AI host into an agentic environment.
 - **`.core/skills/`**: A library of professional expertise modules (e.g., `security-audit`, `ux-specialist`).
-- **`.core/memory_engine/`**: (Integrated via Obsidian) The logic for managing context and memory.
+- **`.core/skills/memory.md`**: The provider-neutral contract for searchable,
+  durable context and handoffs.
+- **`agentic.config.yaml`**: The portable discovery manifest and loading order.
 
 ### 🛠️ 2. The Operational Toolkit (`.tools/`)
 This represents the "Hands" of the agent. It contains the tools and configurations required to interact with the external world.
 
-- **`.tools/mcp_setup/`**: The master catalog of MCP tools and their configuration requirements.
-- **`.tools/tool-configs/`**: Tool-specific configuration files (e.g., `copilot`, `claude-api`, `vercel`).
-- **`.tools/tool-implementations/`**: Actual scripts and automation logic.
+- **`.tools/TOOL-CATALOG.md`**: Portable capability groups and tool-design
+  rules.
+- **`.tools/mcp_setup/`**: Optional protocol-tool inventory and configuration
+  requirements.
+- **`.tools/`**: Tool catalogs, protocol setup, harness utilities, and
+  host-specific adapters. Implementations are optional and must be documented
+  as adapters.
 
-### 📏 3. The Rulebook (`.rules/`)
-Standardized instruction files for IDEs and CLI tools (e.g., `.cursorrules`, `.clinerules`, `.windsurfrules`).
+### 📏 3. Host Integration
+Host-specific instruction files (for example `.cursorrules`, `.clinerules`, or
+`.windsurfrules`) belong in the selected host adapter. Generic adapter
+templates are provided under `adapters/hosts/`.
+
+### 🔌 4. Adapter Layer (`adapters/`)
+Host, memory, tool, and provider templates that connect the portable core to a
+specific AI environment. Adapters are optional and must not be required by the
+core contracts.
+
+### 🛡️ 5. Policy and Verification
+- **`policies/permissions.yaml`**: Capability permissions, approval rules, and
+  secret-handling constraints.
+- **`verification/default.yaml`**: Host-neutral completion and evidence policy.
+- **`agents/registry.yaml`**: Portable TARS orchestrator, implementer, researcher,
+  reviewer, and archivist role contracts.
 
 ---
 
@@ -35,48 +62,61 @@ Standardized instruction files for IDEs and CLI tools (e.g., `.cursorrules`, `.c
 The AI-Harness is a meta-framework for observing, scoring, and evolving agent behavior through a data-driven feedback loop.
 
 ### Onboarding a New Agent
-1. **Setup `.env`**: Configure necessary API keys and environment variables.
-2. **Bootstrap**: Run `bash .tools/harness/bin/environment_bootstrap.sh` to initialize the harness environment.
-3. **Policy**: Configure `.tools/harness/harness_policy.yaml` to define scoring criteria and evaluation benchmarks.
-4. **Collect**: Begin collecting traces via `python .tools/harness/scripts/trace_collector.py`.
-5. **Evolve**: Run `ai-harness` (score) and `python .tools/harness/scripts/meta_optimizer.py` (evolve) to optimize agent performance.
+1. **Setup local environment variables** from `.env.example`; keep secrets
+   outside version control.
+2. **Create local configuration**: Run `cp .env.example .env`, then edit `.env`
+   with the values required by the tools you enable.
+3. **Bootstrap**: Run `bash .tools/harness/bin/environment_bootstrap.sh` to
+   initialize the harness environment.
+4. **Policy**: Configure `.tools/harness/harness_policy.yaml` to define scoring
+   criteria and evaluation benchmarks.
+5. **Collect**: Begin collecting traces via
+   `python .tools/harness/scripts/trace_collector.py`.
+6. **Evolve**: Run `ai-harness` (score) and
+   `python .tools/harness/scripts/meta_optimizer.py` (evolve) to optimize agent
+   performance.
 
 ---
 
 ## 🧠 The Memory Loop (MemGPT-style)
 
-The ecosystem implements a multi-layer memory architecture using **Obsidian** as the persistent storage layer (`.vault/`).
+The ecosystem defines a provider-neutral multi-layer memory architecture.
+Markdown, SQL, vector, graph, or hosted stores may implement the memory
+adapter; no specific provider is required.
 
 1.  **Working Memory (Contextual)**: The immediate task context and active files.
-2.  **Episodic Memory (`.vault/memories/`)**: A record of events, decisions, and "lessons learned" from recent tasks.
-3.  **Semantic Memory (`.vault/knowledge_base/`)**: A structured library of technical patterns and learned expertise.
+2.  **Episodic Memory**: A record of events, decisions, and lessons learned
+    in the configured durable store.
+3.  **Semantic Memory**: A structured library of technical patterns and
+    learned expertise in the configured durable store.
 
-**Agents are mandated to:**
+**Agents are expected to:**
 - **Capture**: Record decisions and learnings after significant tasks.
-- **Retrieve**: Proactively search the vault before starting new tasks.
+- **Retrieve**: Proactively search the configured memory adapter before
+  starting new tasks.
 
 ---
 
 ## 🤖 Agent Deployment Protocol
 
-### For Hermes Agent (Orchestrator)
-1. Set the agent's system prompt to reference `.core/agents/hermes/` for identity.
-2. Point the agent's knowledge base/context to `.core/` to grant it access to the Skill Catalog and Mindset.
+### For an Orchestrator Agent
+1. Select TARS as the sole orchestrator.
+2. Point the agent's knowledge base/context to `.core/` to grant it access to
+   the Skill Catalog, Mindset, and Engineering Principles.
 3. Instruct the agent to use the **Memory Loop** to manage task-to-task continuity.
 
-### For OpenClaw (Deep-Engineer)
-1. Set the agent's system prompt to reference `.core/agents/openclaw/` for identity.
-2. Ensure the agent follows the **Deep-Implementation Plan (DIP)** protocol for complex tasks.
-3. Require the agent to perform **Decision Logging** in the `.vault/` after structural changes.
+### For a Deep-Engineering Agent
+1. Select a deep-engineering persona appropriate to the host environment.
+2. Ensure the agent follows a written implementation plan for complex tasks.
+3. Require the agent to perform **Decision Logging** through the configured
+   memory adapter after structural changes.
 
-## 🤖 Opencode Integration
+## 🔌 Host Integration
 
-This repository serves as the **DNA** for the Opencode agent, providing the structural intelligence, tool configurations, and professional skills required for high-fidelity software engineering.
-
-### Onboarding Flow
-1. **Sync DNA**: Run `bin/opencode_bootstrap.sh` to initialize and synchronize the agent's core configuration.
-2. **Manage Budgets**: Use `select_mcp_profile.py` to configure and manage MCP tool budgets.
-3. **Load Skills**: Use `scripts/opencode_skill_mapper.py` to map and load specialized skills into the agent's active context.
+The repository does not require a specific AI host. An adapter should map the
+portable core to the host's instruction format, skill loader, tool protocol,
+memory provider, and verification commands. Keep adapter scripts and provider
+configuration outside the portable contracts and document their paths locally.
 
 ---
 

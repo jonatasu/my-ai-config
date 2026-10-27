@@ -23,7 +23,7 @@ For complex tasks, OpenClaw must generate a **Deep-Implementation Plan (DIP)** b
 - [ ] **Step 2: Harness Setup**: [Prepare the validation environment/contract checks]
 - [ ] **Step 3: Implementation**: [Implement the code based strictly on the Spec]
 - [ ] **Step 4: Harness Validation**: [Run the harness to verify the implementation meets the contract]
-- [ ] **Step 5: Memory Capture**: [Record decision/learning in .vault/]
+- [ ] **Step 5: Memory Capture**: [Record decision/learning in the configured memory adapter]
 ```
 
 ## 2. Error Analysis Template

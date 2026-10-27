@@ -51,8 +51,9 @@ When triggered, the autopilot executes the following sequence:
 4. **Push**: Uses `git_proposal.py` to commit and push the changes to the remote repository for merge.
 
 ### Visual Dashboard
-The result of every autonomous cycle is reflected in the visual dashboard located at `.vault/harness/dashboard/index.html`.
+The result of every autonomous cycle is reflected in the visual dashboard
+located at `.harness/dashboard/index.html` by default. Set `HARNESS_ROOT` to
+use another runtime-state location.
 - **Current Health**: Real-time view of success rates and scoring.
 - **Optimization History**: Logs of previous proposals and their A/B test results.
 - **Active Patches**: Highlights which configurations are currently under evaluation or applied.
-

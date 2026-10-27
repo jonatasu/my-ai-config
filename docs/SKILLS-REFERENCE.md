@@ -4,7 +4,9 @@
 **Last Updated:** 2026-07-28  
 **Scope:** AI-Agnostic, Stack-Agnostic Skill Specifications
 
-This document provides a complete reference for all 19 available skills in the Copilot ecosystem. Each skill is documented with its purpose, capabilities, inputs, outputs, and integration points, independent of any specific AI model or development stack.
+This document provides a reference for reusable skills in an AI ecosystem. Each
+skill is documented with its purpose, capabilities, inputs, outputs, and
+integration points, independent of any specific AI model or development stack.
 
 ---
 
@@ -12,6 +14,7 @@ This document provides a complete reference for all 19 available skills in the C
 
 | Category | Skills | Count |
 |----------|--------|-------|
+| Engineering Foundations | engineering-principles, closed-loop, decision-gate, feature-validation, grilling, memory, quality-gate | 7 |
 | Git & Automation | commit, create-pr | 2 |
 | Research & Analysis | deep-explore, spawn-agent | 2 |
 | Development & Testing | quick-epct, test | 2 |
@@ -25,6 +28,61 @@ This document provides a complete reference for all 19 available skills in the C
 ---
 
 ## Core Skills Specifications
+
+### 0. Engineering Foundations
+
+#### `engineering-principles` — Maintainable Design
+**Purpose:** Apply SOLID, object-oriented design, Clean Code, KISS, DRY, YAGNI,
+and boundary-focused design without overengineering.
+
+**Use when:** Designing APIs, implementing features, refactoring code, or
+reviewing architecture.
+
+**Output:** A simple design with explicit responsibilities, dependencies,
+failure behavior, and verification criteria.
+
+#### `quality-gate` — Evidence-Based Completion
+**Purpose:** Prevent completion claims based on stale checks or unreviewed
+changes.
+
+**Use when:** A non-trivial implementation, refactor, or configuration change
+is ready for validation.
+
+**Output:** Fresh acceptance evidence, passing relevant checks, and an
+independent review verdict.
+
+#### `closed-loop` — Bounded Implementation Loop
+**Purpose:** Connect acceptance criteria, implementation, verification,
+independent review, correction, and completion.
+
+**Use when:** A change is non-trivial or has meaningful regression risk.
+
+#### `decision-gate` — Criteria-Based Decision
+**Purpose:** Produce a narrow `PASS`, `REVIEW`, or `BLOCK` signal with
+confidence and evidence.
+
+**Use when:** A compliance or direction question can be stated precisely.
+Laya is an optional provider adapter, not a required dependency.
+
+#### `grilling` — Adversarial Thinking
+**Purpose:** Stress-test plans and decisions by challenging assumptions,
+scope, failure modes, security, testing, rollback, and maintenance cost.
+
+**Use when:** A decision is ambiguous, high-risk, or expensive to reverse.
+
+#### `memory` — Durable Context
+**Purpose:** Search, store, sync, and validate atomic context without coupling
+the workflow to a specific storage provider.
+
+**Use when:** A decision, fact, error, reusable pattern, or handoff must
+survive the current task.
+
+#### `feature-validation` — Acceptance Verification
+**Purpose:** Turn feature requests into observable criteria, boundary cases,
+current evidence, and an explicit validation result.
+
+**Use when:** A feature or behavior change needs validation beyond compiling or
+passing a narrow unit test.
 
 ### 1. Git & Version Control
 
@@ -829,4 +887,3 @@ To update this reference:
 3. Update decision trees and workflow diagrams
 4. Validate example code and integrations
 5. Submit review via standard PR process
-

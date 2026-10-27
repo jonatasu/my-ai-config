@@ -31,4 +31,5 @@ For every autonomous action:
 - **Complexity Control**: Maintain low cyclomatic complexity and small, single-purpose functions.
 - **Documentation**: Every significant change must be accompanied by updated documentation and clear commit messages.
 ---
-*Reference: Always align with the core principles in /Users/jonatas.vieira.ext/Github_repos/my-ai-config/.core/mindset/AGENTS.md*
+*Reference: Always align with the core principles in the repository's
+`.core/mindset/AGENTS.md` file.*

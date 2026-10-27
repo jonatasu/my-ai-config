@@ -1,6 +1,7 @@
-# Copilot Ecosystem Documentation
+# Portable AI Ecosystem Documentation
 
-**AI-Agnostic, Stack-Agnostic reference for 19 skills and 17 agents**
+**AI-agnostic, stack-agnostic reference for skills, agents, tools, and
+engineering principles**
 
 This documentation package enables teams to understand, select, coordinate, and integrate the complete Copilot capability set into any development environment.
 
@@ -8,7 +9,21 @@ This documentation package enables teams to understand, select, coordinate, and 
 
 ## 📖 What's Here?
 
-### 4 Reference Documents
+### 8 Reference Documents
+
+0. **AGENTIC-ENVIRONMENT.md** — Portable architecture and contracts for
+   agentic environments
+
+0. **../agentic.config.yaml** — Portable discovery manifest for loading the
+   core, skills, agents, tools, memory, policies, verification, and adapters
+
+0. **INTEGRATION-QUICKSTART.md** — Five-minute host integration guide
+
+0. **../schemas/** — Machine-readable configuration schemas and conformance
+   entrypoint
+
+0. **../.core/engineering-principles.md** — Portable design and code-quality
+   principles
 
 1. **INDEX.md** — Master navigation guide
    - Quick reference by use case
@@ -16,16 +31,16 @@ This documentation package enables teams to understand, select, coordinate, and 
    - Integration checklist
    - Navigation for different user personas
 
-2. **SKILLS-REFERENCE.md** — Detailed specification of 19 skills
+2. **SKILLS-REFERENCE.md** — Detailed specification of reusable skills
    - Quick reference table
    - 9 skill domains (Git, Research, Development, QA, Docs, etc.)
    - Purpose, Type, Capabilities, Input/Output, Use Cases for each skill
    - Cross-skill integration patterns
    - Skill selection decision tree
 
-3. **AGENTS-REFERENCE.md** — Detailed specification of 17 agents
+3. **AGENTS-REFERENCE.md** — Detailed specification of optional agents
    - Quick reference table
-   - 12 JowCodes domain specialists with coordination patterns
+   - Optional local domain specialists with coordination patterns
    - 3 caveman compression specialists
    - Dev-tools and research agents
    - Agent coordination workflows (Feature Dev, SDUI, Doc Sync, Release)
@@ -86,17 +101,17 @@ This documentation package enables teams to understand, select, coordinate, and 
 
 | Aspect | Count |
 |--------|-------|
-| Skills | 19 |
+| Skills | 25 |
 | Agents | 17 |
-| Total Capabilities | 36 |
-| Skill Domains | 9 |
-| Agent Specializations | 12 (JowCodes) + 5 (Others) |
+| Total Capabilities | 42 |
+| Skill Domains | 10 |
+| Agent Specializations | Optional local profiles + reusable agents |
 | Workflow Patterns | 5 (Integration) + 4 (Orchestration) = 9 |
 | Coordination Models | 3 |
 | Complete Examples | 5 |
 | Platform Guides | 5 |
-| Documentation Pages | 4 |
-| Total Content | ~3000 lines |
+| Documentation Pages | 7 |
+| Total Content | ~4300 lines |
 
 ---
 
@@ -107,9 +122,10 @@ my-ai-config/
 ├── docs/
 │   ├── README.md (you are here)
 │   ├── INDEX.md (master navigation)
-│   ├── SKILLS-REFERENCE.md (19 skills)
+│   ├── SKILLS-REFERENCE.md (25 skills)
 │   ├── AGENTS-REFERENCE.md (17 agents)
-│   └── COPILOT-ECOSYSTEM-GUIDE.md (integration patterns)
+│   ├── COPILOT-ECOSYSTEM-GUIDE.md (integration patterns)
+│   └── AGENTIC-ENVIRONMENT.md (portable agentic architecture)
 ```
 
 ---
@@ -169,7 +185,7 @@ my-ai-config/
 ## ✅ Before You Start
 
 - [ ] **Read INDEX.md** (10 min) — Understand structure
-- [ ] **Skim all 4 documents** (30 min) — Get familiar with capabilities
+- [ ] **Skim all 6 documents** (30 min) — Get familiar with capabilities
 - [ ] **Find your use case** (5 min) — Identify relevant skills/agents
 - [ ] **Review integration pattern** (10 min) — Understand how to chain them
 - [ ] **Check constraints** (5 min) — Inputs, outputs, error cases
@@ -202,7 +218,7 @@ my-ai-config/
 
 ✅ **AI-Agnostic**: Works with any LLM (Claude, GPT, Gemini, etc.)  
 ✅ **Stack-Agnostic**: No dependencies on specific languages/frameworks  
-✅ **Complete**: All 19 skills + 17 agents documented  
+✅ **Complete**: All 25 skills + 17 agents documented
 ✅ **Structured**: Quick reference + detailed specs + patterns + examples  
 ✅ **Practical**: Real-world workflow examples for each pattern  
 ✅ **Reusable**: Can be integrated into any development environment  
@@ -299,4 +315,3 @@ Status: ✅ Complete and Ready for Integration
 ---
 
 **Ready to explore?** Start with [INDEX.md](./INDEX.md) →
-

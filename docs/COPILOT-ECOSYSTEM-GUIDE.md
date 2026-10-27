@@ -24,7 +24,7 @@ A comprehensive guide for integrating the Copilot skills and agents ecosystem in
 
 The Copilot ecosystem consists of:
 
-### **19 Skills** (Reusable Capabilities)
+### **25 Skills** (Reusable Capabilities)
 - Composable, single-purpose operations
 - Stateless within invocation
 - Explicit input/output contracts
@@ -674,7 +674,7 @@ caveman-compress    → Memory compression
 
 **Workflow:**
 ```
-1. jc-security (if JowCodes)
+1. configured security specialist profile, if the host provides one
    OR
    spawn-agent (generic agent)
    
@@ -883,4 +883,3 @@ commit → create-pr (via az CLI) → test → prod-ready → trackspace integra
 | Version | Date | Changes |
 |---------|------|---------|
 | 1.0 | 2026-07-28 | Initial ecosystem integration guide |
-

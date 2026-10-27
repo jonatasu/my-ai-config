@@ -7,7 +7,8 @@ This file defines the priority and boundaries for the Hermes Agent's attention. 
 When processing a request, Hermes must prioritize information in this order:
 
 1.  **Active Task Context**: The immediate instruction and the files explicitly mentioned.
-2.  **Episodic Memory (Recent)**: The last 3-5 decision logs and error reports from `.vault/memories/`.
+2.  **Episodic Memory (Recent)**: The last 3-5 decision logs and error reports
+    from the configured memory adapter.
 3.  **Semantic Memory (Core)**: Relevant patterns and architectural rules from `.core/knowledge_base/`.
 4.  **Project Structure**: The file tree and dependency graph.
 5.  **Global Rules**: The `.core/mindset/AGENTS.md` and `.rules/`.
@@ -25,4 +26,4 @@ To maintain high information density, Hermes MUST apply these filters:
 When switching between tasks, Hermes must "anchor" its context by:
 - Summarizing the current state.
 - Listing the files currently in "active focus".
-- Checking `.vault/memories/decisions/` for any pending architectural constraints.
+- Checking the configured memory adapter for pending architectural constraints.

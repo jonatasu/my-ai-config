@@ -8,7 +8,48 @@ This documentation enables teams to understand, select, and integrate the comple
 
 ## 📚 Core Documents
 
-### 0. [BEST-PRACTICES-BARREL-FILES.md](./BEST-PRACTICES-BARREL-FILES.md)
+### 0. [../agentic.config.yaml](../agentic.config.yaml)
+**Portable configuration manifest**
+
+- Core instruction and principle paths
+- Skill, agent, tool, memory, policy, and verification discovery
+- Host and provider adapter boundaries
+- Capability loading order
+
+**When to use:** Always load this manifest first when integrating the
+repository into an AI host.
+
+### 1. [AGENTIC-ENVIRONMENT.md](./AGENTIC-ENVIRONMENT.md)
+**Portable architecture for agentic environments**
+
+- Cognitive, operational, persistence, and verification layers
+- Skill, tool, agent, and state contracts
+- Decision gates, grilling, closed-loop execution, and memory
+- Portability boundary between core guidance and local adapters
+
+**When to use:** When adapting a new AI host, agent runtime, CLI, IDE, or
+automation system.
+
+### 1a. [Host adapters](./hosts/)
+
+Host-specific mappings for OpenCode, Hermes Agent, GitHub Copilot, and Claude
+Code. Read the vendor-neutral document first.
+
+### 1b. [Feature coverage matrix](./FEATURE-COVERAGE-MATRIX.md)
+
+Shows which capabilities already exist, which are partial, and where the new
+implementation must extend existing contracts.
+
+### 2. [../.core/engineering-principles.md](../.core/engineering-principles.md)
+**Portable engineering principles**
+
+- SOLID and object-oriented design
+- Clean Code, KISS, DRY, and YAGNI
+- Cohesion, coupling, boundaries, testability, and reliability
+
+**When to use:** Before designing, implementing, refactoring, or reviewing code.
+
+### 3. [BEST-PRACTICES-BARREL-FILES.md](./BEST-PRACTICES-BARREL-FILES.md)
 **High-Impact Architectural Practice: Barrel File Removal**
 
 - Problem analysis: Why barrel files create dependency graph bloat
@@ -31,8 +72,8 @@ This documentation enables teams to understand, select, and integrate the comple
 
 ---
 
-### 1. [SKILLS-REFERENCE.md](./SKILLS-REFERENCE.md)
-**Complete specification of 19 reusable skills**
+### 4. [SKILLS-REFERENCE.md](./SKILLS-REFERENCE.md)
+**Complete specification of 25 reusable skills**
 
 - Quick reference table
 - 9 skill domains (Git, Research, Development, QA, Documentation, etc.)
@@ -52,11 +93,11 @@ This documentation enables teams to understand, select, and integrate the comple
 
 ---
 
-### 2. [AGENTS-REFERENCE.md](./AGENTS-REFERENCE.md)
+### 5. [AGENTS-REFERENCE.md](./AGENTS-REFERENCE.md)
 **Complete specification of 17 domain-expert agents**
 
 - Quick reference table
-- 12 JowCodes specialists (jc-prefix) with aliases
+- Optional local domain specialists with aliases
 - 3 caveman compression specialists
 - Dev-tools and research agents
 - Agent specializations and coordination
@@ -74,7 +115,7 @@ This documentation enables teams to understand, select, and integrate the comple
 
 ---
 
-### 3. [COPILOT-ECOSYSTEM-GUIDE.md](./COPILOT-ECOSYSTEM-GUIDE.md)
+### 6. [COPILOT-ECOSYSTEM-GUIDE.md](./COPILOT-ECOSYSTEM-GUIDE.md)
 **Integration patterns and orchestration strategies**
 
 - Core abstractions (skill vs agent)
@@ -88,6 +129,35 @@ This documentation enables teams to understand, select, and integrate the comple
 - Troubleshooting guide
 
 **When to use:** You're designing a workflow or integrating into a new environment.
+
+### 7. [../policies/permissions.yaml](../policies/permissions.yaml) and [../verification/default.yaml](../verification/default.yaml)
+**Portable safety and completion policies**
+
+- Capability permissions and approval requirements
+- Secret-handling and destructive-action rules
+- Current-evidence and independent-review requirements
+
+**When to use:** Before enabling tools or defining host completion behavior.
+
+### 8. [INTEGRATION-QUICKSTART.md](./INTEGRATION-QUICKSTART.md)
+**Five-minute host integration guide**
+
+- Manifest loading order
+- Host adapter selection
+- Memory, permission, and verification mapping
+- Configuration conformance command
+
+**When to use:** When integrating this repository into a new AI host.
+
+### 9. [../schemas/](../schemas/)
+**Machine-readable configuration schemas**
+
+- Manifest
+- Agent registry
+- Permissions
+- Verification policy
+
+**When to use:** When implementing loaders, validators, or host adapters.
 
 **Key sections:**
 - Lines 1-100: Ecosystem overview
@@ -231,15 +301,24 @@ This documentation enables teams to understand, select, and integrate the comple
 
 | Document | Lines | Sections | Skills/Agents | Focus |
 |----------|-------|----------|-----------------|-------|
-| BEST-PRACTICES-BARREL-FILES.md | 750 | 8 | 4 agents | Architecture optimization |
-| SKILLS-REFERENCE.md | 1050 | 12 | 19 skills | Capability specification |
-| AGENTS-REFERENCE.md | 1045 | 14 | 17 agents | Domain expertise & coordination |
-| COPILOT-ECOSYSTEM-GUIDE.md | 886 | 15 | All 36 | Integration & orchestration |
-| **Total** | **3731** | **49** | **40** | **Complete ecosystem + practices** |
+| BEST-PRACTICES-BARREL-FILES.md | 474 | 8 | 4 agents | Architecture optimization |
+| SKILLS-REFERENCE.md | 882 | 12 | 25 skills | Capability specification |
+| AGENTS-REFERENCE.md | 1052 | 14 | 17 agents | Domain expertise & coordination |
+| COPILOT-ECOSYSTEM-GUIDE.md | 885 | 15 | All 42 | Integration & orchestration |
+| AGENTIC-ENVIRONMENT.md | 225 | 10 | Architecture | Portable agentic environment |
+| **Total** | **3,938** | **59** | **42** | **Complete ecosystem + practices** |
 
 ---
 
-## 🔍 Skills Directory (19 Total)
+## 🔍 Skills Directory (25 Total)
+
+### Engineering Foundations (6)
+- **engineering-principles**: SOLID, Clean Code, KISS, DRY, and maintainability
+- **closed-loop**: Evidence-based implementation and bounded correction
+- **decision-gate**: Criteria-based compliance decisions
+- **grilling**: Adversarial plan and architecture review
+- **memory**: Portable durable context and handoff
+- **quality-gate**: Fresh checks and independent review before completion
 
 ### Git & Collaboration (3)
 - **commit**: Conventional Commits-format git commit
@@ -266,7 +345,7 @@ This documentation enables teams to understand, select, and integrate the comple
 - **docs**: Library documentation fetching
 - **handoff**: Session state capture & handoff
 
-### AI Engineering (2)
+### AI Engineering (3)
 - **prompt**: Prompt engineering & optimization
 - **skill-creator**: Skill lifecycle management
 - **claude-code-expert**: Claude Code configuration
@@ -278,7 +357,7 @@ This documentation enables teams to understand, select, and integrate the comple
 ### Platform Configuration (1)
 - **customize-cloud-agent**: Copilot cloud agent setup
 
-### Caveman Specialists (3) — Compressed Output
+### Caveman Specialists (4) — Compressed Output
 - **cavecrew**: Delegation decision guide
 - **cavecrew-builder**: 1-2 file surgical edits
 - **cavecrew-investigator**: Code locator
@@ -288,7 +367,7 @@ This documentation enables teams to understand, select, and integrate the comple
 
 ## 🧠 Agents Directory (17 Total)
 
-### JowCodes Specialists (12)
+### Optional Local Domain Specialists (12)
 **Platform-agnostic domain experts — work in any context**
 
 1. **jc-a11y** (Cassiano): Accessibility & WCAG compliance
@@ -377,8 +456,8 @@ This documentation enables teams to understand, select, and integrate the comple
 
 ## 🔗 Related Files
 
-- **Repository:** `/Users/U152826/jow_gh_repos/my-ai-config/`
-- **Location:** `/docs/` directory
+- **Repository:** Current checkout root
+- **Location:** `docs/` directory
 - **Maintenance:** Review quarterly, update after major changes
 - **Version:** 1.0 (2026-07-28)
 
@@ -429,5 +508,4 @@ This documentation enables teams to understand, select, and integrate the comple
 
 **Status:** ✅ Complete & Ready for Integration  
 **Last Updated:** 2026-07-28  
-**Coverage:** 19 skills + 17 agents + ecosystem patterns
-
+**Coverage:** 25 skills + 17 agents + agentic-environment contracts

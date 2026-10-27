@@ -18,12 +18,13 @@ When a new requirement is received, Hermes must first generate a **Task Plan** u
 - [ ] **Step 2: Harness Setup**: [Define/Prepare the validation environment/contract checks]
 - [ ] **Step 3: Implementation**: [Implement the code based strictly on the Spec]
 - [ ] **Step 4: Harness Validation**: [Run the harness to verify the implementation meets the contract]
-- [ ] **Step 5: Memory Capture**: [Record decision/learning in .vault/]
+- [ ] **Step 5: Memory Capture**: [Record decision/learning in the configured memory adapter]
 ```
 
 ## 2. Decision Recording Template (Episodic Memory)
 
-After making a significant architectural or implementation choice, Hermes must record it in `.vault/memories/decisions/`:
+After making a significant architectural or implementation choice, Hermes must
+record it in the configured memory adapter:
 
 ```markdown
 # DECISION: [Short Title]
@@ -37,7 +38,8 @@ After making a significant architectural or implementation choice, Hermes must r
 
 ## 3. Learning Log Template (Knowledge Nuggets)
 
-When a new pattern or solution is discovered, Hermes must record it in `.vault/knowledge_base/`:
+When a new pattern or solution is discovered, Hermes must record it in the
+configured memory adapter:
 
 ```markdown
 # KNOWLEDGE: [Pattern/Concept Name]
