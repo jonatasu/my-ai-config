@@ -10,6 +10,7 @@ core:
   orchestration:
     - .core/orchestration.md
     - .core/workflow.md
+    - docs/GRILL-LAYA-CAVEMAN-WORKFLOW.md
 
 skills:
   index: .core/skills/index.md

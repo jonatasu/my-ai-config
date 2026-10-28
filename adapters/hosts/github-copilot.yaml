@@ -10,6 +10,7 @@ portable_mapping:
     - docs/hosts/github-copilot.md
     - .core/system_prompt.txt
     - .core/skills/index.md
+    - docs/GRILL-LAYA-CAVEMAN-WORKFLOW.md
     - agents/registry.yaml
   orchestrator: tars
   skills:

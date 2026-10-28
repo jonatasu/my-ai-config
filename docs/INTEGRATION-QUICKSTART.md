@@ -94,11 +94,13 @@ portable policies, and verification contracts. Keep provider-specific MCP
 servers disabled unless their permissions and approval boundaries are
 configured explicitly.
 
-For the Laya and Caveman integration, see
+For the complete Grill, Laya, and Caveman lifecycle, see
+[`GRILL-LAYA-CAVEMAN-WORKFLOW.md`](GRILL-LAYA-CAVEMAN-WORKFLOW.md). For the
+provider-specific Laya and Caveman integration, see
 [`LAYA-CAVEMAN-INTEGRATION.md`](LAYA-CAVEMAN-INTEGRATION.md). The required
-ordering is complete evidence and checks, then Laya, then internal Caveman
-compression. Do not compress the evidence before Laya evaluates it, and keep
-final user-facing output in normal language.
+ordering is Grill when the decision is consequential, implementation and
+checks, then Laya, then internal Caveman compression. Do not compress evidence
+before Laya evaluates it, and keep final user-facing output in normal language.
 
 The current OpenCode setup also enables two optional MCPs:
 

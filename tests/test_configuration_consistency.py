@@ -161,6 +161,7 @@ def main() -> None:
         "docs/hosts/github-copilot.md",
         ".core/system_prompt.txt",
         ".core/skills/index.md",
+        "docs/GRILL-LAYA-CAVEMAN-WORKFLOW.md",
         "agents/registry.yaml",
     ]
     for path in copilot_adapter["portable_mapping"]["loading"]:

@@ -3,6 +3,7 @@ provider:
   name: laya
   purpose: Structured decision signals for agentic quality gates
   portable_contract: .core/skills/decision-gate.md
+  lifecycle_contract: docs/GRILL-LAYA-CAVEMAN-WORKFLOW.md
 transports:
   cli:
     executable: laya
@@ -48,10 +49,15 @@ evidence:
     final_user_output: normal_language
 workflow:
   sequence:
-    - collect_complete_evidence
+    - grill_consequential_plan_when_required
+    - confirm_shared_understanding
+    - define_acceptance_criteria
+    - implement_smallest_complete_change
     - run_required_checks
+    - collect_complete_evidence
     - submit_uncompressed_evidence_to_laya
     - inspect_laya_signal_with_manual_engineering_judgment
     - correct_review_or_block_findings
+    - rerun_stale_checks_and_laya
     - compress_internal_reports_after_decision
     - report_result_without_success_shaped_fallback

@@ -22,6 +22,7 @@ portable_mapping:
     - .core/quality.md
     - .core/orchestration.md
     - .core/workflow.md
+    - docs/GRILL-LAYA-CAVEMAN-WORKFLOW.md
   skills: .core/skills
   agents: agents/registry.yaml
   tools: .tools/TOOL-CATALOG.md
